@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-airtable-listing",
-  "description": "Gatsby starter theme integrated with Airtable",
-  "version": "1.0.3",
-  "author": "Wojciech Kocjan <wojciech@kocjan.net>",
+  "name": "mutual-aid-listing",
+  "description": "Listing mutual aid opportunities, Gatsby + Airtable",
+  "version": "0.0.1",
+  "author": "Michael Snook <me@michaelsnook.com>",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",

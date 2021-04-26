@@ -3,13 +3,13 @@ require("dotenv").config()
 module.exports = {
   siteMetadata: {
     links: {
-      contact: "mailto:contact@me.com",
+      contact: "mailto:covidmutualaidindia@protonmail.com",
       facebook: "https://www.facebook.com",
       linkedin: "https://www.linkedin.com",
       twitter: "https://www.twitter.com",
     },
     locale: "en",
-    title: "Travel destinations",
+    title: "Mutual Aid India",
   },
   plugins: [
     {
@@ -62,8 +62,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Travel Destinations`,
-        short_name: `Travel Destinations`,
+        name: `Mutual Aid India`,
+        short_name: `Mutual Aid India`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#4299e1`,
