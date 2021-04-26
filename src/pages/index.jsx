@@ -32,7 +32,7 @@ export const query = graphql`
     items: allAirtable(filter: { table: { eq: $tableName } }) {
       nodes {
         data {
-          country
+          region
           image {
             ...CardImageFragment
           }
