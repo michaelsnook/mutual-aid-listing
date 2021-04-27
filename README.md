@@ -4,7 +4,9 @@
 
 ## Demo
 
-Live demo is available at: https://gatsby-airtable-listing.netlify.com/
+Live demo is available at: https://mutual-aid-listing.pages.dev/
+
+Site based on this template: https://github.com/wkocjan/gatsby-airtable-listing
 
 ## Screenshot
 
@@ -31,23 +33,6 @@ $ git clone git@github.com:wkocjan/gatsby-airtable-listing.git
 $ npm install
 ```
 
-### Create Airtable base
-
-To use this project you have to have a Airtable account.
-
-Once you have it, go to [this base](https://airtable.com/shrlYuICEwEdAUir3) and click `Copy base` button located in the top right corner.
-
-Included columns:
-
-- `name` (single line text)
-- `slug` (single line text, should be unique)
-- `summary` (single line text)
-- `image` (attachment)
-- `descrition` (long text)
-- `country` (single select)
-- `tags` (multiple select)
-- `url` (single line text)
-
 ### Set up Airtable API keys
 
 Copy included `.env.example` file to `.env` and fill it with your unique values:
@@ -57,8 +42,6 @@ AIRTABLE_API_KEY=""
 AIRTABLE_BASE_ID=""
 AIRTABLE_TABLE_NAME="Destinations"
 ```
-
-You can find your API key and Base ID by clicking "Help" and then "API Documentation". Table name in the example is "Destinations" (case sensitive name).
 
 You're now ready to go. If you want to customize the Airtable base, please refer to [`gatsby-source-airtable` plugin documentation](https://www.gatsbyjs.org/packages/gatsby-source-airtable/).
 
