@@ -59,10 +59,10 @@ export const query = graphql`
   fragment HeroImageFragment on File {
     url: publicURL
     childImageSharp {
-      mobile: fixed(width: 768, height: 240, quality: 80, cropFocus: CENTER) {
+      mobile: fixed(width: 768, height: 240, quality: 80, cropFocus: NORTH, fit: COVER) {
         ...GatsbyImageSharpFixed_withWebp
       }
-      desktop: fixed(width: 1496, height: 280, quality: 85, cropFocus: SOUTH) {
+      desktop: fixed(width: 1496, height: 380, quality: 85, cropFocus: NORTH, fit: COVER) {
         ...GatsbyImageSharpFixed_withWebp
       }
     }
