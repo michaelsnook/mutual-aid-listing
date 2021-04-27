@@ -19,6 +19,7 @@ export default (props) => {
     url,
     urgent,
     foreignFunds,
+    bankDetails,
   } = data.item.data
   const navigation = location.state ? location.state.navigation : null
   const { modal } = useModal()
@@ -53,7 +54,12 @@ export default (props) => {
             )}
               <Feature label="Location" value={region} />
               <Feature label="What to see?" value={tags} />
-              <Feature label="More info" value={url} />
+              <Feature label="To Donate" value={url} />
+              { bankDetails && (
+                <p className="whitespace-pre-line text-sm lg:text-base leading-normal text-blue-900 dark:text-blue-600">
+                  {bankDetails}
+                </p>
+              )}
               <p className="mt-4 whitespace-pre-line text-sm lg:text-base leading-normal text-blue-900 dark:text-blue-600">
                 {description}
               </p>
@@ -88,6 +94,7 @@ export const query = graphql`
         url
         urgent
         foreignFunds
+        bankDetails
       }
     }
   }

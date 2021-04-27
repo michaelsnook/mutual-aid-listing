@@ -41,6 +41,7 @@ export const query = graphql`
           summary
           urgent
           foreignFunds
+          bankDetails
         }
       }
     }
