@@ -15,6 +15,8 @@ export const Card = (props) => {
     navigation,
     slug,
     summary,
+    urgent,
+    foreignFunds,
   } = props
 
   return (
@@ -23,10 +25,15 @@ export const Card = (props) => {
         <div className="bg-blue-300">
           <Img fluid={cover.childImageSharp.fluid} alt={name} />
         </div>
+
         <div className="p-5 pb-1">
           <h1 className="text-2xl text-blue-500 dark:text-blue-300 font-bold leading-snug">
             {name}
           </h1>
+
+          { urgent && <span className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">Urgent</span> }
+          { foreignFunds && <span className="bg-blue-900 shadow-sm rounded-md text-white px-3 py-1">£ $ €</span> }
+
           <p className="text-base text-blue-900 dark:text-blue-400 mb-5 font-medium">
             {summary}
           </p>
@@ -49,6 +56,8 @@ Card.propTypes = {
   }),
   slug: PropTypes.string.isRequired,
   summary: PropTypes.string,
+  urgent: PropTypes.bool,
+  foreignFunds: PropTypes.bool,
 }
 
 Card.defaultProps = {

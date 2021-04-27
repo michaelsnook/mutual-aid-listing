@@ -39,6 +39,8 @@ export const query = graphql`
           name
           slug
           summary
+          urgent
+          foreignFunds
         }
       }
     }

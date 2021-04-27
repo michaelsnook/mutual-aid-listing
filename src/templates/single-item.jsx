@@ -17,6 +17,8 @@ export default (props) => {
     summary,
     tags,
     url,
+    urgent,
+    foreignFunds,
   } = data.item.data
   const navigation = location.state ? location.state.navigation : null
   const { modal } = useModal()
@@ -37,6 +39,18 @@ export default (props) => {
               <Img fluid={cover.childImageSharp.fluid} alt={name} />
             </div>
             <div className="w-full lg:w-2/5 lg:pl-4">
+            { urgent && (
+              <p className="mb-2">
+                <span className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">Urgent</span>
+              </p>
+            )}
+            { foreignFunds && (
+              <p className="mb-2">
+                <span className="bg-blue-900 shadow-sm rounded-md text-white px-3 py-1 mr-2">£ $ €</span>
+                <span className="text-blue-900 dark:text-blue-600">This campaign is able to accept foreign contributions.</span>
+
+              </p>
+            )}
               <Feature label="Location" value={region} />
               <Feature label="What to see?" value={tags} />
               <Feature label="More info" value={url} />
@@ -72,6 +86,8 @@ export const query = graphql`
         summary
         tags
         url
+        urgent
+        foreignFunds
       }
     }
   }
