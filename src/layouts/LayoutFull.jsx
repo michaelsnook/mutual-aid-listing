@@ -11,8 +11,8 @@ export const LayoutFull = ({ children }) => {
       <header className="bg-white dark:bg-transparent py-6">
         <div className="container text-center">
           <div className="relative">
-            <Link to="/" className="inline-block">
-              <img alt="Logo" src="/logo.svg" />
+            <Link to="/" className="inline-block w-20 md:w-28 lg:w-36">
+              <img alt="Logo" src="/icon.png" />
             </Link>
 
             <div className="absolute top-0 right-0">
