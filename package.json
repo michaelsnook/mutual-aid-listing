@@ -45,10 +45,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/wkocjan/gatsby-airtable-listing"
+    "url": "https://github.com/michaelsnook/mutual-aid-listing"
   },
   "bugs": {
-    "url": "https://github.com/wkocjan/gatsby-airtable-listing/issues"
+    "url": "https://github.com/michaelsnook/mutual-aid-listing/issues"
   },
   "husky": {
     "hooks": {
