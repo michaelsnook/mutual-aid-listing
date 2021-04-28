@@ -28,6 +28,27 @@ export default ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
       />
 
+      <div className="container pt-6">
+        <div className="flex flex-wrap bg-yellow-200 border border-yellow-600 rounded-md py-5 px-8 max-w-3xl mx-auto">
+          <p className="mt-2 mb-1 font-bold">
+            Info for donors/supporters:
+          </p>
+          <p className="mb-2">
+            <ul className="list-disc pl-5">
+              <li>Please filter for urgent needs first, marked in red as "URGENT"</li>
+              <li>If you are donating from abroad, please look for fundraisers accepting foreign donations, marked with "£ $ €"</li>
+              <li>If you are an NRI donating from an Indian bank account, your donations don't count as "foreign" and you don't have to worry about this</li>
+              <li>If you have a campaign you want us to add, email covidmutualaidindia at protonmail dot com</li>
+            </ul>
+          </p>
+          <p className="italic text-gray-600 my-2">
+            Disclaimer: this list is curated by an informal group of volunteers.
+            Nothing on this site should be taken as a warantee or legal advice.
+            Give at your own discretion, but please do give generously.
+          </p>
+        </div>
+      </div>
+
       {Object.keys(category_cards).map((category_header, index) => (
         <div className="container overflow-hidden pt-6">
           <h4 class="text-blue-800 uppercase text-sm tracking-wide font-medium pb-px">Category</h4>
@@ -41,6 +62,7 @@ export default ({ data }) => {
           <Cards nodes={category_cards[category_header]} />
         </div>
       ))}
+
     </Layout>
   )
 }
