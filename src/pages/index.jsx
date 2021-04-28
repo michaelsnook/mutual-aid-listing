@@ -4,6 +4,15 @@ import { Cards, Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 
 export default ({ data }) => {
+  var category_cards = {}
+  data.items.nodes.map(function (item, i) {
+    if (category_cards[item["data"]["category"]]) {
+      category_cards[item["data"]["category"]].push(item)
+    } else {
+      category_cards[item["data"]["category"]] = []
+      category_cards[item["data"]["category"]].push(item)
+    }
+  })
   return (
     <Layout>
       <SiteMetadata
@@ -19,7 +28,17 @@ export default ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
       />
 
-      <Cards nodes={data.items.nodes} />
+      {Object.keys(category_cards).map((items, index) => (
+        <div>
+          <h2
+            className="container text-2xl lg:text-4xl font-bold leading-tight text-white pt-6"
+            key={index}
+          >
+            {items}
+          </h2>
+          <Cards nodes={category_cards[items]} />
+        </div>
+      ))}
     </Layout>
   )
 }
@@ -41,6 +60,7 @@ export const query = graphql`
           summary
           urgent
           foreignFunds
+          category
         }
       }
     }
