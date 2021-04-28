@@ -29,7 +29,12 @@ export const query = graphql`
     hero: file(relativePath: { eq: "mutual-aid-love.jpg" }) {
       ...HeroImageFragment
     }
-    items: allAirtable(filter: { table: { eq: $tableName } }) {
+    items: allAirtable(
+      filter: {
+        table: { eq: $tableName }
+        data: { hasBeenVetted: { eq: true } }
+      }
+    ) {
       nodes {
         data {
           region
