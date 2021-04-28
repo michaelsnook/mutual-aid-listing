@@ -29,9 +29,10 @@ export default ({ data }) => {
       />
 
       {Object.keys(category_cards).map((category_header, index) => (
-        <div>
+        <div className="container overflow-hidden pt-6">
+          <h4 class="text-blue-800 uppercase text-sm tracking-wide font-medium pb-px">Category</h4>
           <h2
-            className="container text-2xl lg:text-4xl font-bold leading-tight text-black pt-6"
+            className="text-2xl lg:text-4xl font-bold leading-tight text-black"
             key={index}
           >
             {category_header}

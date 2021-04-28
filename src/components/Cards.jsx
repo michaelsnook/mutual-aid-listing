@@ -6,7 +6,7 @@ export const Cards = (props) => {
   const { nodes } = props
 
   return (
-    <div className="container pt-6 overflow-hidden">
+
       <div className="flex flex-wrap -mx-3 xl:-mx-6">
         {nodes.map((item, i) => (
           <div
@@ -23,7 +23,7 @@ export const Cards = (props) => {
           </div>
         ))}
       </div>
-    </div>
+
   )
 }
 
