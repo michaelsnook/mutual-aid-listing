@@ -11,7 +11,7 @@ export default ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
         image={data.hero.url}
       />
-
+      <p></p>
       <Hero
         image={data.hero}
         tag="#urgent"
