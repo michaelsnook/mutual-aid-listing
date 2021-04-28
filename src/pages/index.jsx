@@ -28,15 +28,16 @@ export default ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
       />
 
-      {Object.keys(category_cards).map((items, index) => (
+      {Object.keys(category_cards).map((category_header, index) => (
         <div>
           <h2
-            className="container text-2xl lg:text-4xl font-bold leading-tight text-white pt-6"
+            className="container text-2xl lg:text-4xl font-bold leading-tight text-black pt-6"
             key={index}
           >
-            {items}
+            {category_header}
           </h2>
-          <Cards nodes={category_cards[items]} />
+
+          <Cards nodes={category_cards[category_header]} />
         </div>
       ))}
     </Layout>
