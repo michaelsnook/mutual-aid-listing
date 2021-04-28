@@ -5,7 +5,7 @@ import { Layout } from "../layouts/Layout"
 
 export default ({ data }) => {
   var category_cards = {}
-  data.items.nodes.map(function (item, i) {
+  data.items.nodes.forEach(item => {
     if (category_cards[item["data"]["category"]]) {
       category_cards[item["data"]["category"]].push(item)
     } else {
