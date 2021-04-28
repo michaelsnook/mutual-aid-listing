@@ -15,7 +15,7 @@ export default (props) => {
     },
     name,
     summary,
-    tags,
+    category,
     url,
     urgent,
     foreignFunds,
@@ -53,7 +53,7 @@ export default (props) => {
               </p>
             )}
               <Feature label="Location" value={region} />
-              <Feature label="What to see?" value={tags} />
+              <Feature label="Category" value={category} />
               <Feature label="To Donate" value={url} />
               { bankDetails && (
                 <p className="whitespace-pre-line text-sm lg:text-base leading-normal text-blue-900 dark:text-blue-600">
@@ -90,7 +90,7 @@ export const query = graphql`
         }
         slug
         summary
-        tags
+        category
         url
         urgent
         foreignFunds
