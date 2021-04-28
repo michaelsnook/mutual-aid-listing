@@ -4,6 +4,15 @@ import { Cards, Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 
 export default ({ data }) => {
+  var category_cards = {}
+  data.items.nodes.forEach(item => {
+    if (category_cards[item["data"]["category"]]) {
+      category_cards[item["data"]["category"]].push(item)
+    } else {
+      category_cards[item["data"]["category"]] = []
+      category_cards[item["data"]["category"]].push(item)
+    }
+  })
   return (
     <Layout>
       <SiteMetadata
@@ -40,7 +49,20 @@ export default ({ data }) => {
         </div>
       </div>
 
-      <Cards nodes={data.items.nodes} />
+      {Object.keys(category_cards).map((category_header, index) => (
+        <div className="container overflow-hidden pt-6">
+          <h4 class="text-blue-800 uppercase text-sm tracking-wide font-medium pb-px">Category</h4>
+          <h2
+            className="text-2xl lg:text-4xl font-bold leading-tight text-black"
+            key={index}
+          >
+            {category_header}
+          </h2>
+
+          <Cards nodes={category_cards[category_header]} />
+        </div>
+      ))}
+
     </Layout>
   )
 }
@@ -62,6 +84,7 @@ export const query = graphql`
           summary
           urgent
           foreignFunds
+          category
         }
       }
     }
