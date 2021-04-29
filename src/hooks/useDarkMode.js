@@ -12,14 +12,10 @@ export function useDarkMode() {
   useEffect(() => {
     const className = "dark"
     const element = window.document.body
-    if (enabled) {
-      element.classList.add(className)
-    } else {
-      element.classList.remove(className)
-    }
-  }, [enabled])
+    element.classList.remove(className)
+  }, [false])
 
-  return [enabled, setEnabledState]
+  return [false, setEnabledState]
 }
 
 function usePrefersDarkMode() {
