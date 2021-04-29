@@ -7,6 +7,7 @@ export default ({ data }) => {
   var category_cards = {}
   data.items.nodes.forEach((item) => {
     if (
+      typeof window == "undefined" ||
       (window.location.search != "" && item["data"]["foreignFunds"] == true) ||
       window.location.search == ""
     ) {
