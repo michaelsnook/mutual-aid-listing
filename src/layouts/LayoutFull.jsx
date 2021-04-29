@@ -6,7 +6,7 @@ import { useDarkMode } from "../hooks"
 export const LayoutFull = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useDarkMode()
   var fund_cta
-  if (window.location.search == "") {
+  if (typeof window == "undefined" || window.location.search == "") {
     fund_cta = (
       <a
         href="/?foriegn_fund=true"
