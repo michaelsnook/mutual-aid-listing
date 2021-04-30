@@ -3,32 +3,20 @@ import { graphql, withPrefix } from "gatsby"
 import { Cards, Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import Helmet from "react-helmet"
-
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 export default ({ data }) => {
-  var fund_cta
-  if (typeof window !== "undefined") {
-    if (window.location.search === "") {
-      fund_cta = (
-        <a
-          href="/?foriegn_fund=true"
-          className="mx-auto bg-pink-600 shadow-sm rounded-md text-white mr-2 toggle flex w-auto px-4 py-2"
-        >
-          Donate in £ $ €
-        </a>
-      )
-    } else {
-      fund_cta = (
-        <a
-          href="/"
-          className="mx-auto bg-pink-600 shadow-sm rounded-md text-white mr-2 toggle flex w-auto px-4 py-2"
-        >
-          View All Funds
-        </a>
-      )
-    }
-  }
+  var filter_foreign = (typeof window !== 'undefined' 
+    && window.location.search.indexOf('foriegn_fund=true') !== -1)
+  var fund_cta = (
+    <a
+      href={filter_foreign ? `/` : `/?foriegn_fund=true`}
+      className="mx-auto bg-pink-600 shadow-sm rounded-md 
+        text-white mr-2 toggle flex w-auto px-4 py-2"
+    >
+      {filter_foreign ? `View all funds` : `Donate in £ $ €`}
+    </a>
+  )
 
   var category_cards = {}
   var categories = {}
