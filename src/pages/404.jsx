@@ -3,6 +3,7 @@ import { SiteMetadata } from "../components"
 import { Link } from "gatsby"
 
 import "typeface-roboto"
+import "typeface-averia-serif-libre"
 import "../styles/style.css"
 
 export default () => {

@@ -10,6 +10,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Roboto", "system-ui", "sans-serif"],
+      serif: ["Averia Serif Libre", "Georgia", "serif"]
     },
     extend: {
       colors: {
