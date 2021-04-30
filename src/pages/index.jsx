@@ -4,6 +4,8 @@ import { Cards, Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import Helmet from "react-helmet"
 
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
+
 export default ({ data }) => {
   var fund_cta
   if (typeof window !== "undefined") {
@@ -11,7 +13,7 @@ export default ({ data }) => {
       fund_cta = (
         <a
           href="/?foriegn_fund=true"
-          className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2 toggle hidden md:flex w-full md:w-auto px-4 py-2"
+          className="mx-auto bg-pink-600 shadow-sm rounded-md text-white md:mr-2 toggle hidden md:flex w-auto px-4 py-2"
         >
           Donate in £ $ €
         </a>
@@ -20,7 +22,7 @@ export default ({ data }) => {
       fund_cta = (
         <a
           href="/"
-          className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2 toggle hidden md:flex w-full md:w-auto px-4 py-2"
+          className="mx-auto bg-pink-600 shadow-sm rounded-md text-white md:mr-2 toggle hidden md:flex w-auto px-4 py-2"
         >
           View All Funds
         </a>
@@ -58,25 +60,15 @@ export default ({ data }) => {
         <img src="/icon.png" alt="Logo" width="60" />
         <div className="flex md:hidden">
           <button id="hamburger">
-            <img
-              className="toggle block"
-              src="https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png"
-              width="40"
-              height="40"
-            />
-            <img
-              className="toggle hidden"
-              src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png"
-              width="40"
-              height="40"
-            />
+            <MenuIcon className="block h-6 w-6 toggle block" aria-hidden="true" />
+            <XIcon className="block h-6 w-6 toggle hidden" aria-hidden="true" />
           </button>
         </div>
-        <div className="toggle hidden md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-blue-900 md:border-none">
+        <div className="toggle hidden md:flex w-full md:w-auto text-center text-bold mt-5 md:mt-0">
           {Object.keys(categories).map((category_header, index) => (
             <a
               href={"#category_" + category_header}
-              className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none max-w-xs"
+              className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 max-w-xs mx-auto"
             >
               {categories[category_header]}
             </a>
