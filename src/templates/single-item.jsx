@@ -40,22 +40,27 @@ export default (props) => {
               <Img fluid={cover.childImageSharp.fluid} alt={Name} />
             </div>
             <div className="w-full lg:w-2/5 lg:pl-4">
-            { Urgent && (
-              <p className="mb-2">
-                <span className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">Urgent</span>
-              </p>
-            )}
-            { Foreign_Funds && (
-              <p className="mb-2">
-                <span className="bg-blue-900 shadow-sm rounded-md text-white px-3 py-1 mr-2">£ $ €</span>
-                <span className="text-blue-900 dark:text-blue-600">This campaign is able to accept foreign contributions.</span>
-
-              </p>
-            )}
+              {Urgent && (
+                <p className="mb-2">
+                  <span className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">
+                    Urgent
+                  </span>
+                </p>
+              )}
+              {Foreign_Funds && (
+                <p className="mb-2">
+                  <span className="bg-blue-900 shadow-sm rounded-md text-white px-3 py-1 mr-2">
+                    £ $ €
+                  </span>
+                  <span className="text-blue-900 dark:text-blue-600">
+                    This campaign is able to accept foreign contributions.
+                  </span>
+                </p>
+              )}
               <Feature label="Location" value={Region} />
               <Feature label="Category" value={Category} />
               <Feature label="To Donate" value={URL} />
-              { Bank_Details && (
+              {Bank_Details && (
                 <p className="whitespace-pre-line text-sm lg:text-base leading-normal text-blue-900 dark:text-blue-600">
                   {Bank_Details}
                 </p>
@@ -92,7 +97,6 @@ export const query = graphql`
         Summary
         Category
         URL
-        Urgent
         Foreign_Funds
         Bank_Details
       }
