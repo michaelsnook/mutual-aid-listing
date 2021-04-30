@@ -5,12 +5,18 @@ import { Layout } from "../layouts/Layout"
 
 export default ({ data }) => {
   var category_cards = {}
-  data.items.nodes.forEach(item => {
-    if (category_cards[item["data"]["category"]]) {
-      category_cards[item["data"]["category"]].push(item)
-    } else {
-      category_cards[item["data"]["category"]] = []
-      category_cards[item["data"]["category"]].push(item)
+  data.items.nodes.forEach((item) => {
+    if (
+      typeof window == "undefined" ||
+      (window.location.search != "" && item["data"]["foreignFunds"] == true) ||
+      window.location.search == ""
+    ) {
+      if (category_cards[item["data"]["category"]]) {
+        category_cards[item["data"]["category"]].push(item)
+      } else {
+        category_cards[item["data"]["category"]] = []
+        category_cards[item["data"]["category"]].push(item)
+      }
     }
   })
   return (
@@ -30,15 +36,25 @@ export default ({ data }) => {
 
       <div className="container pt-6">
         <div className="flex flex-wrap bg-yellow-200 border border-yellow-600 rounded-md py-5 px-8 max-w-3xl mx-auto">
-          <p className="mt-2 mb-1 font-bold">
-            Info for donors/supporters:
-          </p>
+          <p className="mt-2 mb-1 font-bold">Info for donors/supporters:</p>
           <p className="mb-2">
             <ul className="list-disc pl-5">
-              <li>Please filter for urgent needs first, marked in red as "URGENT"</li>
-              <li>If you are donating from abroad, please look for fundraisers accepting foreign donations, marked with "£ $ €"</li>
-              <li>If you are an NRI donating from an Indian bank account, your donations don't count as "foreign" and you don't have to worry about this</li>
-              <li>If you have a campaign you want us to add, email covidmutualaidindia@protonmail.com</li>
+              <li>
+                Please filter for urgent needs first, marked in red as "URGENT"
+              </li>
+              <li>
+                If you are donating from abroad, please look for fundraisers
+                accepting foreign donations, marked with "£ $ €"
+              </li>
+              <li>
+                If you are an NRI donating from an Indian bank account, your
+                donations don't count as "foreign" and you don't have to worry
+                about this
+              </li>
+              <li>
+                If you have a campaign you want us to add, email
+                covidmutualaidindia@protonmail.com
+              </li>
             </ul>
           </p>
           <p className="italic text-gray-600 my-2">
@@ -51,7 +67,9 @@ export default ({ data }) => {
 
       {Object.keys(category_cards).map((category_header, index) => (
         <div className="container overflow-hidden pt-6">
-          <h4 class="text-blue-800 uppercase text-sm tracking-wide font-medium pb-px">Category</h4>
+          <h4 class="text-blue-800 uppercase text-sm tracking-wide font-medium pb-px">
+            Category
+          </h4>
           <h2
             className="text-2xl lg:text-4xl font-bold leading-tight text-black"
             key={index}
@@ -62,7 +80,6 @@ export default ({ data }) => {
           <Cards nodes={category_cards[category_header]} />
         </div>
       ))}
-
     </Layout>
   )
 }

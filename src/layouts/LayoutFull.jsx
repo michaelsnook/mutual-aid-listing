@@ -5,6 +5,29 @@ import { useDarkMode } from "../hooks"
 
 export const LayoutFull = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useDarkMode()
+  var fund_cta
+
+  if (typeof window != "undefined") {
+    if (window.location.search == "") {
+      fund_cta = (
+        <a
+          href="/?foriegn_fund=true"
+          className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2"
+        >
+          Donate in £ $ €
+        </a>
+      )
+    } else {
+      fund_cta = (
+        <a
+          href="/"
+          className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2"
+        >
+          View All Funds
+        </a>
+      )
+    }
+  }
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900">
@@ -15,9 +38,7 @@ export const LayoutFull = ({ children }) => {
               <img alt="Logo" src="/icon.png" />
             </Link>
 
-            <div className="absolute top-0 right-0">
-              <DarkModeToggle onChange={setIsDarkMode} checked={isDarkMode} />
-            </div>
+            <div className="absolute top-0 right-0">{fund_cta}</div>
           </div>
         </div>
       </header>
