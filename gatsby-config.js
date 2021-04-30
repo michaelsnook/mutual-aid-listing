@@ -80,7 +80,7 @@ module.exports = {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: process.env.AIRTABLE_TABLE_NAME,
             tableView: process.env.AIRTABLE_VIEW_NAME,
-            mapping: { image: "fileNode" },
+            mapping: { Image: "fileNode" },
           },
         ],
       },
