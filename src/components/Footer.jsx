@@ -53,7 +53,11 @@ export const Footer = () => {
           />
         </ul>
         <div className="w-full lg:w-auto pt-6 lg:pt-0 text-blue-800 dark:text-blue-500 text-sm">
-          &copy; 2020 All rights reserved.
+          &copy; Copyright: there is no copyright on any of the information in this document.
+          Please feel free to share, swipe, copy, paste at will. That said, we have about 12
+          volunteers curating this info so if be aware it may become out of date quickly.
+          If you want to help us curate the info, add new entries, or promote on media, get in touch
+          at covidmutualaidindia@protonmail.com.
         </div>
       </div>
     </footer>
