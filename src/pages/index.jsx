@@ -7,9 +7,9 @@ export default ({ data }) => {
   var category_cards = {}
   data.items.nodes.forEach((item) => {
     if (
-      typeof window == "undefined" ||
-      (window.location.search != "" && item["data"]["foreignFunds"] == true) ||
-      window.location.search == ""
+      typeof window === "undefined" ||
+      (window.location.search !== "" && item["data"]["foreignFunds"] === true) ||
+      window.location.search === ""
     ) {
       if (category_cards[item["data"]["category"]]) {
         category_cards[item["data"]["category"]].push(item)
