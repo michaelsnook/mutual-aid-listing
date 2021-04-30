@@ -7,7 +7,7 @@ export const Hero = (props) => {
   const { description, image, tag, title } = props
 
   return (
-    <div className="container mt-12">
+    <div className="container py-6">
       <div className="flex relative rounded-md overflow-hidden bg-blue-400">
         <Img
           alt={title}
