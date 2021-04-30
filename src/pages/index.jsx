@@ -1,11 +1,13 @@
-import React from "react"
-import { graphql, withPrefix } from "gatsby"
+import React, { useState } from "react"
+import { graphql } from "gatsby"
 import { Cards, Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import Helmet from "react-helmet"
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 export default ({ data }) => {
+  const [isNavOpen, setIsNavOpen] = useState(false)
+
   var filter_foreign = (typeof window !== 'undefined' 
     && window.location.search.indexOf('foriegn_fund=true') !== -1)
 
@@ -45,9 +47,9 @@ export default ({ data }) => {
 
       <nav className="shadow-lg z-40 p-5 sticky top-0 bg-white w-full">
         <div className="flex flex-row justify-between w-full">
-          <button id="hamburger" className="focus:outline-none focus:ring focus:border-blue-300 rounded-sm">
-            <MenuIcon className="block h-6 w-6 toggle block" aria-hidden="true" />
-            <XIcon className="block h-6 w-6 toggle hidden" aria-hidden="true" />
+          <button onClick={() => setIsNavOpen(!isNavOpen)} className="focus:outline-none focus:ring focus:border-blue-300 rounded-sm">
+            <MenuIcon className={`block h-6 w-6 ${isNavOpen ? 'hidden' : 'block'}`} aria-hidden={isNavOpen ? true : false} />
+            <XIcon className={`block h-6 w-6  ${isNavOpen ? 'block' : 'hidden'}`} aria-hidden={isNavOpen ? false : true} />
           </button>
           <a
             href={filter_foreign ? `/` : `/?foriegn_fund=true`}
@@ -56,13 +58,14 @@ export default ({ data }) => {
             {filter_foreign ? `View all funds` : `Donate in £ $ €`}
           </a>
         </div>
-        <div className="flex flex-col toggle w-full text-center hidden">
+        <div className={`flex-col toggle w-full text-center ${isNavOpen? 'flex' : 'hidden'}`}>
 
           {Object.keys(categories).map((category_header) => (
             <a
+              onClick={() => setIsNavOpen(false)}
               href={"#category_" + category_header}
-              className="block md:inline-block text-blue-900 px-3 py-3 mx-auto
-                hover:bg-blue-300 rounded-md"
+              className="block text-blue-900 px-3 py-3 mx-auto
+                hover:bg-blue-200 rounded-md"
             >
               {categories[category_header]}
             </a>
@@ -70,10 +73,6 @@ export default ({ data }) => {
         </div>
 
       </nav>
-
-      <Helmet>
-        <script src={withPrefix("nav_links.js")} type="text/javascript" />
-      </Helmet>
 
       <div className="container pt-6">
         <div className="flex flex-wrap bg-yellow-200 border border-yellow-600 rounded-md py-5 px-8 max-w-3xl mx-auto">

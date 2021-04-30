@@ -3,6 +3,7 @@ import React from "react"
 import { DarkModeToggle, Footer, SignupForm } from "../components"
 import { useDarkMode } from "../hooks"
 
+
 export const LayoutFull = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useDarkMode()
   return (
