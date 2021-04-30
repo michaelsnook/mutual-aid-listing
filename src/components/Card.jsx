@@ -27,14 +27,14 @@ export const Card = (props) => {
         </div>
 
         <div className="p-5 pb-1">
-          <h1 className="text-2xl text-blue-500 dark:text-blue-300 font-bold leading-snug">
+          <h1 className="text-2xl text-blue-500 dark:text-blue-300 font-bold leading-snug mb-2">
             {name}
           </h1>
 
           { urgent && <span className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">Urgent</span> }
           { foreignFunds && <span className="bg-blue-900 shadow-sm rounded-md text-white px-3 py-1">£ $ €</span> }
 
-          <p className="text-base text-blue-900 dark:text-blue-400 mb-5 font-medium">
+          <p className="mt-2 text-base text-blue-900 dark:text-blue-400 mb-5 font-medium">
             {summary}
           </p>
           <Feature label="Location" value={region} />

@@ -1,6 +1,7 @@
 import React from "react"
 import { ModalRoutingContext } from "gatsby-plugin-modal-routing"
 import "typeface-roboto"
+import "typeface-averia-serif-libre"
 import "../styles/style.css"
 
 import { LayoutFull } from "./LayoutFull"

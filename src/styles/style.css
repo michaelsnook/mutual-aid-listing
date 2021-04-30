@@ -19,3 +19,7 @@ body.ReactModal__Body--open > div[aria-hidden="true"] {
 .blend-multiply {
   mix-blend-mode: multiply;
 }
+
+h1, h2, h3 {
+  @apply font-serif font-normal;
+}

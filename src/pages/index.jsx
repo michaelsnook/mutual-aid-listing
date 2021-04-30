@@ -53,7 +53,7 @@ export default ({ data }) => {
               </li>
               <li>
                 If you have a campaign you want us to add, email
-                covidmutualaidindia at protonmail dot com
+                covidmutualaidindia@protonmail.com
               </li>
             </ul>
           </p>

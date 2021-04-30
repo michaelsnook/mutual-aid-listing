@@ -32,6 +32,7 @@
     "react-icons": "^4.1.0",
     "tailwindcss": "^2.0.1",
     "typeface-roboto": "^1.1.13",
+    "typeface-averia-serif-libre": "^1.1.13",
     "use-media": "^1.4.0"
   },
   "devDependencies": {
