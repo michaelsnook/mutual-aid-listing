@@ -12,7 +12,7 @@ export default ({ data }) => {
     <a
       href={filter_foreign ? `/` : `/?foriegn_fund=true`}
       className="mx-auto bg-pink-600 shadow-sm rounded-md 
-        text-white mr-2 toggle flex w-auto px-4 py-2"
+        text-white mr-2 flex w-auto px-4 py-2"
     >
       {filter_foreign ? `View all funds` : `Donate in £ $ €`}
     </a>
