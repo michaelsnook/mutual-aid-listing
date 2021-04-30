@@ -14,7 +14,7 @@ export const LayoutFull = ({ children }) => {
           href="/?foriegn_fund=true"
           className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2"
         >
-          View Only Foreign Funds
+          Donate in £ $ €
         </a>
       )
     } else {
