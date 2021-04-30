@@ -49,9 +49,6 @@ export default ({ data }) => {
   })
   return (
     <Layout>
-      <Helmet>
-        <script src={withPrefix("nav_links.js")} type="text/javascript" />
-      </Helmet>
       <SiteMetadata
         title="Mutual Aid India"
         description="A curated list of opportunities to donate for COVID relief."
@@ -87,7 +84,9 @@ export default ({ data }) => {
         </div>
         {fund_cta}
       </nav>
-
+      <Helmet>
+        <script src={withPrefix("nav_links.js")} type="text/javascript" />
+      </Helmet>
       <Hero
         image={data.hero}
         tag="#urgent"
