@@ -8,60 +8,60 @@ import { Layout } from "../layouts/Layout"
 export default (props) => {
   const { data, location } = props
   const {
-    region,
-    description,
-    image: {
+    Region,
+    Description,
+    Image: {
       localFiles: [cover],
     },
-    name,
-    summary,
-    category,
-    url,
-    urgent,
-    foreignFunds,
-    bankDetails,
+    Name,
+    Summary,
+    Category,
+    URL,
+    Urgent,
+    Foreign_Funds,
+    Bank_Details,
   } = data.item.data
   const navigation = location.state ? location.state.navigation : null
   const { modal } = useModal()
 
   return (
     <Layout navigation={navigation}>
-      <SiteMetadata title={name} description={summary} image={cover.url} />
+      <SiteMetadata title={Name} description={Summary} image={cover.url} />
       <article className={modal && "max-h-80vh md:max-h-90vh overflow-auto"}>
         <div className={modal ? "p-4 lg:p-8" : "container py-8"}>
           <h1 className="text-2xl lg:text-3xl text-blue-500 dark:text-blue-400 font-bold leading-tight">
-            {name}
+            {Name}
           </h1>
           <p className="text-base lg:text-lg text-blue-800 dark:text-blue-500 font-medium mb-4">
-            {summary}
+            {Summary}
           </p>
           <div className="flex flex-wrap">
             <div className="w-full pb-4 lg:w-3/5 lg:pr-4 lg:pb-0">
-              <Img fluid={cover.childImageSharp.fluid} alt={name} />
+              <Img fluid={cover.childImageSharp.fluid} alt={Name} />
             </div>
             <div className="w-full lg:w-2/5 lg:pl-4">
-            { urgent && (
+            { Urgent && (
               <p className="mb-2">
                 <span className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">Urgent</span>
               </p>
             )}
-            { foreignFunds && (
+            { Foreign_Funds && (
               <p className="mb-2">
                 <span className="bg-blue-900 shadow-sm rounded-md text-white px-3 py-1 mr-2">£ $ €</span>
                 <span className="text-blue-900 dark:text-blue-600">This campaign is able to accept foreign contributions.</span>
 
               </p>
             )}
-              <Feature label="Location" value={region} />
-              <Feature label="Category" value={category} />
-              <Feature label="To Donate" value={url} />
-              { bankDetails && (
+              <Feature label="Location" value={Region} />
+              <Feature label="Category" value={Category} />
+              <Feature label="To Donate" value={URL} />
+              { Bank_Details && (
                 <p className="whitespace-pre-line text-sm lg:text-base leading-normal text-blue-900 dark:text-blue-600">
-                  {bankDetails}
+                  {Bank_Details}
                 </p>
               )}
               <p className="mt-4 whitespace-pre-line text-sm lg:text-base leading-normal text-blue-900 dark:text-blue-600">
-                {description}
+                {Description}
               </p>
             </div>
           </div>
@@ -72,13 +72,13 @@ export default (props) => {
 }
 
 export const query = graphql`
-  query SingleItemQuery($slug: String!) {
-    item: airtable(data: { slug: { eq: $slug } }) {
+  query SingleItemQuery($Slug: String!) {
+    item: airtable(data: { Slug: { eq: $Slug } }) {
       data {
-        region
-        description
-        name
-        image {
+        Region
+        Description
+        Name
+        Image {
           localFiles {
             url: publicURL
             childImageSharp {
@@ -88,13 +88,13 @@ export const query = graphql`
             }
           }
         }
-        slug
-        summary
-        category
-        url
-        urgent
-        foreignFunds
-        bankDetails
+        Slug
+        Summary
+        Category
+        URL
+        Urgent
+        Foreign_Funds
+        Bank_Details
       }
     }
   }

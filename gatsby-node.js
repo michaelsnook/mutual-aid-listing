@@ -11,7 +11,7 @@ exports.createPages = ({ graphql, actions }) => {
         allAirtable(filter: { table: { eq: "${tableName}" } }) {
           nodes {
             data {
-              slug
+              Slug
             }
           }
         }
@@ -23,11 +23,11 @@ exports.createPages = ({ graphql, actions }) => {
 
       const component = path.resolve(`./src/templates/single-item.jsx`)
 
-      data.allAirtable.nodes.map(({ data: { slug } }) => {
+      data.allAirtable.nodes.map(({ data: { Slug } }) => {
         createPage({
           component,
-          context: { slug },
-          path: `/${slug}`,
+          context: { Slug },
+          path: `/${Slug}`,
         })
       })
 

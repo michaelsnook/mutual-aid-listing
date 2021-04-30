@@ -8,14 +8,14 @@ export default ({ data }) => {
   data.items.nodes.forEach((item) => {
     if (
       typeof window === "undefined" ||
-      (window.location.search !== "" && item["data"]["foreignFunds"] === true) ||
+      (window.location.search !== "" && item["data"]["Foreign_Funds"] === true) ||
       window.location.search === ""
     ) {
-      if (category_cards[item["data"]["category"]]) {
-        category_cards[item["data"]["category"]].push(item)
+      if (category_cards[item["data"]["Category"]]) {
+        category_cards[item["data"]["Category"]].push(item)
       } else {
-        category_cards[item["data"]["category"]] = []
-        category_cards[item["data"]["category"]].push(item)
+        category_cards[item["data"]["Category"]] = []
+        category_cards[item["data"]["Category"]].push(item)
       }
     }
   })
@@ -92,16 +92,16 @@ export const query = graphql`
     items: allAirtable(filter: { table: { eq: $tableName } }) {
       nodes {
         data {
-          region
-          image {
+          Region
+          Image {
             ...CardImageFragment
           }
-          name
-          slug
-          summary
-          urgent
-          foreignFunds
-          category
+          Name
+          Slug
+          Summary
+          Urgent
+          Foreign_Funds
+          Category
         }
       }
     }

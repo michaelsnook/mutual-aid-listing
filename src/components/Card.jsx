@@ -7,37 +7,37 @@ import { Feature } from "."
 
 export const Card = (props) => {
   const {
-    region,
-    image: {
+    Region,
+    Image: {
       localFiles: [cover],
     },
-    name,
+    Name,
     navigation,
-    slug,
-    summary,
-    urgent,
-    foreignFunds,
+    Slug,
+    Summary,
+    Urgent,
+    Foreign_Funds,
   } = props
 
   return (
     <div className="bg-white dark:bg-blue-900 h-full shadow-sm rounded-md overflow-hidden hover:bg-blue-100 dark:hover:bg-blue-800">
-      <Link to={`/${slug}`} state={{ navigation }} asModal>
+      <Link to={`/${Slug}`} state={{ navigation }} asModal>
         <div className="bg-blue-300">
-          <Img fluid={cover.childImageSharp.fluid} alt={name} />
+          <Img fluid={cover.childImageSharp.fluid} alt={Name} />
         </div>
 
         <div className="p-5 pb-1">
           <h1 className="text-2xl text-blue-500 dark:text-blue-300 font-bold leading-snug mb-2">
-            {name}
+            {Name}
           </h1>
 
-          { urgent && <span className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">Urgent</span> }
-          { foreignFunds && <span className="bg-blue-900 shadow-sm rounded-md text-white px-3 py-1">£ $ €</span> }
+          { Urgent && <span className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">Urgent</span> }
+          { Foreign_Funds && <span className="bg-blue-900 shadow-sm rounded-md text-white px-3 py-1">£ $ €</span> }
 
           <p className="mt-2 text-base text-blue-900 dark:text-blue-400 mb-5 font-medium">
-            {summary}
+            {Summary}
           </p>
-          <Feature label="Location" value={region} />
+          <Feature label="Location" value={Region} />
         </div>
       </Link>
     </div>
@@ -45,19 +45,19 @@ export const Card = (props) => {
 }
 
 Card.propTypes = {
-  region: PropTypes.string.isRequired,
-  image: PropTypes.shape({
+  Region: PropTypes.string.isRequired,
+  Image: PropTypes.shape({
     localFiles: PropTypes.array,
   }).isRequired,
-  name: PropTypes.string.isRequired,
+  Name: PropTypes.string.isRequired,
   navigation: PropTypes.shape({
     current: PropTypes.number,
     items: PropTypes.arrayOf(PropTypes.string),
   }),
-  slug: PropTypes.string.isRequired,
-  summary: PropTypes.string,
-  urgent: PropTypes.bool,
-  foreignFunds: PropTypes.bool,
+  Slug: PropTypes.string.isRequired,
+  Summary: PropTypes.string,
+  Urgent: PropTypes.bool,
+  Foreign_Funds: PropTypes.bool,
 }
 
 Card.defaultProps = {
