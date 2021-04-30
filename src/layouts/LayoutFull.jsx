@@ -7,8 +7,8 @@ export const LayoutFull = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useDarkMode()
   var fund_cta
 
-  if (typeof window != "undefined") {
-    if (window.location.search == "") {
+  if (typeof window !== "undefined") {
+    if (window.location.search === "") {
       fund_cta = (
         <a
           href="/?foriegn_fund=true"
