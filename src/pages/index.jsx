@@ -163,7 +163,6 @@ export const query = graphql`
           Name
           Slug
           Summary
-          Urgent
           Foreign_Funds
           Category
           Category_Rank
