@@ -97,6 +97,7 @@ export const query = graphql`
         Summary
         Category
         URL
+        Urgent
         Foreign_Funds
         Bank_Details
       }
