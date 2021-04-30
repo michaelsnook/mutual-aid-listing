@@ -13,7 +13,7 @@ export default ({ data }) => {
       fund_cta = (
         <a
           href="/?foriegn_fund=true"
-          className="mx-auto bg-pink-600 shadow-sm rounded-md text-white md:mr-2 toggle hidden md:flex w-auto px-4 py-2"
+          className="mx-auto bg-pink-600 shadow-sm rounded-md text-white mr-2 toggle flex w-auto px-4 py-2"
         >
           Donate in £ $ €
         </a>
@@ -22,7 +22,7 @@ export default ({ data }) => {
       fund_cta = (
         <a
           href="/"
-          className="mx-auto bg-pink-600 shadow-sm rounded-md text-white md:mr-2 toggle hidden md:flex w-auto px-4 py-2"
+          className="mx-auto bg-pink-600 shadow-sm rounded-md text-white mr-2 toggle flex w-auto px-4 py-2"
         >
           View All Funds
         </a>
@@ -56,19 +56,27 @@ export default ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
         image={data.hero.url}
       />
-      <nav className="flex flex-wrap items-center justify-between p-5 bg-blue-200">
-        <img src="/icon.png" alt="Logo" width="60" />
-        <div className="flex md:hidden">
-          <button id="hamburger">
+
+      <Hero
+        image={data.hero}
+        tag="#urgent"
+        title="Mutual Aid India"
+        description="A curated list of opportunities to donate for COVID relief."
+      />
+
+      <nav className="shadow-lg z-40 flex flex-wrap items-center justify-between p-5 sticky top-0 bg-white w-full">
+        <div className="flex">
+          <button id="hamburger" className="focus:outline-none focus:ring focus:border-blue-300 rounded-sm">
             <MenuIcon className="block h-6 w-6 toggle block" aria-hidden="true" />
             <XIcon className="block h-6 w-6 toggle hidden" aria-hidden="true" />
           </button>
         </div>
-        <div className="toggle hidden md:flex w-full md:w-auto text-center text-bold mt-5 md:mt-0">
+        <div className="md:flex-1 toggle hidden w-full md:w-auto text-center text-bold mt-5 md:mt-0">
           {Object.keys(categories).map((category_header, index) => (
             <a
               href={"#category_" + category_header}
-              className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 max-w-xs mx-auto"
+              className="block md:inline-block text-blue-900 px-3 py-3 mx-auto
+                hover:bg-blue-300 rounded-md"
             >
               {categories[category_header]}
             </a>
@@ -76,15 +84,10 @@ export default ({ data }) => {
         </div>
         {fund_cta}
       </nav>
+
       <Helmet>
         <script src={withPrefix("nav_links.js")} type="text/javascript" />
       </Helmet>
-      <Hero
-        image={data.hero}
-        tag="#urgent"
-        title="Mutual Aid India"
-        description="A curated list of opportunities to donate for COVID relief."
-      />
 
       <div className="container pt-6">
         <div className="flex flex-wrap bg-yellow-200 border border-yellow-600 rounded-md py-5 px-8 max-w-3xl mx-auto">
