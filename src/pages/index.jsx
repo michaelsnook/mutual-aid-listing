@@ -38,7 +38,7 @@ export default ({ data }) => {
               <li>Please filter for urgent needs first, marked in red as "URGENT"</li>
               <li>If you are donating from abroad, please look for fundraisers accepting foreign donations, marked with "£ $ €"</li>
               <li>If you are an NRI donating from an Indian bank account, your donations don't count as "foreign" and you don't have to worry about this</li>
-              <li>If you have a campaign you want us to add, email covidmutualaidindia at protonmail dot com</li>
+              <li>If you have a campaign you want us to add, email covidmutualaidindia@protonmail.com</li>
             </ul>
           </p>
           <p className="italic text-gray-600 my-2">
