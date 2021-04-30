@@ -8,15 +8,6 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 export default ({ data }) => {
   var filter_foreign = (typeof window !== 'undefined' 
     && window.location.search.indexOf('foriegn_fund=true') !== -1)
-  var fund_cta = (
-    <a
-      href={filter_foreign ? `/` : `/?foriegn_fund=true`}
-      className="mx-auto bg-pink-600 shadow-sm rounded-md 
-        text-white mr-2 flex w-auto px-4 py-2"
-    >
-      {filter_foreign ? `View all funds` : `Donate in £ $ €`}
-    </a>
-  )
 
   var category_cards = {}
   var categories = {}
@@ -52,15 +43,22 @@ export default ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
       />
 
-      <nav className="shadow-lg z-40 flex flex-wrap items-center justify-between p-5 sticky top-0 bg-white w-full">
-        <div className="flex">
+      <nav className="shadow-lg z-40 p-5 sticky top-0 bg-white w-full">
+        <div className="flex flex-row justify-between w-full">
           <button id="hamburger" className="focus:outline-none focus:ring focus:border-blue-300 rounded-sm">
             <MenuIcon className="block h-6 w-6 toggle block" aria-hidden="true" />
             <XIcon className="block h-6 w-6 toggle hidden" aria-hidden="true" />
           </button>
+          <a
+            href={filter_foreign ? `/` : `/?foriegn_fund=true`}
+            className="bg-pink-600 shadow-sm rounded-md text-white px-4 py-2"
+          >
+            {filter_foreign ? `View all funds` : `Donate in £ $ €`}
+          </a>
         </div>
-        <div className="md:flex-1 toggle hidden w-full md:w-auto text-center text-bold mt-5 md:mt-0">
-          {Object.keys(categories).map((category_header, index) => (
+        <div className="flex flex-col toggle w-full text-center hidden">
+
+          {Object.keys(categories).map((category_header) => (
             <a
               href={"#category_" + category_header}
               className="block md:inline-block text-blue-900 px-3 py-3 mx-auto
@@ -70,7 +68,7 @@ export default ({ data }) => {
             </a>
           ))}
         </div>
-        {fund_cta}
+
       </nav>
 
       <Helmet>
