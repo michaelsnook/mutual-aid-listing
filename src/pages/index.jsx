@@ -107,7 +107,7 @@ export default ({ data }) => {
 
       {Object.keys(categories).map((category_header, index) => (
         <div
-          className="container overflow-hidden pt-6"
+          className="container overflow-hidden -mt-14 pt-20"
           id={"category_" + category_header}
         >
           <h4 className="text-blue-800 uppercase text-sm tracking-wide font-medium pb-px">
