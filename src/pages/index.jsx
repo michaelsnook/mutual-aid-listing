@@ -51,11 +51,11 @@ export default ({ data }) => {
             <Switch
               checked={isForeignDonor}
               onChange={() => {setIsForeignDonor(!isForeignDonor)}}
-              className={`relative inline-flex items-center flex-shrink-0 ${isForeignDonor? 'bg-gray-600' :  'bg-blue-900'} w-11 h-6 rounded-full cursor-pointer focus:outline-none focus:shadow-outline transition-colors duration-200 ease-in-out`}
+              className={`relative inline-flex items-center flex-shrink-0 ${isForeignDonor? 'bg-blue-900' : 'bg-gray-600'} w-11 h-6 rounded-full cursor-pointer focus:outline-none focus:shadow-outline transition-colors duration-200 ease-in-out`}
             >
               <span
                 className={`${
-                  isForeignDonor ? "translate-x-1" : "translate-x-6"
+                  isForeignDonor ? "translate-x-6" : "translate-x-1"
                 } inline-block w-4 h-4 transition duration-200 ease-in-out transform bg-white rounded-full`}
               />
             </Switch>
