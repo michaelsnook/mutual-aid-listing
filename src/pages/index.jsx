@@ -2,24 +2,18 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { Cards, Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
-import Helmet from "react-helmet"
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Switch } from "@headlessui/react"
 
 export default ({ data }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
-
-  var filter_foreign = (typeof window !== 'undefined' 
-    && window.location.search.indexOf('foriegn_fund=true') !== -1)
+  const [isForeignDonor, setIsForeignDonor] = useState(false)
 
   var category_cards = {}
   var categories = {}
   data.items.nodes.forEach((item) => {
-    if (
-      typeof window === "undefined" ||
-      (window.location.search !== "" &&
-        item["data"]["Foreign_Funds"] === true) ||
-      window.location.search === ""
-    ) {
+    if (item["data"]["Foreign_Funds"] === true || isForeignDonor === false) {
+
       categories[item["data"]["Category_Rank"]] = item["data"]["Category"]
 
       if (category_cards[item["data"]["Category"]]) {
@@ -51,12 +45,22 @@ export default ({ data }) => {
             <MenuIcon className={`block h-6 w-6 ${isNavOpen ? 'hidden' : 'block'}`} aria-hidden={isNavOpen ? true : false} />
             <XIcon className={`block h-6 w-6  ${isNavOpen ? 'block' : 'hidden'}`} aria-hidden={isNavOpen ? false : true} />
           </button>
-          <a
-            href={filter_foreign ? `/` : `/?foriegn_fund=true`}
-            className="bg-pink-600 shadow-sm rounded-md text-white px-4 py-2"
-          >
-            {filter_foreign ? `View all funds` : `Donate in £ $ €`}
-          </a>
+
+          <div>
+            <span className="inline-flex flex-shrink-0 relative h-6 mr-2 align-text-bottom text-blue-900">Donate from overseas</span>
+            <Switch
+              checked={isForeignDonor}
+              onChange={() => {setIsForeignDonor(!isForeignDonor)}}
+              className={`relative inline-flex items-center flex-shrink-0 ${isForeignDonor? 'bg-gray-600' :  'bg-blue-900'} w-11 h-6 rounded-full cursor-pointer focus:outline-none focus:shadow-outline transition-colors duration-200 ease-in-out`}
+            >
+              <span
+                className={`${
+                  isForeignDonor ? "translate-x-1" : "translate-x-6"
+                } inline-block w-4 h-4 transition duration-200 ease-in-out transform bg-white rounded-full`}
+              />
+            </Switch>
+          </div>
+
         </div>
         <div className={`flex-col toggle w-full text-center ${isNavOpen? 'flex' : 'hidden'}`}>
 
