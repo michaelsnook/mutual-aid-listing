@@ -18,7 +18,7 @@ export default () => {
           The page you're looking for doesn't exist.
           <br />
           <br />
-          <Link to="/" className="text-blue-600">
+          <Link to="/" className="text-green-600">
             Go back to homepage
           </Link>
         </h3>

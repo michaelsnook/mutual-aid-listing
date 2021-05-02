@@ -47,7 +47,7 @@ export default ({ data }) => {
 
       <nav className="shadow-lg z-40 p-5 sticky top-0 bg-white w-full">
         <div className="flex flex-row justify-between w-full">
-          <button onClick={() => setIsNavOpen(!isNavOpen)} className="focus:outline-none focus:ring focus:border-blue-300 rounded-sm">
+          <button onClick={() => setIsNavOpen(!isNavOpen)} className="focus:outline-none focus:ring focus:border-green-300 rounded-sm">
             <MenuIcon className={`block h-6 w-6 ${isNavOpen ? 'hidden' : 'block'}`} aria-hidden={isNavOpen ? true : false} />
             <XIcon className={`block h-6 w-6  ${isNavOpen ? 'block' : 'hidden'}`} aria-hidden={isNavOpen ? false : true} />
           </button>
@@ -64,8 +64,8 @@ export default ({ data }) => {
             <a
               onClick={() => setIsNavOpen(false)}
               href={"#category_" + category_header}
-              className="block text-blue-900 px-3 py-3 mx-auto
-                hover:bg-blue-200 rounded-md"
+              className="block text-green-900 px-3 py-3 mx-auto
+                hover:bg-green-200 rounded-md"
             >
               {categories[category_header]}
             </a>
@@ -110,7 +110,7 @@ export default ({ data }) => {
           className="container overflow-hidden -mt-14 pt-20"
           id={"category_" + category_header}
         >
-          <h4 className="text-blue-800 uppercase text-sm tracking-wide font-medium pb-px">
+          <h4 className="text-green-800 uppercase text-sm tracking-wide font-medium pb-px">
             Category
           </h4>
           <h2
