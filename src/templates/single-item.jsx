@@ -29,10 +29,10 @@ export default (props) => {
       <SiteMetadata title={Name} description={Summary} image={cover.url} />
       <article className={modal && "max-h-80vh md:max-h-90vh overflow-auto"}>
         <div className={modal ? "p-4 lg:p-8" : "container py-8"}>
-          <h1 className="text-2xl lg:text-3xl text-blue-500 dark:text-blue-400 font-bold leading-tight">
+          <h1 className="text-2xl lg:text-3xl text-green-500 font-bold leading-tight">
             {Name}
           </h1>
-          <p className="text-base lg:text-lg text-blue-800 dark:text-blue-500 font-medium mb-4">
+          <p className="text-base lg:text-lg text-green-800 font-medium mb-4">
             {Summary}
           </p>
           <div className="flex flex-wrap">
@@ -49,10 +49,10 @@ export default (props) => {
               )}
               {Foreign_Funds && (
                 <p className="mb-2">
-                  <span className="bg-blue-900 shadow-sm rounded-md text-white px-3 py-1 mr-2">
+                  <span className="bg-green-900 shadow-sm rounded-md text-white px-3 py-1 mr-2">
                     £ $ €
                   </span>
-                  <span className="text-blue-900 dark:text-blue-600">
+                  <span className="text-green-900">
                     This campaign is able to accept foreign contributions.
                   </span>
                 </p>
@@ -61,11 +61,11 @@ export default (props) => {
               <Feature label="Category" value={Category} />
               <Feature label="To Donate" value={URL} />
               {Bank_Details && (
-                <p className="whitespace-pre-line text-sm lg:text-base leading-normal text-blue-900 dark:text-blue-600">
+                <p className="whitespace-pre-line text-sm lg:text-base leading-normal text-green-900">
                   {Bank_Details}
                 </p>
               )}
-              <p className="mt-4 whitespace-pre-line text-sm lg:text-base leading-normal text-blue-900 dark:text-blue-600">
+              <p className="mt-4 whitespace-pre-line text-sm lg:text-base leading-normal text-green-900">
                 {Description}
               </p>
             </div>

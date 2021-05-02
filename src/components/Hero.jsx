@@ -8,7 +8,7 @@ export const Hero = (props) => {
 
   return (
     <div className="container py-6">
-      <div className="flex relative rounded-md overflow-hidden bg-blue-400">
+      <div className="flex relative rounded-md overflow-hidden bg-green-400">
         <Img
           alt={title}
           className="grayscale-1 blend-multiply"
@@ -27,7 +27,7 @@ export const Hero = (props) => {
           }}
         ></div>
 
-        <span className="absolute top-0 right-0 bg-blue-700 text-sm text-white font-medium px-3 py-1 rounded-lg m-4 tracking-wide">
+        <span className="absolute top-0 right-0 bg-green-700 text-sm text-white font-medium px-3 py-1 rounded-lg m-4 tracking-wide">
           {tag}
         </span>
 
