@@ -1,11 +1,7 @@
-import { Link } from "gatsby"
 import React from "react"
-import { DarkModeToggle, Footer, SignupForm } from "../components"
-import { useDarkMode } from "../hooks"
-
+import { Footer, SignupForm } from "../components"
 
 export const LayoutFull = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useDarkMode()
   return (
     <div className="bg-gray-100 dark:bg-gray-900">
       {children}
