@@ -124,7 +124,7 @@ export default ({ data }) => {
             {categories[category_header]}
           </h2>
 
-          <Cards nodes={category_cards[categories[category_header]]} />
+          <Cards nodes={category_cards[categories[category_header]]} isForeignDonor={isForeignDonor} />
         </div>
       ))}
     </Layout>

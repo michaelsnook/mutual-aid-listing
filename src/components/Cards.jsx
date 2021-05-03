@@ -3,7 +3,10 @@ import React from "react"
 import { Card } from "."
 
 export const Cards = (props) => {
-  const { nodes } = props
+  const {
+    nodes,
+    isForeignDonor,
+  } = props
 
   return (
 
@@ -19,6 +22,7 @@ export const Cards = (props) => {
                 current: i,
                 items: nodes.map((item) => `/${item.data.Slug}`),
               }}
+              isForeignDonor={isForeignDonor}
             />
           </div>
         ))}
@@ -29,4 +33,5 @@ export const Cards = (props) => {
 
 Cards.propTypes = {
   nodes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isForeignDonor: PropTypes.bool
 }
