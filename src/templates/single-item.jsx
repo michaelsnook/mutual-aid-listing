@@ -4,6 +4,7 @@ import React from "react"
 import { Feature, SiteMetadata } from "../components"
 import { useModal } from "../context"
 import { Layout } from "../layouts/Layout"
+import { showCurrency } from "../utils"
 
 export default (props) => {
   const { data, location } = props
@@ -14,7 +15,8 @@ export default (props) => {
       localFiles: [cover],
     },
     Name,
-    Summary,
+    Rupees_Goal,
+    Rupees_Reached,
     Category,
     URL,
     Urgent,
@@ -26,14 +28,14 @@ export default (props) => {
 
   return (
     <Layout navigation={navigation}>
-      <SiteMetadata title={Name} description={Summary} image={cover.url} />
+      <SiteMetadata title={Name} description={Description} image={cover.url} />
       <article className={modal && "max-h-80vh md:max-h-90vh overflow-auto"}>
         <div className={modal ? "p-4 lg:p-8" : "container py-8"}>
           <h1 className="text-2xl lg:text-3xl text-primary-500 font-bold leading-tight">
             {Name}
           </h1>
           <p className="text-base lg:text-lg text-primary-800 font-medium mb-4">
-            {Summary}
+            {showCurrency(Rupees_Reached, 'rupees')} of {showCurrency(Rupees_Goal, 'rupees')}
           </p>
           <div className="flex flex-wrap">
             <div className="w-full pb-4 lg:w-3/5 lg:pr-4 lg:pb-0">
@@ -94,7 +96,8 @@ export const query = graphql`
           }
         }
         Slug
-        Summary
+        Rupees_Reached
+        Rupees_Goal
         Category
         URL
         Urgent

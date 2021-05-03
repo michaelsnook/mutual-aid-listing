@@ -147,7 +147,8 @@ export const query = graphql`
           }
           Name
           Slug
-          Summary
+          Rupees_Goal
+          Rupees_Reached
           Urgent
           Foreign_Funds
           Category

@@ -4,6 +4,7 @@ import { Link } from "gatsby-plugin-modal-routing"
 import PropTypes from "prop-types"
 import React from "react"
 import { Feature } from "."
+import { showCurrency } from "../utils"
 
 export const Card = (props) => {
   const {
@@ -14,7 +15,8 @@ export const Card = (props) => {
     Name,
     navigation,
     Slug,
-    Summary,
+    Rupees_Goal,
+    Rupees_Reached,
     Urgent,
     Foreign_Funds,
   } = props
@@ -35,7 +37,7 @@ export const Card = (props) => {
           { Foreign_Funds && <span className="bg-gradient-to-r from-primary-700 to-primary-500 shadow-sm rounded-md text-white px-3 py-1">£ $ €</span> }
 
           <p className="mt-2 text-base text-primary-900 mb-5 font-medium">
-            {Summary}
+            {showCurrency(Rupees_Reached, 'rupees')} of {showCurrency(Rupees_Goal, 'rupees')}
           </p>
           <Feature label="Location" value={Region} />
         </div>
@@ -55,7 +57,8 @@ Card.propTypes = {
     items: PropTypes.arrayOf(PropTypes.string),
   }),
   Slug: PropTypes.string.isRequired,
-  Summary: PropTypes.string,
+  Rupees_Goal: PropTypes.number,
+  Rupees_Reached: PropTypes.number,
   Urgent: PropTypes.bool,
   Foreign_Funds: PropTypes.bool,
 }
