@@ -92,7 +92,7 @@ module.exports = {
         short_name: `Mutual Aid India`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `#4299e1`,
+        theme_color: `#16A34A`,
         display: `standalone`,
         icon: `src/images/icon.png`,
       },

@@ -47,11 +47,11 @@ export default ({ data }) => {
           </button>
 
           <div>
-            <span className="inline-flex flex-shrink-0 relative h-6 mr-2 align-text-bottom text-blue-900">Donate from overseas</span>
+            <span className="inline-flex flex-shrink-0 relative h-6 mr-2 align-text-bottom text-green-900">Donate from overseas</span>
             <Switch
               checked={isForeignDonor}
               onChange={() => {setIsForeignDonor(!isForeignDonor)}}
-              className={`relative inline-flex items-center flex-shrink-0 ${isForeignDonor? 'bg-blue-900' : 'bg-gray-600'} w-11 h-6 rounded-full cursor-pointer focus:outline-none focus:shadow-outline transition-colors duration-200 ease-in-out`}
+              className={`relative inline-flex items-center flex-shrink-0 ${isForeignDonor? 'bg-green-900' : 'bg-gray-600'} w-11 h-6 rounded-full cursor-pointer focus:outline-none focus:shadow-outline transition-colors duration-200 ease-in-out`}
             >
               <span
                 className={`${
