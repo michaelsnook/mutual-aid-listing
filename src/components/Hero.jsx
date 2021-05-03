@@ -2,6 +2,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import React from "react"
+import { Tag } from "."
 
 export const Hero = (props) => {
   const { description, image, tag, title } = props
@@ -28,8 +29,8 @@ export const Hero = (props) => {
         ></div>
 
         {tag &&
-          <span className="absolute top-0 right-0 bg-primary-700 text-sm text-white font-medium px-3 py-1 rounded-lg m-4 tracking-wide">
-            {tag}
+          <span className="absolute top-0 right-0 text-sm text-white font-medium my-3 mr-1 tracking-wide">
+            { <Tag color="primary" text={tag} /> }
           </span>
         }
 
