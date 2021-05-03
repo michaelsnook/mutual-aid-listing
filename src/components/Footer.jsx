@@ -28,9 +28,9 @@ export const Footer = () => {
   `)
 
   return (
-    <footer className="bg-white dark:bg-transparent">
-      <div className="container pt-12 pb-12 flex flex-wrap text-center lg:flex-row-reverse lg:justify-between lg:items-center">
-        <ul className="w-full lg:w-auto">
+    <footer className="bg-white">
+      <div className="container py-8 lg:py-12 flex flex-wrap text-center lg:flex-row-reverse lg:justify-between lg:items-center">
+        <ul className="w-full">
           <FooterIconLink
             href={links.instagram}
             icon={FaInstagram}
@@ -52,12 +52,12 @@ export const Footer = () => {
             label="E-mail"
           />
         </ul>
-        <div className="w-full lg:w-auto pt-6 lg:pt-0 text-primary-800 text-sm">
-          &copy; Copyright: there is no copyright on any of the information in this document.
-          Please feel free to share, swipe, copy, paste at will. That said, we have about 12
-          volunteers curating this info so if be aware it may become out of date quickly.
-          If you want to help us curate the info, add new entries, or promote on media, get in touch
-          at covidmutualaidindia@protonmail.com.
+        <div className="w-full lg:w-auto pt-6 text-primary-800 text-sm">
+          &copy; Copyright: there is no copyright on any of the information on this website.
+          Please feel free to share, swipe, copy, paste at will. But be advised, we have about 30
+          volunteers curating this info, so be aware it may become out of date quickly.
+          If you want to help us curate and add new entries, or promote with your art or social media,
+          please get in touch at covidmutualaidindia@protonmail.com.
         </div>
       </div>
     </footer>

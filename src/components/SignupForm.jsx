@@ -2,33 +2,25 @@ import React from "react"
 
 export const SignupForm = () => {
   return (
-    <form action="//" target="_blank" method="post">
-      <div className="flex flex-wrap lg:justify-between lg:items-center">
+    <>
+      <div className="flex flex-wrap md:justify-between md:items-center">
         <div>
           <h3 className="text-2xl lg:text-4xl font-bold text-primary-500 tracking-tight">
             Do you have a fundraiser to add to the cause?
           </h3>
-          <p className="text-primary-800 font-medium text-base lg:text-lg pb-4 lg:pb-0 pt-1">
+          <p className="text-primary-800 font-medium text-base md:text-lg pb-4 md:pb-2 pt-1">
             Let us know, or get in touch to volunteer.
           </p>
         </div>
-        <div className="flex w-full md:w-1/2 lg:w-auto">
-          <input
-            aria-label="E-mail address"
-            className="flex-1 lg:w-64 rounded-l-lg bg-white dark:bg-gray-900 placeholder-primary-800 text-primary-800 px-4 py-1 border border-primary-700 appearance-none rounded-left text-lg leading-loose focus:outline-none focus:shadow-outline"
-            maxLength="60"
-            name="email"
-            placeholder="Your e-mail"
-            required
-            type="email"
-          />
-          <input
-            className="rounded-r-lg text-center px-4 py-1 leading-loose text-lg font-medium transition-colors duration-200 focus:outline-none focus:shadow-outline bg-primary-700 text-white cursor-pointer hover:bg-primary-500"
-            type="submit"
-            value="Sign up"
-          />
+        <div className="flex w-full flex-col md:flex-row md:w-1/2 lg:w-auto">
+          <a href="mailto:covidmutualaidindia@protonmail.com?subject=Please%20add%20this%20fundraiser"
+            className="bg-primary-600 text-center shadow-sm rounded-md text-white text-xl
+            px-4 py-2 mb-2 md:mb-0 hover:bg-primary-400">Submit a Fundraiser</a>
+          <a href="mailto:covidmutualaidindia@protonmail.com?subject=Volunteering"
+            className="bg-primary-600 text-center shadow-sm rounded-md text-white text-xl
+            px-4 py-2 mt-2 md:mt-0 hover:bg-primary-400 md:ml-3">Volunteer</a>
         </div>
       </div>
-    </form>
+    </>
   )
 }
