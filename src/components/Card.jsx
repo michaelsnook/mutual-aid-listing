@@ -15,6 +15,7 @@ export const Card = (props) => {
     Name,
     navigation,
     Slug,
+    Status,
     Rupees_Goal,
     Rupees_Reached,
     Urgent,
@@ -25,8 +26,13 @@ export const Card = (props) => {
   return (
     <div className="bg-white h-full shadow-sm rounded-md overflow-hidden hover:bg-primary-100">
       <Link to={`/${Slug}`} state={{ navigation }} asModal>
-        <div className="bg-primary-300">
+        <div className="bg-primary-300 relative">
           <Img fluid={cover.childImageSharp.fluid} alt={Name} />
+          {Status === 'Met Goal and Increased' &&
+            <span className="absolute top-0 right-0 text-sm text-white font-medium my-3 mr-1 tracking-wide">
+              { <Tag color="yellow" text={Status} /> }
+            </span>
+          }
         </div>
 
         <div className="p-5 pb-1">
