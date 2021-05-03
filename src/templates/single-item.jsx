@@ -42,14 +42,14 @@ export default (props) => {
             <div className="w-full lg:w-2/5 lg:pl-4">
               {Urgent && (
                 <p className="mb-2">
-                  <span className="bg-urgent-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">
+                  <span className="bg-gradient-to-r from-urgent-700 to-urgent-500 shadow-sm rounded-md text-white px-3 py-1 mr-2">
                     Urgent
                   </span>
                 </p>
               )}
               {Foreign_Funds && (
                 <p className="mb-2">
-                  <span className="bg-primary-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">
+                  <span className="bg-gradient-to-r from-primary-700 to-primary-500 shadow-sm rounded-md text-white px-3 py-1 mr-2">
                     £ $ €
                   </span>
                   <span className="text-primary-900">
