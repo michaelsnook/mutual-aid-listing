@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { Cards, Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
@@ -28,7 +28,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <SiteMetadata
-        title="Mutual Aid India"
+        title="MutualAidIndia.com | Home"
         description="A curated list of opportunities to donate for COVID relief."
         image={data.hero.url}
       />
@@ -75,13 +75,21 @@ export default ({ data }) => {
               {categories[category_header]}
             </a>
           ))}
+          <hr className="my-3" />
+          <Link
+            to="/About"
+            className="block text-primary-900 px-3 py-3 mx-auto
+              hover:bg-primary-200 rounded-md"
+          >
+            About Us and This List
+          </Link>
         </div>
 
       </nav>
 
       {!isAlertClosed && <div className="container pt-6">
         <div className="relative flex flex-wrap bg-yellow-200 border border-yellow-400 rounded-md py-5 px-8 max-w-3xl mx-auto">
-          <button className="absolute top-0 right-0 p-3" onClick={() => {setIsAlertClosed(true)}} role="button" area-pressed="false">✕</button>
+          <button className="absolute top-0 right-0 p-3" onClick={() => {setIsAlertClosed(true)}} area-pressed="false">✕</button>
           <p className="mt-2 mb-1 font-bold">Info for donors/supporters:</p>
           <p className="mb-2">
             <ul className="list-disc pl-5">
