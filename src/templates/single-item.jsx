@@ -32,15 +32,17 @@ export default (props) => {
   return (
     <Layout navigation={navigation}>
       <SiteMetadata title={Name} description={Description} image={cover.url} />
-      <nav className="shadow-lg z-40 p-5 sticky top-0 bg-white w-full">
-        <div className="flex flex-row justify-between w-full">
-          <Link to="/" className="flex focus:outline-none focus:ring focus:border-primary-300 rounded-sm">
-            <HomeIcon className="block h-6 w-6 text-primary-900 mr-2" />
-            <span className="pt-0.5 inline-flex flex-shrink-0 relative h-6 mr-2 
-            text-primary-900 align-bottom">Back to home</span>
-          </Link>
-        </div>
-      </nav>
+      {!modal &&
+        <nav className="shadow-lg z-40 p-5 sticky top-0 bg-white w-full">
+          <div className="flex flex-row justify-between w-full">
+            <Link to="/" className="flex focus:outline-none focus:ring focus:border-primary-300 rounded-sm">
+              <HomeIcon className="block h-6 w-6 text-primary-900 mr-2" />
+              <span className="pt-0.5 inline-flex flex-shrink-0 relative h-6 mr-2
+              text-primary-900 align-bottom">Back to home</span>
+            </Link>
+          </div>
+        </nav>
+      }
       <article className={modal && "max-h-80vh md:max-h-90vh overflow-auto"}>
         <div className={modal ? "p-4 lg:p-8" : "container py-8"}>
           <h1 className="text-2xl lg:text-3xl text-primary-500 font-bold leading-tight">
