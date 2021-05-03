@@ -1,6 +1,7 @@
 export { Card } from "./Card"
 export { Cards } from "./Cards"
 export { Feature } from "./Feature"
+export { Tag } from "./Tag"
 export { Footer } from "./Footer"
 export { Hero } from "./Hero"
 export { SignupForm } from "./SignupForm"
