@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Link } from "gatsby-plugin-modal-routing"
 import PropTypes from "prop-types"
-import React, { useState } from "react"
+import React from "react"
 import { Feature } from "."
 import { showCurrency } from "../utils"
 
