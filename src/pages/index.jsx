@@ -78,11 +78,15 @@ export default ({ data }) => {
           <hr className="my-3" />
           <Link
             to="/About"
-            className="block text-primary-900 px-3 py-3 mx-auto
-              hover:bg-primary-200 rounded-md"
+            className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md"
           >
             About Us and This List
           </Link>
+          <a
+            href="https://docs.google.com/document/d/e/2PACX-1vSFpy5vYw2wtESs77spBb1nv3dpGj3Jhv1J3WxMpfURc_MVIgc556s1BqD9z3GO-HVqLQWhWAHxGIOs/pub"
+            className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md">
+            List of Completed Fundraisers
+          </a>
         </div>
 
       </nav>
