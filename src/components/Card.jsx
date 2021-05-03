@@ -32,7 +32,7 @@ export const Card = (props) => {
           </h1>
 
           { Urgent && <span className="bg-urgent-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">Urgent</span> }
-          { Foreign_Funds && <span className="bg-primary-700 shadow-sm rounded-md text-white px-3 py-1">£ $ €</span> }
+          { Foreign_Funds && <span className="bg-primary-600 shadow-sm rounded-md text-white px-3 py-1">£ $ €</span> }
 
           <p className="mt-2 text-base text-primary-900 mb-5 font-medium">
             {Summary}

@@ -49,7 +49,7 @@ export default (props) => {
               )}
               {Foreign_Funds && (
                 <p className="mb-2">
-                  <span className="bg-primary-900 shadow-sm rounded-md text-white px-3 py-1 mr-2">
+                  <span className="bg-primary-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">
                     £ $ €
                   </span>
                   <span className="text-primary-900">
