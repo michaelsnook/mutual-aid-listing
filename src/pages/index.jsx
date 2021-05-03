@@ -7,6 +7,7 @@ import { Switch } from "@headlessui/react"
 
 export default ({ data }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
+  const [isAlertClosed, setIsAlertClosed] = useState(false)
   const [isForeignDonor, setIsForeignDonor] = useState(false)
 
   var category_cards = {}
@@ -78,8 +79,9 @@ export default ({ data }) => {
 
       </nav>
 
-      <div className="container pt-6">
-        <div className="flex flex-wrap bg-yellow-200 border border-yellow-600 rounded-md py-5 px-8 max-w-3xl mx-auto">
+      {!isAlertClosed && <div className="container pt-6">
+        <div className="relative flex flex-wrap bg-yellow-200 border border-yellow-400 rounded-md py-5 px-8 max-w-3xl mx-auto">
+          <button className="absolute top-0 right-0 p-3" onClick={() => {setIsAlertClosed(true)}} role="button" area-pressed="false">✕</button>
           <p className="mt-2 mb-1 font-bold">Info for donors/supporters:</p>
           <p className="mb-2">
             <ul className="list-disc pl-5">
@@ -107,7 +109,7 @@ export default ({ data }) => {
             Give at your own discretion, but please do give generously.
           </p>
         </div>
-      </div>
+      </div>}
 
       {Object.keys(categories).map((category_header, index) => (
         <div
