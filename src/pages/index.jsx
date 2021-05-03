@@ -35,7 +35,7 @@ export default ({ data }) => {
 
       <Hero
         image={data.hero}
-        tag="#urgent"
+        tag="fundraisers"
         title="Mutual Aid India"
         description="A curated list of opportunities to donate for COVID relief."
       />
