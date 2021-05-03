@@ -77,7 +77,7 @@ export default ({ data }) => {
           ))}
           <hr className="my-3" />
           <Link
-            to="/About"
+            to="/about"
             className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md"
           >
             About Us and This List
