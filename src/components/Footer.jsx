@@ -52,7 +52,7 @@ export const Footer = () => {
             label="E-mail"
           />
         </ul>
-        <div className="w-full lg:w-auto pt-6 lg:pt-0 text-green-800 text-sm">
+        <div className="w-full lg:w-auto pt-6 lg:pt-0 text-primary-800 text-sm">
           &copy; Copyright: there is no copyright on any of the information in this document.
           Please feel free to share, swipe, copy, paste at will. That said, we have about 12
           volunteers curating this info so if be aware it may become out of date quickly.
@@ -76,7 +76,7 @@ const FooterIconLink = ({ href, label, icon: Icon }) => {
     <li className="inline-block px-2">
       <a
         {...linkParams}
-        className="inline-flex h-8 w-8 border border-green-800 text-green-800 rounded-full items-center justify-center transition-colors duration-200 hover:text-white hover:bg-green-400 hover:border-green-400"
+        className="inline-flex h-8 w-8 border border-primary-800 text-primary-800 rounded-full items-center justify-center transition-colors duration-200 hover:text-white hover:bg-primary-400 hover:border-primary-400"
       >
         <span className="sr-only">{label}</span>
         <Icon className="w-3 h-3 fill-current" />

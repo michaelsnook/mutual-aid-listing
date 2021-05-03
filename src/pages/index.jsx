@@ -41,17 +41,17 @@ export default ({ data }) => {
 
       <nav className="shadow-lg z-40 p-5 sticky top-0 bg-white w-full">
         <div className="flex flex-row justify-between w-full">
-          <button onClick={() => setIsNavOpen(!isNavOpen)} className="focus:outline-none focus:ring focus:border-green-300 rounded-sm">
+          <button onClick={() => setIsNavOpen(!isNavOpen)} className="focus:outline-none focus:ring focus:border-primary-300 rounded-sm">
             <MenuIcon className={`block h-6 w-6 ${isNavOpen ? 'hidden' : 'block'}`} aria-hidden={isNavOpen ? true : false} />
             <XIcon className={`block h-6 w-6  ${isNavOpen ? 'block' : 'hidden'}`} aria-hidden={isNavOpen ? false : true} />
           </button>
 
           <div>
-            <span className="inline-flex flex-shrink-0 relative h-6 mr-2 align-text-bottom text-green-900">Donate from overseas</span>
+            <span className="inline-flex flex-shrink-0 relative h-6 mr-2 align-text-bottom text-primary-900">Donate from overseas</span>
             <Switch
               checked={isForeignDonor}
               onChange={() => {setIsForeignDonor(!isForeignDonor)}}
-              className={`relative inline-flex items-center flex-shrink-0 ${isForeignDonor? 'bg-green-900' : 'bg-gray-600'} w-11 h-6 rounded-full cursor-pointer focus:outline-none focus:shadow-outline transition-colors duration-200 ease-in-out`}
+              className={`relative inline-flex items-center flex-shrink-0 ${isForeignDonor? 'bg-primary-700' : 'bg-gray-600'} w-11 h-6 rounded-full cursor-pointer focus:outline-none focus:shadow-outline transition-colors duration-200 ease-in-out`}
             >
               <span
                 className={`${
@@ -68,8 +68,8 @@ export default ({ data }) => {
             <a
               onClick={() => setIsNavOpen(false)}
               href={"#category_" + category_header}
-              className="block text-green-900 px-3 py-3 mx-auto
-                hover:bg-green-200 rounded-md"
+              className="block text-primary-900 px-3 py-3 mx-auto
+                hover:bg-primary-200 rounded-md"
             >
               {categories[category_header]}
             </a>
@@ -114,7 +114,7 @@ export default ({ data }) => {
           className="container overflow-hidden -mt-14 pt-20"
           id={"category_" + category_header}
         >
-          <h4 className="text-green-800 uppercase text-sm tracking-wide font-medium pb-px">
+          <h4 className="text-primary-800 uppercase text-sm tracking-wide font-medium pb-px">
             Category
           </h4>
           <h2

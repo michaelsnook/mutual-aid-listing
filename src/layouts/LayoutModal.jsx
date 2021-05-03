@@ -59,7 +59,7 @@ export const LayoutModal = ({ children, closeTo, navigation = {} }) => {
           {previous && (
             <Link
               asModal
-              className="inline-block w-10 h-10 px-2 text-white hover:text-green-400"
+              className="inline-block w-10 h-10 px-2 text-white hover:text-primary-400"
               state={{ navigation: { current: current - 1, items } }}
               to={previous}
             >
@@ -74,7 +74,7 @@ export const LayoutModal = ({ children, closeTo, navigation = {} }) => {
           {next && (
             <Link
               asModal
-              className="inline-block w-10 h-10 px-2 text-white hover:text-green-400"
+              className="inline-block w-10 h-10 px-2 text-white hover:text-primary-400"
               state={{ navigation: { current: current + 1, items } }}
               to={next}
             >
@@ -87,7 +87,7 @@ export const LayoutModal = ({ children, closeTo, navigation = {} }) => {
         className="absolute top-0 right-0 m-3 lg:m-6 focus:outline-none"
         onClick={closeModal}
       >
-        <FaTimes className="w-8 h-8 fill-current text-white hover:text-green-400 transition-colors duration-200" />
+        <FaTimes className="w-8 h-8 fill-current text-white hover:text-primary-400 transition-colors duration-200" />
       </button>
     </div>
   )

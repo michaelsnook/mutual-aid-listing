@@ -20,21 +20,21 @@ export const Card = (props) => {
   } = props
 
   return (
-    <div className="bg-white h-full shadow-sm rounded-md overflow-hidden hover:bg-green-100">
+    <div className="bg-white h-full shadow-sm rounded-md overflow-hidden hover:bg-primary-100">
       <Link to={`/${Slug}`} state={{ navigation }} asModal>
-        <div className="bg-green-300">
+        <div className="bg-primary-300">
           <Img fluid={cover.childImageSharp.fluid} alt={Name} />
         </div>
 
         <div className="p-5 pb-1">
-          <h1 className="text-2xl text-green-500 font-bold leading-snug mb-2">
+          <h1 className="text-2xl text-primary-600 font-bold leading-snug mb-2">
             {Name}
           </h1>
 
-          { Urgent && <span className="bg-pink-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">Urgent</span> }
-          { Foreign_Funds && <span className="bg-green-900 shadow-sm rounded-md text-white px-3 py-1">£ $ €</span> }
+          { Urgent && <span className="bg-urgent-600 shadow-sm rounded-md text-white px-3 py-1 mr-2">Urgent</span> }
+          { Foreign_Funds && <span className="bg-primary-700 shadow-sm rounded-md text-white px-3 py-1">£ $ €</span> }
 
-          <p className="mt-2 text-base text-green-900 mb-5 font-medium">
+          <p className="mt-2 text-base text-primary-900 mb-5 font-medium">
             {Summary}
           </p>
           <Feature label="Location" value={Region} />

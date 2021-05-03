@@ -13,8 +13,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        gray: colors.trueGray,
-        green: colors.green,
+        gray: colors.coolGray,
+        primary: colors.emerald,
+        urgent: colors.rose
       },
       fontSize: {
         xxs: "0.625rem",
