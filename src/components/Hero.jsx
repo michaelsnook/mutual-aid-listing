@@ -23,13 +23,15 @@ export const Hero = (props) => {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(to bottom, rgba(49, 130, 206, 0) 24%, rgba(49, 130, 206, .5) 100%)",
+              "linear-gradient(to bottom, rgba(49, 130, 206, 0.4) 24%, rgba(49, 130, 206, .8) 100%)",
           }}
         ></div>
 
-        <span className="absolute top-0 right-0 bg-primary-700 text-sm text-white font-medium px-3 py-1 rounded-lg m-4 tracking-wide">
-          {tag}
-        </span>
+        {tag &&
+          <span className="absolute top-0 right-0 bg-primary-700 text-sm text-white font-medium px-3 py-1 rounded-lg m-4 tracking-wide">
+            {tag}
+          </span>
+        }
 
         <div className="absolute bottom-0 inset-x-0 p-5 lg:p-6 text-white">
           <h1 className="text-2xl lg:text-4xl font-bold leading-tight">
