@@ -1,7 +1,7 @@
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
-import { Feature, SiteMetadata } from "../components"
+import { Feature, SiteMetadata, Tag } from "../components"
 import { useModal } from "../context"
 import { Layout } from "../layouts/Layout"
 import { showCurrency } from "../utils"
@@ -20,6 +20,7 @@ export default (props) => {
     Rupees_Goal,
     Rupees_Reached,
     Category,
+    Status,
     URL,
     Urgent,
     Foreign_Funds,
@@ -54,23 +55,26 @@ export default (props) => {
               <Img fluid={cover.childImageSharp.fluid} alt={Name} />
             </div>
             <div className="w-full lg:w-2/5 lg:pl-4">
+
+              {Status === 'Met Goal and Increased' && (
+                <p className="mb-2">
+                  { <Tag color="yellow" text={Status} /> }
+                </p>
+              )}
               {Urgent && (
                 <p className="mb-2">
-                  <span className="bg-gradient-to-r from-urgent-700 to-urgent-500 shadow-sm rounded-md text-white px-3 py-1 mr-2">
-                    Urgent
-                  </span>
+                  <Tag color="urgent" text="Urgent" />
                 </p>
               )}
               {Foreign_Funds && (
                 <p className="mb-2">
-                  <span className="bg-gradient-to-r from-primary-700 to-primary-500 shadow-sm rounded-md text-white px-3 py-1 mr-2">
-                    £ $ €
-                  </span>
+                  <Tag color="primary" text="£ $ €" />
                   <span className="text-primary-900">
                     This campaign is able to accept foreign contributions.
                   </span>
                 </p>
               )}
+
               <Feature label="Location" value={Region} />
               <Feature label="Category" value={Category} />
               <Feature label="To Donate" value={URL} />
@@ -111,6 +115,7 @@ export const query = graphql`
         Rupees_Reached
         Rupees_Goal
         Category
+        Status
         URL
         Urgent
         Foreign_Funds
