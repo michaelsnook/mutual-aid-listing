@@ -38,7 +38,7 @@ export const Card = (props) => {
           { Foreign_Funds && <span className="bg-gradient-to-r from-primary-700 to-primary-500 shadow-sm rounded-md text-white px-3 py-1">£ $ €</span> }
 
           <p className="mt-2 text-base text-primary-900 mb-5 font-medium">
-            {showCurrency(Rupees_Reached, isForeignDonor ? 'dollars' : 'rupees')} of {showCurrency(Rupees_Goal, isForeignDonor ? 'dollars' : 'rupees')}
+            {showCurrency(Rupees_Reached, isForeignDonor ? 'dollars' : 'rupees')} of {showCurrency(Rupees_Goal, isForeignDonor ? 'dollars' : 'rupees', true)}
           </p>
           <Feature label="Location" value={Region} />
         </div>
