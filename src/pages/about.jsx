@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
-import { SiteMetadata } from "../components"
+import { graphql, Link } from "gatsby"
+import { Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HomeIcon } from '@heroicons/react/outline'
 
@@ -9,9 +9,17 @@ export default ({ data }) => {
   return (
     <Layout>
       <SiteMetadata
-        title="Mutual Aid India"
+        title="MutualAidIndia.com | Home"
         description="A curated list of opportunities to donate for COVID relief."
+        image={data.hero.url}
       />
+
+      <Hero
+        image={data.hero}
+        title="About MutualAidIndia.com, our team, and our values"
+        tag="about"
+      />
+
       <nav className="shadow-lg z-40 p-5 sticky top-0 bg-white w-full">
         <div className="flex flex-row justify-between w-full">
           <Link to="/" className="flex focus:outline-none focus:ring focus:border-primary-300 rounded-sm">
@@ -93,3 +101,10 @@ export default ({ data }) => {
   )
 }
 
+export const query = graphql`
+  query AboutQuery {
+    hero: file(relativePath: { eq: "mutual-aid-love.jpg" }) {
+      ...HeroImageFragment
+    }
+  }
+`
