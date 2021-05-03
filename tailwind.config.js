@@ -15,7 +15,8 @@ module.exports = {
       colors: {
         gray: colors.coolGray,
         primary: colors.emerald,
-        urgent: colors.rose
+        yellow: colors.yellow,
+        urgent: colors.rose,
       },
       fontSize: {
         xxs: "0.625rem",

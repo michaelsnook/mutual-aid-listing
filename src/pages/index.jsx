@@ -14,17 +14,13 @@ export default ({ data }) => {
   var categories = {}
   data.items.nodes.forEach((item) => {
     if (item["data"]["Foreign_Funds"] === true || isForeignDonor === false) {
-
-      categories[item["data"]["Category_Rank"]] = item["data"]["Category"]
-
-      if (category_cards[item["data"]["Category"]]) {
-        category_cards[item["data"]["Category"]].push(item)
-      } else {
-        category_cards[item["data"]["Category"]] = []
-        category_cards[item["data"]["Category"]].push(item)
-      }
+      const { Category, Category_Rank } = item.data
+      categories[Category_Rank] = Category
+      category_cards[Category] = category_cards[Category] || []
+      category_cards[Category].push(item)
     }
   })
+
   return (
     <Layout>
       <SiteMetadata
@@ -162,6 +158,7 @@ export const query = graphql`
           Rupees_Goal
           Rupees_Reached
           Urgent
+          Status
           Foreign_Funds
           Category
           Category_Rank
