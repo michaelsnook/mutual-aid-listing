@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Link } from "gatsby-plugin-modal-routing"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useState } from "react"
 import { Feature } from "."
 import { showCurrency } from "../utils"
 
@@ -19,6 +19,7 @@ export const Card = (props) => {
     Rupees_Reached,
     Urgent,
     Foreign_Funds,
+    isForeignDonor = false,
   } = props
 
   return (
@@ -37,7 +38,7 @@ export const Card = (props) => {
           { Foreign_Funds && <span className="bg-gradient-to-r from-primary-700 to-primary-500 shadow-sm rounded-md text-white px-3 py-1">£ $ €</span> }
 
           <p className="mt-2 text-base text-primary-900 mb-5 font-medium">
-            {showCurrency(Rupees_Reached, 'rupees')} of {showCurrency(Rupees_Goal, 'rupees')}
+            {showCurrency(Rupees_Reached, isForeignDonor ? 'dollars' : 'rupees')} of {showCurrency(Rupees_Goal, isForeignDonor ? 'dollars' : 'rupees')}
           </p>
           <Feature label="Location" value={Region} />
         </div>
@@ -61,6 +62,7 @@ Card.propTypes = {
   Rupees_Reached: PropTypes.number,
   Urgent: PropTypes.bool,
   Foreign_Funds: PropTypes.bool,
+  isForeignDonor: PropTypes.bool,
 }
 
 Card.defaultProps = {
