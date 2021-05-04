@@ -41,7 +41,7 @@ export const Card = (props) => {
           </h1>
 
           { Urgent && <Tag color="urgent" text="Urgent" /> }
-          { Foreign_Funds && <Tag color="primary" text="£ $ €" /> }
+          { Foreign_Funds && <Tag color="secondary" text="£ $ €" /> }
 
           <p className="mt-2 text-base text-primary-900 mb-5 font-medium">
             {showCurrency(Rupees_Reached, isForeignDonor ? 'dollars' : 'rupees')} of {showCurrency(Rupees_Goal, isForeignDonor ? 'dollars' : 'rupees', true)}
