@@ -113,7 +113,7 @@ export default ({ data }) => {
 
       {!isAlertClosed && (
         <div className="container pt-6">
-          <div className="relative flex flex-wrap bg-yellow-200 border shadow-md rounded-md py-5 px-8">
+          <div className="relative bg-yellow-200 border shadow-md rounded-md py-5 px-8">
             <button
               className="absolute top-0 right-0 p-3"
               onClick={() => {
@@ -123,7 +123,7 @@ export default ({ data }) => {
             >
               ✕
             </button>
-            <p className="mt-2 mb-1 font-bold">Info for donors/supporters:</p>
+            <h1 className="mt-2 mb-1 font-bold">Info for donors/supporters:</h1>
             <p className="mb-2">
               <ul className="list-disc pl-5">
                 <li>
