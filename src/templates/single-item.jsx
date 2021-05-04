@@ -70,7 +70,7 @@ export default (props) => {
               )}
               {Foreign_Funds && (
                 <p className="mb-2">
-                  <Tag color="primary" text="£ $ €" />
+                  <Tag color="secondary" text="£ $ €" />
                   <span className="text-primary-900">
                     This campaign is able to accept foreign contributions.
                   </span>

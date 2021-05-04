@@ -9,6 +9,7 @@ module.exports = {
         'from-yellow-700', 'to-yellow-500',
         'from-urgent-700', 'to-urgent-500',
         'from-primary-700', 'to-primary-500',
+        'from-secondary-700', 'to-secondary-500',
       ],
     },
   },
@@ -25,6 +26,7 @@ module.exports = {
       colors: {
         gray: colors.coolGray,
         primary: colors.emerald,
+        secondary: colors.indigo,
         yellow: colors.yellow,
         urgent: colors.rose,
       },

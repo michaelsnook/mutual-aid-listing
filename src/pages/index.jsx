@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-import { Cards, Hero, SiteMetadata } from "../components"
+import { Cards, Hero, SiteMetadata, Tag } from "../components"
 import { Layout } from "../layouts/Layout"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { Switch } from "@headlessui/react"
@@ -60,7 +60,7 @@ export default ({ data }) => {
           </button>
 
           <div>
-            <span className="inline-flex flex-shrink-0 relative h-6 mr-2 align-text-bottom text-primary-900">
+            <span className="inline-flex flex-shrink-0 relative mr-2 align-text-middle text-primary-900">
               Donate from overseas
             </span>
             <Switch
