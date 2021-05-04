@@ -43,9 +43,12 @@ export const Card = (props) => {
           { Urgent && <Tag color="urgent" text="Urgent" /> }
           { Foreign_Funds && <Tag color="secondary" text="£ $ €" /> }
 
-          <p className="mt-2 text-base text-primary-900 mb-5 font-medium">
-            {showCurrency(Rupees_Reached, isForeignDonor ? 'dollars' : 'rupees')} of {showCurrency(Rupees_Goal, isForeignDonor ? 'dollars' : 'rupees', true)}
-          </p>
+          { Rupees_Reached > 0 &&
+            <p className="mt-2 text-base text-primary-900 mb-5 font-medium">
+              {showCurrency(Rupees_Reached, isForeignDonor ? 'dollars' : 'rupees')} raised
+              {Rupees_Goal > 0 ? ` of ${showCurrency(Rupees_Goal, isForeignDonor ? 'dollars' : 'rupees', true)}` : ' so far'}
+            </p>
+          }
           <Feature label="Location" value={Region} />
         </div>
       </Link>

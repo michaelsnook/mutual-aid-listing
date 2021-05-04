@@ -48,10 +48,14 @@ export default (props) => {
           <h1 className="text-2xl lg:text-3xl text-primary-500 font-bold leading-tight">
             {Name}
           </h1>
-          <p className="text-base lg:text-lg text-primary-800 font-medium mb-4">
-          {showCurrency(Rupees_Reached, 'rupees')} of {showCurrency(Rupees_Goal, 'rupees', true) + ' '}
-          (about {showCurrency(Rupees_Reached, 'dollars')} of {showCurrency(Rupees_Goal, 'dollars', true)})
-          </p>
+          { Rupees_Reached &&
+            <p className="text-base lg:text-lg text-primary-800 font-medium mb-4">
+              {showCurrency(Rupees_Reached, 'rupees')}
+              { Rupees_Goal ? ` of ${showCurrency(Rupees_Goal, 'rupees', true)} ` : ' so far '}
+              (about {showCurrency(Rupees_Reached, 'dollars')}
+              { Rupees_Goal ? ` of ${showCurrency(Rupees_Goal, 'dollars', true)}` : '' })
+            </p>
+          }
           <div className="flex flex-wrap">
             <div className="w-full pb-4 lg:w-3/5 lg:pr-4 lg:pb-0">
               <Img fluid={cover.childImageSharp.fluid} alt={Name} />
