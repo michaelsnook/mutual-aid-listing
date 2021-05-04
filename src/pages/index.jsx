@@ -1,9 +1,10 @@
 import React, { useState } from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { Cards, Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { Switch } from "@headlessui/react"
+import { Link } from "gatsby-plugin-modal-routing"
 
 export default ({ data }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
@@ -12,12 +13,11 @@ export default ({ data }) => {
 
   var category_cards = {}
   var categories = {}
-  categories[0] = "Hightighted Campaigns"
-  category_cards["Hightighted Campaigns"] = []
+  var highlighted_campaigns = []
   data.items.nodes.forEach((item) => {
     if (item["data"]["Foreign_Funds"] === true || isForeignDonor === false) {
       if (item["data"]["Urgent"] === true) {
-        category_cards["Hightighted Campaigns"].push(item)
+        highlighted_campaigns.push(item)
       }
       const { Category, Category_Rank } = item.data
       categories[Category_Rank] = Category
@@ -152,6 +152,23 @@ export default ({ data }) => {
           </div>
         </div>
       )}
+
+      {highlighted_campaigns.map((highlighted_campaign, index) => (
+        <div key={index}>
+          <Link
+            to={`/${highlighted_campaign["data"]["Slug"]}`}
+            state={{
+              current: index,
+              items: highlighted_campaigns.map(
+                (highlighted_campaign) => `/${highlighted_campaign.data.Slug}`
+              ),
+            }}
+            asModal
+          >
+            {highlighted_campaign["data"]["Name"]}
+          </Link>
+        </div>
+      ))}
 
       {Object.keys(categories).map((category_header, index) => (
         <div
