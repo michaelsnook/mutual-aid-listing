@@ -100,7 +100,7 @@ export default ({ data }) => {
             to="/about"
             className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md"
           >
-            About Us and This List
+            About Us and this List
           </Link>
           <a
             href="https://docs.google.com/document/d/e/2PACX-1vSFpy5vYw2wtESs77spBb1nv3dpGj3Jhv1J3WxMpfURc_MVIgc556s1BqD9z3GO-HVqLQWhWAHxGIOs/pub"
@@ -113,7 +113,7 @@ export default ({ data }) => {
 
       {!isAlertClosed && (
         <div className="container pt-6">
-          <div className="relative flex flex-wrap bg-yellow-200 border border-yellow-400 rounded-md py-5 px-8 max-w-3xl mx-auto">
+          <div className="relative flex flex-wrap bg-yellow-200 border shadow-md rounded-md py-5 px-8">
             <button
               className="absolute top-0 right-0 p-3"
               onClick={() => {
