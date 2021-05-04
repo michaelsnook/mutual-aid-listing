@@ -25,6 +25,8 @@ export default ({ data }) => {
       category_cards[Category].push(item)
     }
   })
+  highlighted_campaigns.sort(() => Math.random() - 0.5)
+  if (highlighted_campaigns.length > 6) highlighted_campaigns.length = 6
 
   return (
     <Layout>
@@ -153,22 +155,44 @@ export default ({ data }) => {
         </div>
       )}
 
-      {highlighted_campaigns.map((highlighted_campaign, index) => (
-        <div key={index}>
-          <Link
-            to={`/${highlighted_campaign["data"]["Slug"]}`}
-            state={{
-              current: index,
-              items: highlighted_campaigns.map(
-                (highlighted_campaign) => `/${highlighted_campaign.data.Slug}`
-              ),
-            }}
-            asModal
-          >
-            {highlighted_campaign["data"]["Name"]}
-          </Link>
+      <div className="container py-6">
+        <h1 className="text-2xl font-bold leading-tight text-black my-3">
+          Highlighted Campaigns
+        </h1>
+        <div className="rounded-md">
+          <div className="grid md:grid-cols-2 gap-4 ">
+            {highlighted_campaigns.map((highlighted_campaign, index) => (
+              <Link
+                to={`/${highlighted_campaign["data"]["Slug"]}`}
+                className="hover:bg-primary-600 hover:text-white bg-white relative rounded-lg
+                    shadow-md px-5 py-4 cursor-pointer flex focus:outline-none"
+                state={{
+                  current: index,
+                  items: highlighted_campaigns.map(
+                    (highlighted_campaign) => `/${highlighted_campaign.data.Slug}`
+                  ),
+                }}
+                asModal
+              >
+              <div class="flex items-center justify-between w-full">
+                <div class="flex items-center">
+                  <div class="text-md">
+                    <p class="font-medium">
+                      {highlighted_campaign["data"]["Name"]}
+                    </p>
+                    <span class="inline">
+                      {highlighted_campaign["data"]["Region"]}
+                    </span>
+                  </div>
+                </div>
+                <div class="flex-shrink-0">
+                </div>
+              </div>
+            </Link>
+            ))}
+          </div>
         </div>
-      ))}
+      </div>
 
       {Object.keys(categories).map((category_header, index) => (
         <div
