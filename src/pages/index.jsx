@@ -11,9 +11,9 @@ export default ({ data }) => {
   const [isAlertClosed, setIsAlertClosed] = useState(false)
   const [isForeignDonor, setIsForeignDonor] = useState(false)
 
-  var category_cards = {}
-  var categories = {}
-  var highlighted_campaigns = []
+  let category_cards = {}
+  let categories = {}
+  let highlighted_campaigns = []
   data.items.nodes.forEach((item) => {
     if (item["data"]["Foreign_Funds"] === true || isForeignDonor === false) {
       if (item["data"]["Urgent"] === true) {
