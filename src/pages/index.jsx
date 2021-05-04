@@ -60,7 +60,7 @@ export default ({ data }) => {
           </button>
 
           <div>
-            <span className="inline-flex flex-shrink-0 relative mr-2 align-text-middle text-primary-900">
+            <span className="inline-flex flex-shrink-0 relative mr-2 align-text-bottom text-primary-900">
               Donate from overseas
             </span>
             <Switch
