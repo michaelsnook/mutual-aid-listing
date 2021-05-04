@@ -112,7 +112,7 @@ export default ({ data }) => {
       </nav>
 
       {!isAlertClosed && (
-        <div className="container pt-6">
+        <div className="container pt-6 max-w-4xl">
           <div className="relative bg-yellow-200 border shadow-md rounded-md py-5 px-8">
             <button
               className="absolute top-0 right-0 p-3"
@@ -155,7 +155,7 @@ export default ({ data }) => {
         </div>
       )}
 
-      <div className="container py-6">
+      <div className="container py-6 max-w-4xl">
         <h1 className="text-2xl font-bold leading-tight text-black my-3">
           Highlighted Campaigns
         </h1>
