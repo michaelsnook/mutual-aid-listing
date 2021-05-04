@@ -1,7 +1,17 @@
 const colors = require("tailwindcss/colors")
 
 module.exports = {
-  purge: ["./src/**/*.jsx", "./src/**/*.js"],
+  purge: {
+    enabled: true,
+    content: ["./src/**/*.jsx", "./src/**/*.js"],
+    options: {
+      safelist: [
+        'from-yellow-700', 'to-yellow-500',
+        'from-urgent-700', 'to-urgent-500',
+        'from-primary-700', 'to-primary-500',
+      ],
+    },
+  },
   theme: {
     container: {
       center: true,
