@@ -221,7 +221,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query IndexQuery($tableName: String!) {
-    hero: file(relativePath: { eq: "mutual-aid-love.jpg" }) {
+    hero: file(relativePath: { eq: "hero-banner.jpg" }) {
       ...HeroImageFragment
     }
     items: allAirtable(filter: { table: { eq: $tableName } }) {

@@ -110,7 +110,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query AboutQuery {
-    hero: file(relativePath: { eq: "mutual-aid-love.jpg" }) {
+    hero: file(relativePath: { eq: "hero-banner.jpg" }) {
       ...HeroImageFragment
     }
   }
