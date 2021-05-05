@@ -12,7 +12,7 @@ export const Hero = (props) => {
       <div className="flex relative rounded-md overflow-hidden bg-primary-400">
         <Img
           alt={title}
-          className="grayscale-1 blend-multiply"
+          className=""
           fadeIn={false}
           fixed={[
             { ...image.childImageSharp.desktop, media: `(min-width: 768px)` },
@@ -24,7 +24,7 @@ export const Hero = (props) => {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(to bottom, rgba(49, 130, 206, 0.4) 24%, rgba(49, 130, 206, .8) 100%)",
+              "linear-gradient(to bottom, rgba(16, 185, 129, 0.5) 40%, rgba(6, 95, 70, .9) 100%)",
           }}
         ></div>
 
@@ -62,10 +62,10 @@ export const query = graphql`
   fragment HeroImageFragment on File {
     url: publicURL
     childImageSharp {
-      mobile: fixed(width: 768, height: 240, quality: 80, cropFocus: NORTH, fit: COVER) {
+      mobile: fixed(width: 768, height: 256, quality: 80, cropFocus: NORTH, fit: COVER) {
         ...GatsbyImageSharpFixed_withWebp
       }
-      desktop: fixed(width: 1496, height: 380, quality: 85, cropFocus: NORTH, fit: COVER) {
+      desktop: fixed(width: 1536, height: 512, quality: 85, cropFocus: NORTH, fit: COVER) {
         ...GatsbyImageSharpFixed_withWebp
       }
     }
