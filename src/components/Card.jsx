@@ -49,7 +49,9 @@ export const Card = (props) => {
               {Rupees_Goal > 0 ? ` of ${showCurrency(Rupees_Goal, isForeignDonor ? 'dollars' : 'rupees', true)}` : ' so far'}
             </p>
           }
-          <Feature label="Location" value={Region} />
+          { Region &&
+            <Feature label="Location" value={Region} />
+          }
         </div>
       </Link>
     </div>

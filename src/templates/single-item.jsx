@@ -80,9 +80,12 @@ export default (props) => {
                   </span>
                 </p>
               )}
-
-              <Feature label="Location" value={Region} />
-              <Feature label="Category" value={Category} />
+              { Region &&
+                <Feature label="Location" value={Region} />
+              }
+              { Category &&
+                <Feature label="Category" value={Category} />
+              }
               <Feature label="To Donate" value={URL} />
               {Bank_Details && (
                 <p className="whitespace-pre-line text-sm lg:text-base leading-normal text-primary-900">
