@@ -127,21 +127,28 @@ export default ({ data }) => {
             <p className="mb-2">
               <ul className="list-disc pl-5">
                 <li>
-                  Please filter for urgent needs first, marked in red as
-                  "URGENT"
+                  We vet and track everything we add to the website – <a
+                  className="text-primary-700 font-bold hover:text-primary-500"
+                  href="https://docs.google.com/document/d/1HzDK589lbyUtS-sDyUF9U2T-zkkT6CyCa3RY7WYBk3E/edit">
+                  click here to read about our internal process for vetting and listing fundraisers,
+                  our commitment to equity, and our team in the document here.</a>
+                </li>
+                <li>
+                  Please look for the most urgent needs first, marked in red as
+                  "Urgent".
                 </li>
                 <li>
                   If you are donating from abroad, please look for fundraisers
-                  accepting foreign donations, marked with "£ $ €"
+                  accepting foreign donations, marked with "£&nbsp;$&nbsp;€".
                 </li>
                 <li>
                   If you are an NRI donating from an Indian bank account, your
                   donations don't count as "foreign" and you don't have to worry
-                  about this
+                  about this.
                 </li>
                 <li>
-                  If you have a campaign you want us to add, email
-                  covidmutualaidindia@protonmail.com
+                  If you have a campaign you want us to add, email <span
+                  className="italic">covidmutualaidindia<wbr />@protonmail.com</span>.
                 </li>
               </ul>
             </p>
