@@ -4,7 +4,7 @@ import { Cards, Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { Switch } from "@headlessui/react"
-import { Link } from "gatsby-plugin-modal-routing"
+import { Link } from "gatsby-plugin-modal-routing-3"
 
 const Index = ({ data }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
