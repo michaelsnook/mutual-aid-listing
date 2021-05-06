@@ -58,10 +58,8 @@ export const Card = (props) => {
                   )}`
                 : " so far"}
             </p>
-          }
-          {Region &&
-            <Feature label="Location" value={Region} />
-          }
+          )}
+          {Region && <Feature label="Location" value={Region} />}
         </div>
       </Link>
     </div>
