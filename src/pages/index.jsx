@@ -6,7 +6,7 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { Switch } from "@headlessui/react"
 import { Link } from "gatsby-plugin-modal-routing"
 
-export default ({ data }) => {
+const Index = ({ data }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
   const [isAlertClosed, setIsAlertClosed] = useState(false)
   const [isForeignDonor, setIsForeignDonor] = useState(false)
@@ -274,3 +274,4 @@ export const query = graphql`
     }
   }
 `
+export default Index

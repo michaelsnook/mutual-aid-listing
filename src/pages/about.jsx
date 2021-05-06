@@ -4,7 +4,7 @@ import { Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HomeIcon } from '@heroicons/react/outline'
 
-export default ({ data }) => {
+const About = ({ data }) => {
 
   return (
     <Layout>
@@ -115,3 +115,5 @@ export const query = graphql`
     }
   }
 `
+
+export default About
