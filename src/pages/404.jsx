@@ -6,7 +6,7 @@ import "typeface-roboto"
 import "typeface-averia-serif-libre"
 import "../styles/style.css"
 
-export default () => {
+const _404 = () => {
   return (
     <div className="flex min-h-screen items-center">
       <SiteMetadata title="Error 404" description="Page not found" />
@@ -26,3 +26,5 @@ export default () => {
     </div>
   )
 }
+
+export default _404

@@ -8,7 +8,7 @@ import { showCurrency } from "../utils"
 import { HomeIcon } from '@heroicons/react/outline'
 
 
-export default (props) => {
+const SingleItem = (props) => {
   const { data, location } = props
   const {
     Region,
@@ -133,3 +133,5 @@ export const query = graphql`
     }
   }
 `
+
+export default SingleItem
