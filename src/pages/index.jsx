@@ -4,7 +4,7 @@ import { Cards, Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { Switch } from "@headlessui/react"
-import { Link } from "gatsby-plugin-modal-routing"
+import { Link } from "gatsby-plugin-modal-routing-3"
 
 const Index = ({ data }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
@@ -127,11 +127,15 @@ const Index = ({ data }) => {
             <p className="mb-2">
               <ul className="list-disc pl-5">
                 <li>
-                  We vet and track everything we add to the website – <a
-                  className="text-primary-700 font-bold hover:text-primary-500"
-                  href="https://docs.google.com/document/d/1HzDK589lbyUtS-sDyUF9U2T-zkkT6CyCa3RY7WYBk3E/edit">
-                  click here to read about our internal process for vetting and listing fundraisers,
-                  our commitment to equity, and our team in the document here.</a>
+                  We vet and track everything we add to the website –{" "}
+                  <a
+                    className="text-primary-700 font-bold hover:text-primary-500"
+                    href="https://docs.google.com/document/d/1HzDK589lbyUtS-sDyUF9U2T-zkkT6CyCa3RY7WYBk3E/edit"
+                  >
+                    click here to read about our internal process for vetting
+                    and listing fundraisers, our commitment to equity, and our
+                    team in the document here.
+                  </a>
                 </li>
                 <li>
                   Please look for the most urgent needs first, marked in red as
@@ -147,8 +151,13 @@ const Index = ({ data }) => {
                   about this.
                 </li>
                 <li>
-                  If you have a campaign you want us to add, email <span
-                  className="italic">covidmutualaidindia<wbr />@protonmail.com</span>.
+                  If you have a campaign you want us to add, email{" "}
+                  <span className="italic">
+                    covidmutualaidindia
+                    <wbr />
+                    @protonmail.com
+                  </span>
+                  .
                 </li>
               </ul>
             </p>
@@ -176,26 +185,26 @@ const Index = ({ data }) => {
                 state={{
                   current: index,
                   items: highlighted_campaigns.map(
-                    (highlighted_campaign) => `/${highlighted_campaign.data.Slug}`
+                    (highlighted_campaign) =>
+                      `/${highlighted_campaign.data.Slug}`
                   ),
                 }}
                 asModal
               >
-              <div class="flex items-center justify-between w-full">
-                <div class="flex items-center">
-                  <div class="text-md">
-                    <p class="font-medium">
-                      {highlighted_campaign["data"]["Name"]}
-                    </p>
-                    <span class="inline">
-                      {highlighted_campaign["data"]["Region"]}
-                    </span>
+                <div class="flex items-center justify-between w-full">
+                  <div class="flex items-center">
+                    <div class="text-md">
+                      <p class="font-medium">
+                        {highlighted_campaign["data"]["Name"]}
+                      </p>
+                      <span class="inline">
+                        {highlighted_campaign["data"]["Region"]}
+                      </span>
+                    </div>
                   </div>
+                  <div class="flex-shrink-0"></div>
                 </div>
-                <div class="flex-shrink-0">
-                </div>
-              </div>
-            </Link>
+              </Link>
             ))}
           </div>
         </div>

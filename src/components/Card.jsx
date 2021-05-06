@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
-import { Link } from "gatsby-plugin-modal-routing"
+import { Link } from "gatsby-plugin-modal-routing-3"
 import PropTypes from "prop-types"
 import React from "react"
 import { Feature, Tag } from "."
@@ -28,11 +28,11 @@ export const Card = (props) => {
       <Link to={`/${Slug}`} state={{ navigation }} asModal>
         <div className="bg-primary-300 relative">
           <Img fluid={cover.childImageSharp.fluid} alt={Name} />
-          {Status === 'Met Goal and Increased' &&
+          {Status === "Met Goal and Increased" && (
             <span className="absolute top-0 right-0 text-sm text-white font-medium my-3 mr-1 tracking-wide">
-              { <Tag color="yellow" text={Status} /> }
+              {<Tag color="yellow" text={Status} />}
             </span>
-          }
+          )}
         </div>
 
         <div className="p-5 pb-1">
@@ -40,16 +40,26 @@ export const Card = (props) => {
             {Name}
           </h1>
 
-          { Urgent && <Tag color="urgent" text="Urgent" /> }
-          { Foreign_Funds && <Tag color="secondary" text="£ $ €" /> }
+          {Urgent && <Tag color="urgent" text="Urgent" />}
+          {Foreign_Funds && <Tag color="secondary" text="£ $ €" />}
 
-          { Rupees_Reached > 0 &&
+          {Rupees_Reached > 0 && (
             <p className="mt-2 text-base text-primary-900 mb-5 font-medium">
-              {showCurrency(Rupees_Reached, isForeignDonor ? 'dollars' : 'rupees')} raised
-              {Rupees_Goal > 0 ? ` of ${showCurrency(Rupees_Goal, isForeignDonor ? 'dollars' : 'rupees', true)}` : ' so far'}
+              {showCurrency(
+                Rupees_Reached,
+                isForeignDonor ? "dollars" : "rupees"
+              )}{" "}
+              raised
+              {Rupees_Goal > 0
+                ? ` of ${showCurrency(
+                    Rupees_Goal,
+                    isForeignDonor ? "dollars" : "rupees",
+                    true
+                  )}`
+                : " so far"}
             </p>
           }
-          { Region &&
+          {Region &&
             <Feature label="Location" value={Region} />
           }
         </div>

@@ -1,5 +1,5 @@
 import { navigate } from "gatsby"
-import { Link } from "gatsby-plugin-modal-routing"
+import { Link } from "gatsby-plugin-modal-routing-3"
 import React, { useEffect } from "react"
 import { FaAngleLeft, FaAngleRight, FaTimes } from "react-icons/fa"
 

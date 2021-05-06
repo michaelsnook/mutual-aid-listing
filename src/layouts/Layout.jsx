@@ -1,5 +1,5 @@
 import React from "react"
-import { ModalRoutingContext } from "gatsby-plugin-modal-routing"
+import { ModalRoutingContext } from "gatsby-plugin-modal-routing-3"
 import "typeface-roboto"
 import "typeface-averia-serif-libre"
 import "../styles/style.css"
