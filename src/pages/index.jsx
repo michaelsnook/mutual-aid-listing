@@ -77,6 +77,7 @@ const Index = ({ data }) => {
               checked={isForeignDonor}
               onChange={() => {
                 setIsForeignDonor(!isForeignDonor)
+                setIsNavOpen(false)
               }}
               className={`relative inline-flex items-center flex-shrink-0 ${
                 isForeignDonor ? "bg-primary-700" : "bg-gray-600"
