@@ -53,8 +53,8 @@ const Index = ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
       />
 
-      <nav className="shadow-lg z-40 p-5 sticky top-0 bg-white w-full">
-        <div className="flex flex-row justify-between w-full">
+      <nav className={`shadow-lg z-40 p-5 ${ isNavOpen ? 'fixed overflow-y-auto h-screen md:h-auto' : 'sticky' } top-0 bg-white w-full`}>
+        <div className={`${ isNavOpen && 'fixed left-0 top-0 p-5' } flex flex-row justify-between bg-white w-full`}>
           <button
             onClick={() => setIsNavOpen(!isNavOpen)}
             className="focus:outline-none focus:ring focus:border-primary-300 rounded-sm"
@@ -91,7 +91,7 @@ const Index = ({ data }) => {
           </div>
         </div>
         <div
-          className={`flex-col toggle w-full text-center ${
+          className={`flex-col toggle w-full text-center mt-10 ${
             isNavOpen ? "flex" : "hidden"
           }`}
         >
