@@ -28,9 +28,9 @@ export default ({ data }) => {
         highlighted_campaigns.push(item)
         urgent_cards[Category].push(item)
       } else if (item["data"]["Status"] === "Met Goal and Increased") {
-        regular_cards[Category].push(item)
-      } else {
         goal_met_cards[Category].push(item)
+      } else {
+        regular_cards[Category].push(item)
       }
     }
   })
