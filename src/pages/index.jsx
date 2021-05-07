@@ -54,7 +54,7 @@ const Index = ({ data }) => {
       />
 
       <nav className={`shadow-lg z-40 p-5 ${ isNavOpen ? 'fixed h-screen md:h-auto' : 'sticky' } overflow-y-auto top-0 bg-white w-full`}>
-        <div className={`${ isNavOpen && 'absolute left-0 top-0 right-0 p-5' } flex flex-row justify-between`}>
+        <div className={`${ isNavOpen && 'fixed bg-white shadow-lg left-0 top-0 right-0 p-5' } flex flex-row justify-between`}>
           <button
             onClick={() => setIsNavOpen(!isNavOpen)}
             className="focus:outline-none focus:ring focus:border-primary-300 rounded-sm"
@@ -91,7 +91,7 @@ const Index = ({ data }) => {
           </div>
         </div>
         {isNavOpen &&
-          <div className="flex flex-col w-full text-center mt-10">
+          <div className="flex flex-col w-full text-center mt-14">
             {Object.keys(categories).map((category_header) => (
               <a
                 onClick={() => setIsNavOpen(false)}
