@@ -53,8 +53,8 @@ const Index = ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
       />
 
-      <nav className={`shadow-lg z-40 p-5 ${ isNavOpen ? 'fixed overflow-y-auto h-screen md:h-auto' : 'sticky' } top-0 bg-white w-full`}>
-        <div className={`${ isNavOpen && 'fixed left-0 top-0 p-5' } flex flex-row justify-between bg-white w-full`}>
+      <nav className={`shadow-lg z-40 p-5 ${ isNavOpen ? 'fixed h-screen md:h-auto' : 'sticky' } overflow-y-auto top-0 bg-white w-full`}>
+        <div className={`${ isNavOpen && 'absolute left-0 top-0 right-0 p-5' } flex flex-row justify-between`}>
           <button
             onClick={() => setIsNavOpen(!isNavOpen)}
             className="focus:outline-none focus:ring focus:border-primary-300 rounded-sm"
@@ -68,7 +68,6 @@ const Index = ({ data }) => {
               aria-hidden={isNavOpen ? false : true}
             />
           </button>
-
           <div>
             <span className="inline-flex flex-shrink-0 relative mr-2 align-text-bottom text-primary-900">
               Donate from overseas
@@ -91,35 +90,33 @@ const Index = ({ data }) => {
             </Switch>
           </div>
         </div>
-        <div
-          className={`flex-col toggle w-full text-center mt-10 ${
-            isNavOpen ? "flex" : "hidden"
-          }`}
-        >
-          {Object.keys(categories).map((category_header) => (
-            <a
-              onClick={() => setIsNavOpen(false)}
-              href={"#category_" + category_header}
-              className="block text-primary-900 px-3 py-3 mx-auto
-                hover:bg-primary-200 rounded-md"
+        {isNavOpen &&
+          <div className="flex flex-col w-full text-center mt-10">
+            {Object.keys(categories).map((category_header) => (
+              <a
+                onClick={() => setIsNavOpen(false)}
+                href={"#category_" + category_header}
+                className="block text-primary-900 px-3 py-3 mx-auto
+                  hover:bg-primary-200 rounded-md"
+              >
+                {categories[category_header]}
+              </a>
+            ))}
+            <hr className="my-3" />
+            <Link
+              to="/about"
+              className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md"
             >
-              {categories[category_header]}
+              About Us and this List
+            </Link>
+            <a
+              href="https://docs.google.com/document/d/e/2PACX-1vSFpy5vYw2wtESs77spBb1nv3dpGj3Jhv1J3WxMpfURc_MVIgc556s1BqD9z3GO-HVqLQWhWAHxGIOs/pub"
+              className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md"
+            >
+              List of Completed Fundraisers
             </a>
-          ))}
-          <hr className="my-3" />
-          <Link
-            to="/about"
-            className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md"
-          >
-            About Us and this List
-          </Link>
-          <a
-            href="https://docs.google.com/document/d/e/2PACX-1vSFpy5vYw2wtESs77spBb1nv3dpGj3Jhv1J3WxMpfURc_MVIgc556s1BqD9z3GO-HVqLQWhWAHxGIOs/pub"
-            className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md"
-          >
-            List of Completed Fundraisers
-          </a>
-        </div>
+          </div>
+        }
       </nav>
 
       {!isAlertClosed && (
