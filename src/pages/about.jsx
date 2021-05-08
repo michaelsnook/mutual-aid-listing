@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import { Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HomeIcon } from '@heroicons/react/outline'
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 const About = ({ data }) => {
 
@@ -44,11 +45,16 @@ const About = ({ data }) => {
           have grown and put some structure to our labour, we wanted to share with you, the
           public (hopefully the donor or the volunteer) what it is, and the values that drive it.
         </p>
-        <p className="py-2">We vet and track everything we add to the website. <a
-          className="text-primary-700 font-bold hover:text-primary-500"
-          href="https://docs.google.com/document/d/1HzDK589lbyUtS-sDyUF9U2T-zkkT6CyCa3RY7WYBk3E/edit">
-          Click here to read about our internal process for vetting and listing fundraisers,
-          our commitment to equity, and our team in the document here.</a>
+        <p className="py-2">We vet and track everything we add to the website.{" "}
+          <OutboundLink
+            className="text-primary-700 font-bold hover:text-primary-500"
+            href="https://docs.google.com/document/d/1HzDK589lbyUtS-sDyUF9U2T-zkkT6CyCa3RY7WYBk3E/edit"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Click here to read about our internal process for vetting and listing fundraisers,
+            our commitment to equity, and our team in the document here.
+          </OutboundLink>
         </p>
         <p className="py-2">That said, We are not a formal organization, so please don’t
           treat us or this website as one. We are doing our best to support mutual aid
@@ -62,10 +68,16 @@ const About = ({ data }) => {
           way to fill in that gap, rather than to recreate it.
         </p>
         <p className="py-2">If you'd like to get more of a look at the process
-          of our work, please follow our Instagram account <a
-          className="text-primary-700 font-bold hover:text-primary-500"
-          href="https://instagram.com/mutualaidindia">
-          @MutualAidIndia</a> where we share graphics highlighting many of the individual
+          of our work, please follow our Instagram account{" "}
+          <OutboundLink
+            className="text-primary-700 font-bold hover:text-primary-500"
+            href="https://instagram.com/mutualaidindia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @mutualaidindia
+          </OutboundLink>{" "}
+          where we share graphics highlighting many of the individual
           recipients and informal groups doing amazing work, who are otherwise overlooked by
           mainstream NGOs.
         </p>

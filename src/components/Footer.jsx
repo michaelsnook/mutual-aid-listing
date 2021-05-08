@@ -1,4 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 import React from "react"
 import {
   FaEnvelope,
@@ -67,20 +68,20 @@ export const Footer = () => {
 const FooterIconLink = ({ href, label, icon: Icon }) => {
   const linkParams = { href }
 
-  if (href.startsWith("http")) {
+  if (href.startsWith("http") || href.startsWith("mailto")) {
     linkParams.target = "_blank"
     linkParams.rel = "noreferrer noopener"
   }
 
   return (
     <li className="inline-block px-2">
-      <a
+      <OutboundLink
         {...linkParams}
         className="inline-flex h-8 w-8 border border-primary-800 text-primary-800 rounded-full items-center justify-center transition-colors duration-200 hover:text-white hover:bg-primary-400 hover:border-primary-400"
       >
         <span className="sr-only">{label}</span>
         <Icon className="w-3 h-3 fill-current" />
-      </a>
+      </OutboundLink>
     </li>
   )
 }
