@@ -54,8 +54,12 @@ const Index = ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
       />
 
-      <nav className={`shadow-lg z-40 p-5 ${ isNavOpen ? 'fixed h-screen md:h-auto' : 'sticky' } overflow-y-auto top-0 bg-white w-full`}>
-        <div className={`${ isNavOpen && 'fixed bg-white shadow-lg left-0 top-0 right-0 p-5' } flex flex-row justify-between`}>
+      <nav
+        className={`shadow-lg z-40 p-5 ${
+          isNavOpen ? "fixed" : "sticky"
+        } top-0 bg-white w-full`}
+      >
+        <div className="flex flex-row justify-between">
           <button
             onClick={() => setIsNavOpen(!isNavOpen)}
             className="focus:outline-none focus:ring focus:border-primary-300 rounded-sm"
@@ -91,36 +95,39 @@ const Index = ({ data }) => {
             </Switch>
           </div>
         </div>
-        {isNavOpen &&
-          <div className="flex flex-col w-full text-center mt-14">
-            {Object.keys(categories).map((category_header) => (
-              <Link
-                onClick={() => setIsNavOpen(false)}
-                to={"#category_" + category_header}
-                className="block text-primary-900 px-3 py-3 mx-auto
-                  hover:bg-primary-200 rounded-md"
-              >
-                {categories[category_header]}
-              </Link>
-            ))}
-            <hr className="my-3" />
-            <Link
-              to="/about"
-              className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md"
-            >
-              About Us and this List
-            </Link>
-            <OutboundLink
-              href="https://docs.google.com/document/d/e/2PACX-1vSFpy5vYw2wtESs77spBb1nv3dpGj3Jhv1J3WxMpfURc_MVIgc556s1BqD9z3GO-HVqLQWhWAHxGIOs/pub"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md"
-            >
-              List of Completed Fundraisers
-            </OutboundLink>
-          </div>
-        }
       </nav>
+      {isNavOpen && (
+        <nav
+          className="h-full overflow-y-scroll p-5 pt-20 fixed top-0 w-full z-30
+            bg-white shadow-lg flex flex-col text-center"
+        >
+          {Object.keys(categories).map((category_header) => (
+            <Link
+              onClick={() => setIsNavOpen(false)}
+              to={"#category_" + category_header}
+              className="block text-primary-900 px-3 py-3 mx-auto
+                hover:bg-primary-200 rounded-md"
+            >
+              {categories[category_header]}
+            </Link>
+          ))}
+          <hr className="my-3" />
+          <Link
+            to="/about"
+            className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md"
+          >
+            About Us and this List
+          </Link>
+          <OutboundLink
+            href="https://docs.google.com/document/d/e/2PACX-1vSFpy5vYw2wtESs77spBb1nv3dpGj3Jhv1J3WxMpfURc_MVIgc556s1BqD9z3GO-HVqLQWhWAHxGIOs/pub"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md"
+          >
+            List of Completed Fundraisers
+          </OutboundLink>
+        </nav>
+      )}
 
       {!isAlertClosed && (
         <div className="container pt-6 max-w-4xl">
