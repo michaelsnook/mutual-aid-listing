@@ -37,6 +37,11 @@ export const SiteMetadata = ({ description, image, title }) => {
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:image" content={image} />
       <meta property="twitter:description" content={description} />
+      <script
+        type="text/javascript"
+        src="https://platform-api.sharethis.com/js/sharethis.js#property=609a0232a99fbf00117440e5&product=inline-share-buttons"
+        async="async"
+      ></script>
     </Helmet>
   )
 }
