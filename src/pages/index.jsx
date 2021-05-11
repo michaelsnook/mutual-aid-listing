@@ -5,6 +5,7 @@ import { Layout } from "../layouts/Layout"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { Switch } from "@headlessui/react"
 import { Link } from "gatsby-plugin-modal-routing-3"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 const Index = ({ data }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
@@ -53,7 +54,11 @@ const Index = ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
       />
 
-      <nav className={`shadow-lg z-40 p-5 ${ isNavOpen ? 'fixed' : 'sticky' } top-0 bg-white w-full`}>
+      <nav
+        className={`shadow-lg z-40 p-5 ${
+          isNavOpen ? "fixed" : "sticky"
+        } top-0 bg-white w-full`}
+      >
         <div className="flex flex-row justify-between">
           <button
             onClick={() => setIsNavOpen(!isNavOpen)}
@@ -91,18 +96,20 @@ const Index = ({ data }) => {
           </div>
         </div>
       </nav>
-      {isNavOpen &&
-        <nav className="h-full overflow-y-scroll p-5 pt-20 fixed top-0 w-full z-30
-            bg-white shadow-lg flex flex-col text-center">
+      {isNavOpen && (
+        <nav
+          className="h-full overflow-y-scroll p-5 pt-20 fixed top-0 w-full z-30
+            bg-white shadow-lg flex flex-col text-center"
+        >
           {Object.keys(categories).map((category_header) => (
-            <a
+            <Link
               onClick={() => setIsNavOpen(false)}
-              href={"#category_" + category_header}
+              to={"#category_" + category_header}
               className="block text-primary-900 px-3 py-3 mx-auto
                 hover:bg-primary-200 rounded-md"
             >
               {categories[category_header]}
-            </a>
+            </Link>
           ))}
           <hr className="my-3" />
           <Link
@@ -111,14 +118,16 @@ const Index = ({ data }) => {
           >
             About Us and this List
           </Link>
-          <a
+          <OutboundLink
             href="https://docs.google.com/document/d/e/2PACX-1vSFpy5vYw2wtESs77spBb1nv3dpGj3Jhv1J3WxMpfURc_MVIgc556s1BqD9z3GO-HVqLQWhWAHxGIOs/pub"
+            target="_blank"
+            rel="noopener noreferrer"
             className="block text-primary-900 px-3 py-3 mx-auto hover:bg-primary-200 rounded-md"
           >
             List of Completed Fundraisers
-          </a>
+          </OutboundLink>
         </nav>
-      }
+      )}
 
       {!isAlertClosed && (
         <div className="container pt-6 max-w-4xl">
@@ -137,14 +146,16 @@ const Index = ({ data }) => {
               <ul className="list-disc pl-5">
                 <li>
                   We vet and track everything we add to the website –{" "}
-                  <a
+                  <OutboundLink
                     className="text-primary-700 font-bold hover:text-primary-500"
                     href="https://docs.google.com/document/d/1HzDK589lbyUtS-sDyUF9U2T-zkkT6CyCa3RY7WYBk3E/edit"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     click here to read about our internal process for vetting
                     and listing fundraisers, our commitment to equity, and our
                     team in the document here.
-                  </a>
+                  </OutboundLink>
                 </li>
                 <li>
                   Please look for the most urgent needs first, marked in red as

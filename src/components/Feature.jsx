@@ -1,3 +1,4 @@
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 import PropTypes from "prop-types"
 import React from "react"
 
@@ -6,14 +7,14 @@ export const Feature = ({ label, value }) => {
     if (value.startsWith("http") || value.startsWith("mailto")) {
       value = (
         <div className="truncate">
-          <a
+          <OutboundLink
             href={value}
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary-500 hover:text-primary-700 transition-colors duration-200"
           >
             {value}
-          </a>
+          </OutboundLink>
         </div>
       )
     } else {

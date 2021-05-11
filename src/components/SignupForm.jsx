@@ -1,4 +1,5 @@
 import React from "react"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 export const SignupForm = () => {
   return (
@@ -13,12 +14,24 @@ export const SignupForm = () => {
           </p>
         </div>
         <div className="flex w-full flex-col md:flex-row md:w-1/2 lg:w-auto">
-          <a href="mailto:covidmutualaidindia@protonmail.com?subject=Please%20add%20this%20fundraiser"
+          <OutboundLink
+            href="mailto:covidmutualaidindia@protonmail.com?subject=Please%20add%20this%20fundraiser"
             className="bg-primary-600 text-center shadow-sm rounded-md text-white text-xl
-            px-4 py-2 mb-2 md:mb-0 hover:bg-primary-400">Submit a Fundraiser</a>
-          <a href="mailto:covidmutualaidindia@protonmail.com?subject=Volunteering"
+            px-4 py-2 mb-2 md:mb-0 hover:bg-primary-400"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Submit a Fundraiser
+          </OutboundLink>
+          <OutboundLink
+            href="mailto:covidmutualaidindia@protonmail.com?subject=Volunteering"
             className="bg-primary-600 text-center shadow-sm rounded-md text-white text-xl
-            px-4 py-2 mt-2 md:mt-0 hover:bg-primary-400 md:ml-3">Volunteer</a>
+            px-4 py-2 mt-2 md:mt-0 hover:bg-primary-400 md:ml-3"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Volunteer
+          </OutboundLink>
         </div>
       </div>
     </>
