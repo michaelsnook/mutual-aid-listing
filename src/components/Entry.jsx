@@ -18,6 +18,7 @@ export const Entry = (props) => {
     isForeignDonor = false,
     Description,
     current,
+    URL,
   } = props
 
   return (
@@ -84,6 +85,7 @@ Entry.propTypes = {
   isForeignDonor: PropTypes.bool,
   Description: PropTypes.string.isRequired,
   current: PropTypes.number.isRequired,
+  URL: PropTypes.string,
 }
 
 Entry.defaultProps = {
