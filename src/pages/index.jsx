@@ -211,6 +211,7 @@ export const query = graphql`
           Category_Rank
           Description
           Bank_Details
+          URL
         }
       }
     }
