@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-import { Cards, Hero, SiteMetadata } from "../components"
+import { Entries, Hero, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { Switch } from "@headlessui/react"
@@ -232,7 +232,7 @@ const Index = ({ data }) => {
 
       {Object.keys(categories).map((category_header, index) => (
         <div
-          className="container overflow-hidden -mt-14 pt-20"
+          className="container overflow-hidden py-12 px-10 my-14 bg-white shadow-md"
           id={"category_" + category_header}
         >
           <h4 className="text-primary-800 uppercase text-sm tracking-wide font-medium pb-px">
@@ -245,7 +245,7 @@ const Index = ({ data }) => {
             {categories[category_header]}
           </h2>
 
-          <Cards
+          <Entries
             nodes={urgent_cards[categories[category_header]].concat(
               regular_cards[categories[category_header]],
               goal_met_cards[categories[category_header]]
@@ -267,9 +267,6 @@ export const query = graphql`
       nodes {
         data {
           Region
-          Image {
-            ...CardImageFragment
-          }
           Name
           Slug
           Rupees_Goal
@@ -279,6 +276,8 @@ export const query = graphql`
           Foreign_Funds
           Category
           Category_Rank
+          Description
+          Bank_Details
         }
       }
     }

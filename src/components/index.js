@@ -1,5 +1,5 @@
-export { Card } from "./Card"
-export { Cards } from "./Cards"
+export { Entry } from "./Entry"
+export { Entries } from "./Entries"
 export { Feature } from "./Feature"
 export { Tag } from "./Tag"
 export { Footer } from "./Footer"
