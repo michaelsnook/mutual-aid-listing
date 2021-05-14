@@ -6,10 +6,10 @@ export const Entries = (props) => {
   const { nodes, isForeignDonor } = props
 
   return (
-    <div className="flex flex-wrap -mx-3 xl:-mx-6">
+    <div className="flex flex-wrap -mx-3 lg:-mx-4 xl:-mx-6">
       {nodes.map((item, i) => (
         <div
-          className="w-full px-3 xl:px-6 py-6"
+          className="w-full px-3 xl:px-6 lg:px-4 py-6"
           key={`card_${item.data.Slug}`}
         >
           <Entry

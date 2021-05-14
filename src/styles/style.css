@@ -20,6 +20,18 @@ body.ReactModal__Body--open > div[aria-hidden="true"] {
   mix-blend-mode: multiply;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   @apply font-serif font-normal;
+}
+
+#scrolling-navbar::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+#scrolling-navbar {
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none; /* Firefox 64 */
 }
