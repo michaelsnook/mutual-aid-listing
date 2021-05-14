@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import { Feature, Tag } from "."
 import { showCurrency } from "../utils"
+import { ExternalLinkIcon } from "@heroicons/react/outline"
 
 export const Entry = (props) => {
   const {
@@ -52,13 +53,23 @@ export const Entry = (props) => {
         </p>
       )}
       {Region && <Feature label="Location" value={Region} />}
-      <Feature label="Description" value={URL} />
+      <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px mt-2">
+        Description
+      </h4>
       <p className="mt-4 whitespace-pre-line text-sm lg:text-base leading-normal text-primary-900">
         {Description}
       </p>
       <p className="my-4">
+        {URL && (
+          <Link
+            className="border border-urgent-600 text-center hover:shadow-lg shadow-md rounded-md text-urgent-600 text-lg px-5 py-2 hover:bg-urgent-600 hover:text-white mr-3"
+            to={URL}
+          >
+            Donate <ExternalLinkIcon className="inline h-4 w-4" />
+          </Link>
+        )}
         <Link
-          className="border border-primary-600 text-center hover:shadow-lg shadow-md rounded-md text-primary-600 text-lg px-5 py-2 hover:bg-primary-100"
+          className="border border-primary-600 text-center hover:shadow-lg shadow-md rounded-md text-primary-600 text-lg px-5 py-2 hover:bg-primary-600 hover:text-white"
           to={`/${Slug}`}
           state={{ navigation }}
           asModal
