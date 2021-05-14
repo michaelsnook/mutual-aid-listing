@@ -67,7 +67,7 @@ export const Nav = (props) => {
         <div className="flex flex-row justify-between lg:justify-start">
           <button
             onClick={() => setIsNavOpen(!isNavOpen)}
-            className="md:hidden focus:outline-none focus:ring focus:border-primary-300 rounded-sm"
+            className="lg:hidden focus:outline-none focus:ring focus:border-primary-300 rounded-sm"
           >
             <MenuIcon
               className={`block h-6 w-6 ${isNavOpen ? "hidden" : "block"}`}
@@ -78,25 +78,27 @@ export const Nav = (props) => {
               aria-hidden={isNavOpen ? false : true}
             />
           </button>
-          <span className="inline-flex flex-shrink-0 relative mr-2 align-text-bottom text-primary-900">
-            Donate from overseas
+          <span>
+            <span className="inline-flex flex-shrink-0 relative mr-2 align-text-bottom text-primary-900">
+              Donate from overseas
+            </span>
+            <Switch
+              checked={isToggled}
+              onChange={() => {
+                setToggled(!isToggled)
+                setIsNavOpen(false)
+              }}
+              className={`relative inline-flex items-center flex-shrink-0 ${
+                isToggled ? "bg-primary-700" : "bg-gray-600"
+              } w-11 h-6 rounded-full cursor-pointer focus:outline-none focus:shadow-outline transition-colors duration-200 ease-in-out`}
+            >
+              <span
+                className={`${
+                  isToggled ? "translate-x-6" : "translate-x-1"
+                } inline-block w-4 h-4 transition duration-200 ease-in-out transform bg-white rounded-full`}
+              />
+            </Switch>
           </span>
-          <Switch
-            checked={isToggled}
-            onChange={() => {
-              setToggled(!isToggled)
-              setIsNavOpen(false)
-            }}
-            className={`relative inline-flex items-center flex-shrink-0 ${
-              isToggled ? "bg-primary-700" : "bg-gray-600"
-            } w-11 h-6 rounded-full cursor-pointer focus:outline-none focus:shadow-outline transition-colors duration-200 ease-in-out`}
-          >
-            <span
-              className={`${
-                isToggled ? "translate-x-6" : "translate-x-1"
-              } inline-block w-4 h-4 transition duration-200 ease-in-out transform bg-white rounded-full`}
-            />
-          </Switch>
         </div>
         <div className={`lg:block ${isNavOpen ? "block" : "hidden"} `}>
           <hr className="my-3" />
