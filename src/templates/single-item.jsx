@@ -111,9 +111,12 @@ const SingleItem = (props) => {
                   <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px mt-2">
                     Description
                   </h4>
-                  <p className="whitespace-pre-line text-sm lg:text-base leading-normal text-primary-900">
-                    {Description}
-                  </p>
+                  <p
+                    className="airtable-markdown whitespace-pre-line text-sm lg:text-base leading-normal text-primary-900"
+                    dangerouslySetInnerHTML={{
+                      __html: Description.childMarkdownRemark.html,
+                    }}
+                  />
                 </>
               )}
               <div className="my-4 flex flex-wrap">
@@ -160,7 +163,11 @@ export const query = graphql`
     item: airtable(data: { Slug: { eq: $Slug } }) {
       data {
         Region
-        Description
+        Description {
+          childMarkdownRemark {
+            html
+          }
+        }
         Name
         Image {
           localFiles {

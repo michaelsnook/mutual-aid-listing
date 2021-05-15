@@ -35,3 +35,22 @@ h3 {
   -ms-overflow-style: none; /* IE 11 */
   scrollbar-width: none; /* Firefox 64 */
 }
+
+.airtable-markdown strong {
+  @apply font-bold;
+}
+.airtable-markdown em {
+  @apply italic;
+}
+.airtable-markdown ul {
+  @apply list-disc pl-5;
+}
+.airtable-markdown ol {
+  @apply list-decimal pl-5;
+}
+.airtable-markdown a {
+  @apply font-bold text-primary-700;
+}
+.airtable-markdown a:hover {
+  @apply underline;
+}
