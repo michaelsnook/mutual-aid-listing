@@ -1,9 +1,17 @@
 import { Link } from "gatsby-plugin-modal-routing-3"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useState } from "react"
 import { Feature, Tag } from "."
 import { showCurrency } from "../utils"
-import { ExternalLinkIcon } from "@heroicons/react/outline"
+import { ExternalLinkIcon, CurrencyRupeeIcon } from "@heroicons/react/outline"
+
+function openUPIURL(UPI_ID) {
+  window.open(
+    `upi://pay?pa=${UPI_ID}&pn=Mutual+Aid+Recipient&tn=&cu=INR`,
+    "_blank"
+  )
+  return true
+}
 
 export const Entry = (props) => {
   const {
@@ -20,10 +28,13 @@ export const Entry = (props) => {
     Description,
     current,
     URL,
+    UPI_ID,
   } = props
 
+  const [isUPIPressed, setIsUPIPressed] = useState(false)
+
   return (
-    <div className="h-full">
+    <div className="overflow-x-hidden">
       <Link
         className="text-3xl hover:underline text-primary-600 font-bold leading-snug mb-2"
         to={`/${Slug}`}
@@ -59,24 +70,43 @@ export const Entry = (props) => {
       <p className="mt-4 whitespace-pre-line text-sm lg:text-base leading-normal text-primary-900">
         {Description}
       </p>
-      <p className="my-4">
+      <div className="my-4 flex flex-wrap">
+        {UPI_ID && (
+          <div className="flex flex-col  mr-3 mb-2">
+            <button
+              className="sm:hidden cursor-pointer border border-secondary-600 text-center hover:shadow-lg shadow-md rounded-md text-secondary-600 text-lg px-5 py-2 hover:bg-secondary-600 hover:text-white"
+              to={URL}
+              onClick={() => {
+                openUPIURL(UPI_ID)
+                setIsUPIPressed(true)
+              }}
+            >
+              Donate via UPI <CurrencyRupeeIcon className="inline h-4 w-4" />
+            </button>
+            {isUPIPressed && (
+              <span className="text-sm italic">
+                This option only works on certain devices
+              </span>
+            )}
+          </div>
+        )}
         {URL && (
           <Link
-            className="border border-urgent-600 text-center hover:shadow-lg shadow-md rounded-md text-urgent-600 text-lg px-5 py-2 hover:bg-urgent-600 hover:text-white mr-3"
+            className="inline-block border border-urgent-600 text-center hover:shadow-lg shadow-md rounded-md text-urgent-600 text-lg px-5 py-2 hover:bg-urgent-600 hover:text-white mr-3 mb-2"
             to={URL}
           >
             Donate <ExternalLinkIcon className="inline h-4 w-4" />
           </Link>
         )}
         <Link
-          className="border border-primary-600 text-center hover:shadow-lg shadow-md rounded-md text-primary-600 text-lg px-5 py-2 hover:bg-primary-600 hover:text-white"
+          className="inline-block border border-primary-600 text-center hover:shadow-lg shadow-md rounded-md text-primary-600 text-lg px-5 py-2 hover:bg-primary-600 hover:text-white mb-2"
           to={`/${Slug}`}
           state={{ navigation }}
           asModal
         >
           View Details
         </Link>
-      </p>
+      </div>
     </div>
   )
 }
@@ -97,6 +127,7 @@ Entry.propTypes = {
   Description: PropTypes.string.isRequired,
   current: PropTypes.number.isRequired,
   URL: PropTypes.string,
+  UPI_ID: PropTypes.string,
 }
 
 Entry.defaultProps = {
