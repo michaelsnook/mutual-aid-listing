@@ -6,7 +6,7 @@ export const Tag = (props) => {
 
   return (
     <span
-      className={`inline-block bg-gradient-to-r from-${color}-700 to-${color}-500 shadow-sm rounded-md text-white px-3 py-1 mr-2 mb-2`}
+      className={`inline-block bg-gradient-to-r from-${color}-700 to-${color}-500 shadow-sm rounded-full text-white text-sm px-3 py-1 mr-2 mb-2`}
     >
       {text}
     </span>
