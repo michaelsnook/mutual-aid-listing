@@ -56,13 +56,13 @@ export const Nav = (props) => {
   return (
     <nav
       className={`lg:ml-auto lg:max-w-sm
-        z-50 sticky top-0 w-full
-        lg:h-screen h-auto overflow-y-hidden
+        z-50 fixed lg:sticky top-0 w-full
+        lg:h-screen ${isNavOpen ? "h-screen" : "h-auto"} overflow-y-hidden
         shadow-md lg:shadow-none bg-white lg:bg-transparent`}
     >
       <div
         id="scrolling-navbar"
-        className="w-full lg:h-full overflow-y-auto py-5 px-3 lg:pl-5 lg:pr-0"
+        className="w-full h-full overflow-y-auto py-5 px-3 lg:pl-5 lg:pr-0"
       >
         <div className="flex flex-row justify-between lg:justify-start">
           <button
