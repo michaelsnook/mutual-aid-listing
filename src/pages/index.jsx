@@ -163,7 +163,7 @@ const Index = ({ data }) => {
 
           {Object.keys(categories).map((category_header, index) => (
             <div
-              className="mb-10 py-12 px-10 bg-white shadow-md rounded-md"
+              className="mb-10 py-8 md:py-10 lg:py-12 px-4 md:px-8 lg:px-10 bg-white shadow-md rounded-md"
               id={`category_${category_header}`}
             >
               <h4 className="text-primary-800 uppercase text-sm tracking-wide font-medium pb-px">
@@ -212,6 +212,7 @@ export const query = graphql`
           Description
           Bank_Details
           URL
+          UPI_ID
         }
       }
     }
