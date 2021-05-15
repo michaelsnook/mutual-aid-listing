@@ -64,9 +64,9 @@ export const Entry = (props) => {
       </p>
       <div className="my-4 flex flex-wrap">
         {UPI_ID && (
-          <div className="flex flex-col  mr-3 mb-2">
+          <div className="flex flex-col mr-3 mb-2 sm:hidden">
             <button
-              className="sm:hidden cursor-pointer border border-secondary-600 text-center hover:shadow-lg shadow-md rounded-md text-secondary-600 text-lg px-5 py-2 hover:bg-secondary-600 hover:text-white"
+              className="cursor-pointer border border-secondary-600 text-center hover:shadow-lg shadow-md rounded-md text-secondary-600 text-lg px-5 py-2 hover:bg-secondary-600 hover:text-white"
               to={URL}
               onClick={() => {
                 openUPIURL(UPI_ID)
@@ -87,7 +87,7 @@ export const Entry = (props) => {
             className="inline-block border border-urgent-600 text-center hover:shadow-lg shadow-md rounded-md text-urgent-600 text-lg px-5 py-2 hover:bg-urgent-600 hover:text-white mr-3 mb-2"
             to={URL}
           >
-            Donate <ExternalLinkIcon className="inline h-4 w-4" />
+            Donate Online <ExternalLinkIcon className="inline h-4 w-4" />
           </Link>
         )}
         <Link
