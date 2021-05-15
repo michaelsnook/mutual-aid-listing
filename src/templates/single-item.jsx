@@ -111,7 +111,7 @@ const SingleItem = (props) => {
                   <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px mt-2">
                     Description
                   </h4>
-                  <p
+                  <div
                     className="airtable-markdown py-2 text-sm lg:text-base leading-normal text-primary-900"
                     dangerouslySetInnerHTML={{
                       __html: Description.childMarkdownRemark.html,

@@ -54,3 +54,9 @@ h3 {
 .airtable-markdown a:hover {
   @apply underline;
 }
+.airtable-markdown p {
+  @apply my-3;
+}
+.airtable-markdown blockquote {
+  @apply italic text-lg pl-5 border-l-4 border-gray-300;
+}

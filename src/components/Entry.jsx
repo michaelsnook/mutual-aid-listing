@@ -56,11 +56,11 @@ export const Entry = (props) => {
         </p>
       )}
       {Region && <Feature label="Location" value={Region} />}
-      <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px mt-2">
+      <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px my-2">
         Description
       </h4>
-      <p
-        className="airtable-markdown py-2 text-sm lg:text-base leading-normal text-primary-900"
+      <div
+        className="airtable-markdown text-sm lg:text-base leading-normal text-primary-900"
         dangerouslySetInnerHTML={{
           __html: Description.childMarkdownRemark.html,
         }}
