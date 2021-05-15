@@ -60,7 +60,7 @@ export const Entry = (props) => {
         Description
       </h4>
       <p
-        className="airtable-markdown whitespace-pre-line text-sm lg:text-base leading-normal text-primary-900"
+        className="airtable-markdown py-2 text-sm lg:text-base leading-normal text-primary-900"
         dangerouslySetInnerHTML={{
           __html: Description.childMarkdownRemark.html,
         }}
