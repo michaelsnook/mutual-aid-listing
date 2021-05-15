@@ -15,6 +15,7 @@ module.exports = {
     title: "Mutual Aid India",
   },
   plugins: [
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
@@ -95,6 +96,10 @@ module.exports = {
               Bank_Details: "",
               Rupees_Goal: 0,
               Rupees_Reached: 0,
+            },
+            mapping: {
+              Description: "text/markdown",
+              Image: "fileNode",
             },
           },
         ],
