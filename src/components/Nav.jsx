@@ -4,7 +4,7 @@ import { Switch } from "@headlessui/react"
 import { Link } from "gatsby-plugin-modal-routing-3"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 
-function link({ url, text }) {
+function link({ url, text }, clickCB = null) {
   const isOutbound = url.indexOf("https://") === 0
 
   return isOutbound ? (
@@ -23,6 +23,7 @@ function link({ url, text }) {
       <Link
         to={url}
         className="block text-primary-700 px-3 py-3 hover:bg-primary-200 rounded-md"
+        onClick={() => clickCB(false)}
       >
         {text}
       </Link>
@@ -105,7 +106,7 @@ export const Nav = (props) => {
           <span className="inline-flex flex-shrink-0 relative mr-2 align-text-bottom text-primary-900">
             Categories
           </span>
-          <ul>{page_links.map((ob) => link(ob))}</ul>
+          <ul>{page_links.map((ob) => link(ob, setIsNavOpen))}</ul>
           <hr className="my-3" />
           <ul>{extra_links.map((ob) => link(ob))}</ul>
         </div>
