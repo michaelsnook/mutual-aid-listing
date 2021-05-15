@@ -1,12 +1,15 @@
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import React from "react"
+import React, { useState } from "react"
 import { Feature, SiteMetadata, Tag } from "../components"
 import { useModal } from "../context"
 import { Layout } from "../layouts/Layout"
-import { showCurrency } from "../utils"
-import { HomeIcon } from '@heroicons/react/outline'
-
+import { showCurrency, openUPIURL } from "../utils"
+import {
+  HomeIcon,
+  ExternalLinkIcon,
+  CurrencyRupeeIcon,
+} from "@heroicons/react/outline"
 
 const SingleItem = (props) => {
   const { data, location } = props
@@ -25,47 +28,58 @@ const SingleItem = (props) => {
     Urgent,
     Foreign_Funds,
     Bank_Details,
+    UPI_ID,
   } = data.item.data
   const navigation = location.state ? location.state.navigation : null
   const { modal } = useModal()
+  const [isUPIPressed, setIsUPIPressed] = useState(false)
 
   return (
     <Layout navigation={navigation}>
       <SiteMetadata title={Name} description={Description} image={cover.url} />
-      {!modal &&
+      {!modal && (
         <nav className="shadow-lg z-40 p-5 sticky top-0 bg-white w-full">
           <div className="flex flex-row justify-between w-full">
-            <Link to="/" className="flex focus:outline-none focus:ring focus:border-primary-300 rounded-sm">
+            <Link
+              to="/"
+              className="flex focus:outline-none focus:ring focus:border-primary-300 rounded-sm"
+            >
               <HomeIcon className="block h-6 w-6 text-primary-900 mr-2" />
-              <span className="pt-0.5 inline-flex flex-shrink-0 relative h-6 mr-2
-              text-primary-900 align-bottom">Back to home</span>
+              <span
+                className="pt-0.5 inline-flex flex-shrink-0 relative h-6 mr-2
+              text-primary-900 align-bottom"
+              >
+                Back to home
+              </span>
             </Link>
           </div>
         </nav>
-      }
+      )}
       <article className={modal && "max-h-80vh md:max-h-90vh overflow-auto"}>
         <div className={modal ? "p-4 lg:p-8" : "container py-8"}>
           <h1 className="text-2xl lg:text-3xl text-primary-500 font-bold leading-tight">
             {Name}
           </h1>
-          { Rupees_Reached &&
+          {Rupees_Reached && (
             <p className="text-base lg:text-lg text-primary-800 font-medium mb-4">
-              {showCurrency(Rupees_Reached, 'rupees')}
-              { Rupees_Goal ? ` of ${showCurrency(Rupees_Goal, 'rupees', true)} ` : ' so far '}
-              (about {showCurrency(Rupees_Reached, 'dollars')}
-              { Rupees_Goal ? ` of ${showCurrency(Rupees_Goal, 'dollars', true)}` : '' })
+              {showCurrency(Rupees_Reached, "rupees")}
+              {Rupees_Goal
+                ? ` of ${showCurrency(Rupees_Goal, "rupees", true)} `
+                : " so far "}
+              (about {showCurrency(Rupees_Reached, "dollars")}
+              {Rupees_Goal
+                ? ` of ${showCurrency(Rupees_Goal, "dollars", true)}`
+                : ""}
+              )
             </p>
-          }
+          )}
           <div className="flex flex-wrap">
             <div className="w-full pb-4 lg:w-3/5 lg:pr-4 lg:pb-0">
               <Img fluid={cover.childImageSharp.fluid} alt={Name} />
             </div>
             <div className="w-full lg:w-2/5 lg:pl-4">
-
-              {Status === 'Met Goal and Increased' && (
-                <p className="mb-2">
-                  { <Tag color="yellow" text={Status} /> }
-                </p>
+              {Status === "Met Goal and Increased" && (
+                <p className="mb-2">{<Tag color="yellow" text={Status} />}</p>
               )}
               {Urgent && (
                 <p className="mb-2">
@@ -80,21 +94,58 @@ const SingleItem = (props) => {
                   </span>
                 </p>
               )}
-              { Region &&
-                <Feature label="Location" value={Region} />
-              }
-              { Category &&
-                <Feature label="Category" value={Category} />
-              }
-              <Feature label="To Donate" value={URL} />
+              {Category && <Feature label="Category" value={Category} />}
+              {Region && <Feature label="Location" value={Region} />}
               {Bank_Details && (
-                <p className="whitespace-pre-line text-sm lg:text-base leading-normal text-primary-900">
-                  {Bank_Details}
-                </p>
+                <>
+                  <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px mt-2">
+                    Bank Details
+                  </h4>
+                  <p className="whitespace-pre-line text-sm lg:text-base leading-normal text-primary-900">
+                    {Bank_Details}
+                  </p>
+                </>
               )}
-              <p className="mt-4 whitespace-pre-line text-sm lg:text-base leading-normal text-primary-900">
-                {Description}
-              </p>
+              {Description && (
+                <>
+                  <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px mt-2">
+                    Description
+                  </h4>
+                  <p className="whitespace-pre-line text-sm lg:text-base leading-normal text-primary-900">
+                    {Description}
+                  </p>
+                </>
+              )}
+              <div className="my-4 flex flex-wrap">
+                {UPI_ID && (
+                  <div className="flex flex-col  mr-3 mb-2">
+                    <button
+                      className="sm:hidden cursor-pointer border border-secondary-600 text-center hover:shadow-lg shadow-md rounded-md text-secondary-600 text-lg px-5 py-2 hover:bg-secondary-600 hover:text-white"
+                      to={URL}
+                      onClick={() => {
+                        openUPIURL(UPI_ID)
+                        setIsUPIPressed(true)
+                      }}
+                    >
+                      Donate via UPI{" "}
+                      <CurrencyRupeeIcon className="inline h-4 w-4" />
+                    </button>
+                    {isUPIPressed && (
+                      <span className="text-sm italic">
+                        This option only works on certain devices
+                      </span>
+                    )}
+                  </div>
+                )}
+                {URL && (
+                  <Link
+                    className="inline-block border border-urgent-600 text-center hover:shadow-lg shadow-md rounded-md text-urgent-600 text-lg px-5 py-2 hover:bg-urgent-600 hover:text-white mr-3 mb-2"
+                    to={URL}
+                  >
+                    Donate <ExternalLinkIcon className="inline h-4 w-4" />
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -129,6 +180,7 @@ export const query = graphql`
         Urgent
         Foreign_Funds
         Bank_Details
+        UPI_ID
       }
     }
   }
