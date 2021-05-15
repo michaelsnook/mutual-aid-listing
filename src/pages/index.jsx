@@ -209,7 +209,11 @@ export const query = graphql`
           Foreign_Funds
           Category
           Category_Rank
-          Description
+          Description {
+            childMarkdownRemark {
+              html
+            }
+          }
           Bank_Details
           URL
           UPI_ID
