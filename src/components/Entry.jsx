@@ -2,16 +2,8 @@ import { Link } from "gatsby-plugin-modal-routing-3"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
 import { Feature, Tag } from "."
-import { showCurrency } from "../utils"
+import { showCurrency, openUPIURL } from "../utils"
 import { ExternalLinkIcon, CurrencyRupeeIcon } from "@heroicons/react/outline"
-
-function openUPIURL(UPI_ID) {
-  window.open(
-    `upi://pay?pa=${UPI_ID}&pn=Mutual+Aid+Recipient&tn=&cu=INR`,
-    "_blank"
-  )
-  return true
-}
 
 export const Entry = (props) => {
   const {
@@ -67,7 +59,7 @@ export const Entry = (props) => {
       <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px mt-2">
         Description
       </h4>
-      <p className="mt-4 whitespace-pre-line text-sm lg:text-base leading-normal text-primary-900">
+      <p className="whitespace-pre-line text-sm lg:text-base leading-normal text-primary-900">
         {Description}
       </p>
       <div className="my-4 flex flex-wrap">
@@ -107,6 +99,7 @@ export const Entry = (props) => {
           View Details
         </Link>
       </div>
+      <hr />
     </div>
   )
 }
