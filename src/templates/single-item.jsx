@@ -120,7 +120,6 @@ const SingleItem = (props) => {
                   <div className="sm:hidden flex flex-col mr-3 mb-2">
                     <button
                       className="cursor-pointer border border-secondary-600 text-center hover:shadow-lg shadow-md rounded-md text-secondary-600 text-lg px-5 py-2 hover:bg-secondary-600 hover:text-white"
-                      to={URL}
                       onClick={() => {
                         openUPIURL(UPI_ID)
                         setIsUPIPressed(true)
