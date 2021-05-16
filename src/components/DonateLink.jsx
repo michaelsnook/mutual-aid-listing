@@ -1,12 +1,12 @@
-import React, { useState } from "react"
-import PropTypes from "prop-types"
-import { OutboundLink } from "gatsby-plugin-google-gtag"
-import { ExternalLinkIcon } from "@heroicons/react/outline"
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
+import { ExternalLinkIcon } from '@heroicons/react/outline'
 
 export const DonateLink = (props) => {
   const { href, children, className } = props
   let url = new URL(href)
-  url.searchParams.set("utm_source", "MutualAidIndia.com")
+  url.searchParams.set('utm_source', 'MutualAidIndia.com')
 
   return (
     <OutboundLink
@@ -17,7 +17,7 @@ export const DonateLink = (props) => {
       href={url.href}
       target="_blank"
     >
-      {children || "Donate Online"}{" "}
+      {children || 'Donate Online'}{' '}
       <ExternalLinkIcon className="inline h-4 w-4" />
     </OutboundLink>
   )
@@ -29,5 +29,5 @@ DonateLink.propTypes = {
 }
 
 DonateLink.defaultProps = {
-  className: "",
+  className: '',
 }

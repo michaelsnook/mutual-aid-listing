@@ -1,11 +1,11 @@
-import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
-import React, { useState } from "react"
-import { Feature, SiteMetadata, Tag, DonateLink } from "../components"
-import { useModal } from "../context"
-import { Layout } from "../layouts/Layout"
-import { showCurrency, openUPIURL } from "../utils"
-import { HomeIcon, CurrencyRupeeIcon } from "@heroicons/react/outline"
+import { graphql, Link } from 'gatsby'
+import Img from 'gatsby-image'
+import React, { useState } from 'react'
+import { Feature, SiteMetadata, Tag, DonateLink } from '../components'
+import { useModal } from '../context'
+import { Layout } from '../layouts/Layout'
+import { showCurrency, openUPIURL } from '../utils'
+import { HomeIcon, CurrencyRupeeIcon } from '@heroicons/react/outline'
 
 const SingleItem = (props) => {
   const { data, location } = props
@@ -51,21 +51,21 @@ const SingleItem = (props) => {
           </div>
         </nav>
       )}
-      <article className={modal && "max-h-80vh md:max-h-90vh overflow-auto"}>
-        <div className={modal ? "p-4 lg:p-8" : "container py-8"}>
+      <article className={modal && 'max-h-80vh md:max-h-90vh overflow-auto'}>
+        <div className={modal ? 'p-4 lg:p-8' : 'container py-8'}>
           <h1 className="text-2xl lg:text-3xl text-primary-500 font-bold leading-tight">
             {Name}
           </h1>
           {Rupees_Reached && (
             <p className="text-base lg:text-lg text-primary-800 font-medium mb-4">
-              {showCurrency(Rupees_Reached, "rupees")}
+              {showCurrency(Rupees_Reached, 'rupees')}
               {Rupees_Goal
-                ? ` of ${showCurrency(Rupees_Goal, "rupees", true)} `
-                : " so far "}
-              (about {showCurrency(Rupees_Reached, "dollars")}
+                ? ` of ${showCurrency(Rupees_Goal, 'rupees', true)} `
+                : ' so far '}
+              (about {showCurrency(Rupees_Reached, 'dollars')}
               {Rupees_Goal
-                ? ` of ${showCurrency(Rupees_Goal, "dollars", true)}`
-                : ""}
+                ? ` of ${showCurrency(Rupees_Goal, 'dollars', true)}`
+                : ''}
               )
             </p>
           )}
@@ -74,7 +74,7 @@ const SingleItem = (props) => {
               <Img fluid={cover.childImageSharp.fluid} alt={Name} />
             </div>
             <div className="w-full lg:w-2/5 lg:pl-4">
-              {Status === "Met Goal and Increased" && (
+              {Status === 'Met Goal and Increased' && (
                 <p className="mb-2">{<Tag color="yellow" text={Status} />}</p>
               )}
               {Urgent && (
@@ -125,7 +125,7 @@ const SingleItem = (props) => {
                         setIsUPIPressed(true)
                       }}
                     >
-                      Donate via UPI{" "}
+                      Donate via UPI{' '}
                       <CurrencyRupeeIcon className="inline h-4 w-4" />
                     </button>
                     {isUPIPressed && (

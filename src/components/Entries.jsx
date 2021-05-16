@@ -1,6 +1,6 @@
-import PropTypes from "prop-types"
-import React from "react"
-import { Entry } from "."
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Entry } from '.'
 
 export const Entries = (props) => {
   const { nodes, isForeignDonor } = props

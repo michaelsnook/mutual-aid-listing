@@ -1,10 +1,10 @@
-import { OutboundLink } from "gatsby-plugin-google-gtag"
-import PropTypes from "prop-types"
-import React from "react"
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 export const Feature = ({ label, value }) => {
-  if (typeof value === "string") {
-    if (value.startsWith("http") || value.startsWith("mailto")) {
+  if (typeof value === 'string') {
+    if (value.startsWith('http') || value.startsWith('mailto')) {
       value = (
         <div className="truncate">
           <OutboundLink

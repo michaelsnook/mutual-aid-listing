@@ -1,5 +1,5 @@
-import PropTypes from "prop-types"
-import React from "react"
+import PropTypes from 'prop-types'
+import React from 'react'
 
 export const Tag = (props) => {
   const { color, text } = props

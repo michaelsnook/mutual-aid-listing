@@ -1,7 +1,7 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import { graphql, useStaticQuery } from "gatsby"
-import PropTypes from "prop-types"
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 
 export const SiteMetadata = ({ description, image, title }) => {
   const {
@@ -53,5 +53,5 @@ SiteMetadata.propTypes = {
 }
 
 SiteMetadata.defaultProps = {
-  image: "/social.png",
+  image: '/social.png',
 }

@@ -1,12 +1,7 @@
-import { graphql, useStaticQuery } from "gatsby"
-import { OutboundLink } from "gatsby-plugin-google-gtag"
-import React from "react"
-import {
-  FaEnvelope,
-  FaInstagram,
-  FaFacebookF,
-  FaTwitter,
-} from "react-icons/fa"
+import { graphql, useStaticQuery } from 'gatsby'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
+import React from 'react'
+import { FaEnvelope, FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa'
 
 export const Footer = () => {
   const {
@@ -47,18 +42,15 @@ export const Footer = () => {
             icon={FaTwitter}
             label="Twitter"
           />
-          <FooterIconLink
-            href={links.email}
-            icon={FaEnvelope}
-            label="E-mail"
-          />
+          <FooterIconLink href={links.email} icon={FaEnvelope} label="E-mail" />
         </ul>
         <div className="w-full lg:w-auto pt-6 text-primary-800 text-sm">
-          &copy; Copyright: there is no copyright on any of the information on this website.
-          Please feel free to share, swipe, copy, paste at will. But be advised, we have about 30
-          volunteers curating this info, so be aware it may become out of date quickly.
-          If you want to help us curate and add new entries, or promote with your art or social media,
-          please get in touch at covidmutualaidindia@protonmail.com.
+          &copy; Copyright: there is no copyright on any of the information on
+          this website. Please feel free to share, swipe, copy, paste at will.
+          But be advised, we have about 30 volunteers curating this info, so be
+          aware it may become out of date quickly. If you want to help us curate
+          and add new entries, or promote with your art or social media, please
+          get in touch at covidmutualaidindia@protonmail.com.
         </div>
       </div>
     </footer>
@@ -68,9 +60,9 @@ export const Footer = () => {
 const FooterIconLink = ({ href, label, icon: Icon }) => {
   const linkParams = { href }
 
-  if (href.startsWith("http") || href.startsWith("mailto")) {
-    linkParams.target = "_blank"
-    linkParams.rel = "noreferrer noopener"
+  if (href.startsWith('http') || href.startsWith('mailto')) {
+    linkParams.target = '_blank'
+    linkParams.rel = 'noreferrer noopener'
   }
 
   return (

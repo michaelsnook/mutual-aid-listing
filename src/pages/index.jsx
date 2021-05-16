@@ -1,10 +1,10 @@
-import React, { useState } from "react"
-import { graphql } from "gatsby"
-import { Entries, Hero, SiteMetadata } from "../components"
-import { Layout } from "../layouts/Layout"
-import { Nav } from "../components"
-import { Link } from "gatsby-plugin-modal-routing-3"
-import { OutboundLink } from "gatsby-plugin-google-gtag"
+import React, { useState } from 'react'
+import { graphql } from 'gatsby'
+import { Entries, Hero, SiteMetadata } from '../components'
+import { Layout } from '../layouts/Layout'
+import { Nav } from '../components'
+import { Link } from 'gatsby-plugin-modal-routing-3'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 const Index = ({ data }) => {
   const [isAlertClosed, setIsAlertClosed] = useState(false)
@@ -16,17 +16,17 @@ const Index = ({ data }) => {
   let categories = {}
   let highlighted_campaigns = []
   data.items.nodes.forEach((item) => {
-    if (item["data"]["Foreign_Funds"] === true || isForeignDonor === false) {
+    if (item['data']['Foreign_Funds'] === true || isForeignDonor === false) {
       const { Category, Category_Rank } = item.data
       categories[Category_Rank] = Category
       urgent_cards[Category] = urgent_cards[Category] || []
       regular_cards[Category] = regular_cards[Category] || []
       goal_met_cards[Category] = goal_met_cards[Category] || []
 
-      if (item["data"]["Urgent"] === true) {
+      if (item['data']['Urgent'] === true) {
         highlighted_campaigns.push(item)
         urgent_cards[Category].push(item)
-      } else if (item["data"]["Status"] === "Met Goal and Increased") {
+      } else if (item['data']['Status'] === 'Met Goal and Increased') {
         goal_met_cards[Category].push(item)
       } else {
         regular_cards[Category].push(item)
@@ -68,7 +68,7 @@ const Index = ({ data }) => {
             <p className="mb-2">
               <ul className="list-disc pl-5">
                 <li>
-                  We vet and track everything we add to the website –{" "}
+                  We vet and track everything we add to the website –{' '}
                   <OutboundLink
                     className="text-primary-700 font-bold hover:text-primary-500"
                     href="https://docs.google.com/document/d/1HzDK589lbyUtS-sDyUF9U2T-zkkT6CyCa3RY7WYBk3E/edit"
@@ -94,7 +94,7 @@ const Index = ({ data }) => {
                   about this.
                 </li>
                 <li>
-                  If you have a campaign you want us to add, email{" "}
+                  If you have a campaign you want us to add, email{' '}
                   <span className="italic">
                     covidmutualaidindia
                     <wbr />
@@ -131,7 +131,7 @@ const Index = ({ data }) => {
             <div className="grid md:grid-cols-2 gap-4 ">
               {highlighted_campaigns.map((highlighted_campaign, index) => (
                 <Link
-                  to={`/${highlighted_campaign["data"]["Slug"]}`}
+                  to={`/${highlighted_campaign['data']['Slug']}`}
                   className="hover:bg-primary-600 hover:text-white bg-white relative rounded-md
                       shadow-md px-5 py-4 cursor-pointer flex focus:outline-none"
                   state={{
@@ -147,10 +147,10 @@ const Index = ({ data }) => {
                     <div class="flex items-center">
                       <div class="text-md">
                         <p class="font-medium">
-                          {highlighted_campaign["data"]["Name"]}
+                          {highlighted_campaign['data']['Name']}
                         </p>
                         <span class="inline">
-                          {highlighted_campaign["data"]["Region"]}
+                          {highlighted_campaign['data']['Region']}
                         </span>
                       </div>
                     </div>

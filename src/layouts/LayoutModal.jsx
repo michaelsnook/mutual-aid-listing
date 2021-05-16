@@ -1,7 +1,7 @@
-import { navigate } from "gatsby"
-import { Link } from "gatsby-plugin-modal-routing-3"
-import React, { useEffect } from "react"
-import { FaAngleLeft, FaAngleRight, FaTimes } from "react-icons/fa"
+import { navigate } from 'gatsby'
+import { Link } from 'gatsby-plugin-modal-routing-3'
+import React, { useEffect } from 'react'
+import { FaAngleLeft, FaAngleRight, FaTimes } from 'react-icons/fa'
 
 export const LayoutModal = ({ children, closeTo, navigation = {} }) => {
   const { current = -1, items = [] } = navigation
@@ -46,9 +46,9 @@ export const LayoutModal = ({ children, closeTo, navigation = {} }) => {
   }
 
   useEffect(() => {
-    window.addEventListener("keydown", keyboardNavigation)
+    window.addEventListener('keydown', keyboardNavigation)
     return () => {
-      window.removeEventListener("keydown", keyboardNavigation)
+      window.removeEventListener('keydown', keyboardNavigation)
     }
   })
 

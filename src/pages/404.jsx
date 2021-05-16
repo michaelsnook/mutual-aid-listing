@@ -1,10 +1,10 @@
-import React from "react"
-import { SiteMetadata } from "../components"
-import { Link } from "gatsby"
+import React from 'react'
+import { SiteMetadata } from '../components'
+import { Link } from 'gatsby'
 
-import "typeface-roboto"
-import "typeface-averia-serif-libre"
-import "../styles/style.css"
+import 'typeface-roboto'
+import 'typeface-averia-serif-libre'
+import '../styles/style.css'
 
 const _404 = () => {
   return (

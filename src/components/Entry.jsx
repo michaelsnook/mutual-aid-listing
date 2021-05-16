@@ -1,9 +1,9 @@
-import { Link } from "gatsby-plugin-modal-routing-3"
-import PropTypes from "prop-types"
-import React, { useState } from "react"
-import { Feature, Tag, DonateLink } from "."
-import { showCurrency, openUPIURL } from "../utils"
-import { CurrencyRupeeIcon } from "@heroicons/react/outline"
+import { Link } from 'gatsby-plugin-modal-routing-3'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { Feature, Tag, DonateLink } from '.'
+import { showCurrency, openUPIURL } from '../utils'
+import { CurrencyRupeeIcon } from '@heroicons/react/outline'
 
 export const Entry = (props) => {
   const {
@@ -39,20 +39,20 @@ export const Entry = (props) => {
       </Link>
       {Urgent && <Tag color="urgent" text="Urgent" />}
       {Foreign_Funds && <Tag color="secondary" text="£ $ €" />}
-      {Status === "Met Goal and Increased" && (
+      {Status === 'Met Goal and Increased' && (
         <Tag color="yellow" text={Status} />
       )}
       {Rupees_Reached > 0 && (
         <p className="mt-2 text-base text-primary-900 mb-5 font-medium">
-          {showCurrency(Rupees_Reached, isForeignDonor ? "dollars" : "rupees")}{" "}
+          {showCurrency(Rupees_Reached, isForeignDonor ? 'dollars' : 'rupees')}{' '}
           raised
           {Rupees_Goal > 0
             ? ` of ${showCurrency(
                 Rupees_Goal,
-                isForeignDonor ? "dollars" : "rupees",
+                isForeignDonor ? 'dollars' : 'rupees',
                 true
               )}`
-            : " so far"}
+            : ' so far'}
         </p>
       )}
       {Region && <Feature label="Location" value={Region} />}

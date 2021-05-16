@@ -1,8 +1,8 @@
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
-import PropTypes from "prop-types"
-import React from "react"
-import { Tag } from "."
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Tag } from '.'
 
 export const Hero = (props) => {
   const { description, image, tag, title } = props
@@ -24,15 +24,15 @@ export const Hero = (props) => {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(to bottom, rgba(16, 185, 129, 0.5) 40%, rgba(6, 95, 70, .9) 100%)",
+              'linear-gradient(to bottom, rgba(16, 185, 129, 0.5) 40%, rgba(6, 95, 70, .9) 100%)',
           }}
         ></div>
 
-        {tag &&
+        {tag && (
           <span className="absolute top-0 right-0 text-sm text-white font-medium my-3 mr-1 tracking-wide">
-            { <Tag color="primary" text={tag} /> }
+            {<Tag color="primary" text={tag} />}
           </span>
-        }
+        )}
 
         <div className="absolute bottom-0 inset-x-0 p-5 lg:p-6 text-white">
           <h1 className="text-2xl lg:text-4xl font-bold leading-tight">
@@ -62,10 +62,22 @@ export const query = graphql`
   fragment HeroImageFragment on File {
     url: publicURL
     childImageSharp {
-      mobile: fixed(width: 768, height: 256, quality: 80, cropFocus: NORTH, fit: COVER) {
+      mobile: fixed(
+        width: 768
+        height: 256
+        quality: 80
+        cropFocus: NORTH
+        fit: COVER
+      ) {
         ...GatsbyImageSharpFixed_withWebp
       }
-      desktop: fixed(width: 1536, height: 512, quality: 85, cropFocus: NORTH, fit: COVER) {
+      desktop: fixed(
+        width: 1536
+        height: 512
+        quality: 85
+        cropFocus: NORTH
+        fit: COVER
+      ) {
         ...GatsbyImageSharpFixed_withWebp
       }
     }

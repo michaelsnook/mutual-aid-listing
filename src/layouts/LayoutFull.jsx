@@ -1,5 +1,5 @@
-import React from "react"
-import { Footer, SignupForm } from "../components"
+import React from 'react'
+import { Footer, SignupForm } from '../components'
 
 export const LayoutFull = ({ children }) => {
   return (
