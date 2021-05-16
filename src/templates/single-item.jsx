@@ -1,15 +1,11 @@
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import React, { useState } from "react"
-import { Feature, SiteMetadata, Tag } from "../components"
+import { Feature, SiteMetadata, Tag, DonateLink } from "../components"
 import { useModal } from "../context"
 import { Layout } from "../layouts/Layout"
 import { showCurrency, openUPIURL } from "../utils"
-import {
-  HomeIcon,
-  ExternalLinkIcon,
-  CurrencyRupeeIcon,
-} from "@heroicons/react/outline"
+import { HomeIcon, CurrencyRupeeIcon } from "@heroicons/react/outline"
 
 const SingleItem = (props) => {
   const { data, location } = props
@@ -140,15 +136,7 @@ const SingleItem = (props) => {
                     )}
                   </div>
                 )}
-                {URL && (
-                  <Link
-                    className="inline-block border border-urgent-600 text-center hover:shadow-lg shadow-md rounded-md text-urgent-600 text-lg px-5 py-2 hover:bg-urgent-600 hover:text-white mr-3 mb-2"
-                    to={URL}
-                  >
-                    Donate Online{" "}
-                    <ExternalLinkIcon className="inline h-4 w-4" />
-                  </Link>
-                )}
+                {URL && <DonateLink href={URL} />}
               </div>
             </div>
           </div>

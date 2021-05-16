@@ -1,9 +1,9 @@
 import { Link } from "gatsby-plugin-modal-routing-3"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
-import { Feature, Tag } from "."
+import { Feature, Tag, DonateLink } from "."
 import { showCurrency, openUPIURL } from "../utils"
-import { ExternalLinkIcon, CurrencyRupeeIcon } from "@heroicons/react/outline"
+import { CurrencyRupeeIcon } from "@heroicons/react/outline"
 
 export const Entry = (props) => {
   const {
@@ -85,14 +85,7 @@ export const Entry = (props) => {
             )}
           </div>
         )}
-        {URL && (
-          <Link
-            className="inline-block border border-urgent-600 text-center hover:shadow-lg shadow-md rounded-md text-urgent-600 text-lg px-5 py-2 hover:bg-urgent-600 hover:text-white mr-3 mb-2"
-            to={URL}
-          >
-            Donate Online <ExternalLinkIcon className="inline h-4 w-4" />
-          </Link>
-        )}
+        {URL && <DonateLink href={URL} />}
         <Link
           className="inline-block border border-primary-600 text-center hover:shadow-lg shadow-md rounded-md text-primary-600 text-lg px-5 py-2 hover:bg-primary-600 hover:text-white mb-2"
           to={`/${Slug}`}
