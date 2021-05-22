@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import { ExternalLinkIcon } from '@heroicons/react/outline'
