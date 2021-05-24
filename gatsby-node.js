@@ -8,7 +8,12 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allAirtable(filter: { table: { eq: "${tableName}" } }) {
+        allAirtable(
+          filter: {
+            table: { eq: "${tableName}" }
+            data: { Publish: { eq: "Yes" } }
+          }
+        ) {
           nodes {
             data {
               Slug
@@ -22,6 +27,10 @@ exports.createPages = ({ graphql, actions }) => {
       }
 
       const component = path.resolve(`./src/templates/single-item.jsx`)
+
+      console.log('=====')
+      console.log(`${data.allAirtable.nodes.length} nodes`)
+      console.log('=====')
 
       data.allAirtable.nodes.map(({ data: { Slug } }) => {
         createPage({
