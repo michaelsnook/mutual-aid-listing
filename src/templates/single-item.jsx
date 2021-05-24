@@ -160,7 +160,12 @@ export const query = graphql`
           localFiles {
             url: publicURL
             childImageSharp {
-              fluid(maxWidth: 733, maxHeight: 480, cropFocus: NORTH) {
+              fluid(
+                srcSetBreakpoints: [400, 1080]
+                maxWidth: 733
+                maxHeight: 480
+                cropFocus: NORTH
+              ) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
