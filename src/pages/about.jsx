@@ -1,21 +1,19 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import { Hero, SiteMetadata } from '../components'
 import { Layout } from '../layouts/Layout'
 import { HomeIcon } from '@heroicons/react/outline'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
-const About = ({ data }) => {
+const About = () => {
   return (
     <Layout>
       <SiteMetadata
         title="MutualAidIndia.com | Home"
         description="A curated list of opportunities to donate for COVID relief."
-        image={data.hero.url}
       />
 
       <Hero
-        image={data.hero}
         title="About MutualAidIndia.com, our team, and our values"
         tag="about"
       />
@@ -132,13 +130,5 @@ const About = ({ data }) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query AboutQuery {
-    hero: file(relativePath: { eq: "hero-banner.jpg" }) {
-      ...HeroImageFragment
-    }
-  }
-`
 
 export default About

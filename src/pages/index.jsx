@@ -43,11 +43,9 @@ const Index = ({ data }) => {
       <SiteMetadata
         title="MutualAidIndia.com | Home"
         description="A curated list of opportunities to donate for COVID relief."
-        image={data.hero.url}
       />
 
       <Hero
-        image={data.hero}
         tag="fundraisers"
         title="Mutual Aid India"
         description="A curated list of opportunities to donate for COVID relief."
@@ -194,9 +192,6 @@ const Index = ({ data }) => {
 
 export const query = graphql`
   query IndexQuery($tableName: String!) {
-    hero: file(relativePath: { eq: "hero-banner.jpg" }) {
-      ...HeroImageFragment
-    }
     items: allAirtable(filter: { table: { eq: $tableName } }) {
       nodes {
         data {

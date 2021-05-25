@@ -1,5 +1,5 @@
 import { graphql, Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React, { useState } from 'react'
 import { Feature, SiteMetadata, Tag, DonateLink } from '../components'
 import { useModal } from '../context'
@@ -71,7 +71,10 @@ const SingleItem = (props) => {
           )}
           <div className="flex flex-wrap">
             <div className="w-full pb-4 lg:w-3/5 lg:pr-4 lg:pb-0">
-              <Img fluid={cover.childImageSharp.fluid} alt={Name} />
+              <GatsbyImage
+                image={cover.childImageSharp.gatsbyImageData}
+                alt={Name}
+              />
             </div>
             <div className="w-full lg:w-2/5 lg:pl-4">
               {Status === 'Met Goal and Increased' && (
@@ -160,14 +163,13 @@ export const query = graphql`
           localFiles {
             url: publicURL
             childImageSharp {
-              fluid(
-                srcSetBreakpoints: [400, 1080]
-                maxWidth: 733
-                maxHeight: 480
-                cropFocus: NORTH
-              ) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                breakpoints: [400, 1080]
+                width: 733
+                height: 480
+                transformOptions: { cropFocus: NORTH }
+                layout: CONSTRAINED
+              )
             }
           }
         }

@@ -1,23 +1,20 @@
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { StaticImage } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Tag } from '.'
 
 export const Hero = (props) => {
-  const { description, image, tag, title } = props
+  const { description, tag, title } = props
 
   return (
     <div className="container py-6">
-      <div className="flex relative rounded-md overflow-hidden bg-primary-400">
-        <Img
+      <div className="flex relative rounded-md overflow-hidden bg-primary-400 h-96">
+        <StaticImage
+          src="../images/hero-banner.jpg"
           alt={title}
-          className=""
+          layout="constrained"
+          loading="eager"
           fadeIn={false}
-          fixed={[
-            { ...image.childImageSharp.desktop, media: `(min-width: 768px)` },
-            { ...image.childImageSharp.mobile, media: `(max-width: 767px)` },
-          ]}
         />
 
         <div
@@ -48,40 +45,7 @@ export const Hero = (props) => {
 }
 
 Hero.propTypes = {
-  description: PropTypes.string.isRequired,
-  image: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-    childImageSharp: PropTypes.shape({
-      desktop: PropTypes.object.isRequired,
-      mobile: PropTypes.object.isRequired,
-    }).isRequired,
-  }).isRequired,
+  description: PropTypes.string,
   tag: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 }
-
-export const query = graphql`
-  fragment HeroImageFragment on File {
-    url: publicURL
-    childImageSharp {
-      mobile: fixed(
-        width: 768
-        height: 256
-        quality: 80
-        cropFocus: NORTH
-        fit: COVER
-      ) {
-        ...GatsbyImageSharpFixed_withWebp
-      }
-      desktop: fixed(
-        width: 1536
-        height: 512
-        quality: 85
-        cropFocus: NORTH
-        fit: COVER
-      ) {
-        ...GatsbyImageSharpFixed_withWebp
-      }
-    }
-  }
-`
