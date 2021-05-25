@@ -15,6 +15,7 @@ const Index = ({ data }) => {
   let goal_met_cards = {}
   let categories = {}
   let highlighted_campaigns = []
+
   data.items.nodes.forEach((item) => {
     if (item['data']['Foreign_Funds'] === true || isForeignDonor === false) {
       const { Category, Category_Rank } = item.data
@@ -214,7 +215,6 @@ export const query = graphql`
               html
             }
           }
-          Bank_Details
           URL
           UPI_ID
         }
