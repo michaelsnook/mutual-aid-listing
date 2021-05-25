@@ -26,11 +26,11 @@ export const Hero = (props) => {
             backgroundImage:
               'linear-gradient(to bottom, rgba(16, 185, 129, 0.5) 40%, rgba(6, 95, 70, .9) 100%)',
           }}
-        ></div>
+        />
 
         {tag && (
           <span className="absolute top-0 right-0 text-sm text-white font-medium my-3 mr-1 tracking-wide">
-            {<Tag color="primary" text={tag} />}
+            <Tag color="primary" text={tag} />
           </span>
         )}
 
@@ -38,7 +38,9 @@ export const Hero = (props) => {
           <h1 className="text-2xl lg:text-4xl font-bold leading-tight">
             {title}
           </h1>
-          <h3 className="text-lg font-medium md:w-2/3">{description}</h3>
+          {description && (
+            <h3 className="text-lg font-medium md:w-2/3">{description}</h3>
+          )}
         </div>
       </div>
     </div>
