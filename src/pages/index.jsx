@@ -53,6 +53,18 @@ const Index = ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
       />
 
+      <div className="container">
+        <p className="text-xl p-3">
+          <Link
+            to="/mixtape"
+            className="text-primary-700 font-bold hover:text-primary-500"
+          >
+            Check out the awesome mixtape on this page 🎧 📼 -» (Limited Time
+            Fundraiser – you'll get cool music) 💽🎶 »»
+          </Link>
+        </p>
+      </div>
+
       {!isAlertClosed && (
         <div className="md:container pt-2 mb-2 md:pt-4 md:mb-4 lg:pt-6 lg:mb-6">
           <div className="mx-3 md:mx-0 relative bg-yellow-100 shadow-md rounded-md py-5 px-8">
