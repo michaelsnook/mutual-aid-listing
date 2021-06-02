@@ -33,22 +33,29 @@ function link({ url, text }, clickCB) {
 
 export const Nav = (props) => {
   const { categories, isToggled, setToggled } = props
-  const page_links = Object.keys(categories).map((name) => {
-    return {
-      url: `#category_${name}`,
-      text: categories[name],
-    }
-  })
+  const page_links =
+    categories && categories.length
+      ? Object.keys(categories).map((name) => {
+          return {
+            url: `#category_${name}`,
+            text: categories[name],
+          }
+        })
+      : []
 
   const extra_links = [
     {
-      url:
-        'https://docs.google.com/document/d/e/2PACX-1vSFpy5vYw2wtESs77spBb1nv3dpGj3Jhv1J3WxMpfURc_MVIgc556s1BqD9z3GO-HVqLQWhWAHxGIOs/pub',
-      text: 'List of Completed Fundraisers',
+      url: '/',
+      text: 'Home',
     },
     {
       url: '/about',
       text: 'About',
+    },
+    {
+      url:
+        'https://docs.google.com/document/d/e/2PACX-1vSFpy5vYw2wtESs77spBb1nv3dpGj3Jhv1J3WxMpfURc_MVIgc556s1BqD9z3GO-HVqLQWhWAHxGIOs/pub',
+      text: 'List of Completed Fundraisers',
     },
   ]
 
@@ -101,19 +108,24 @@ export const Nav = (props) => {
             </Switch>
           </span>
         </div>
+
         <div className={`lg:block ${isNavOpen ? 'block' : 'hidden'} `}>
           <hr className="my-3" />
-          <span className="inline-flex flex-shrink-0 relative mr-2 align-text-bottom text-primary-900">
-            Categories
-          </span>
-          <ul>
-            {page_links.map((ob) =>
-              link(ob, () => {
-                setIsNavOpen(false)
-              })
-            )}
-          </ul>
-          <hr className="my-3" />
+          {categories && (
+            <>
+              <span className="inline-flex flex-shrink-0 relative mr-2 align-text-bottom text-primary-900">
+                Categories
+              </span>
+              <ul>
+                {page_links.map((ob) =>
+                  link(ob, () => {
+                    setIsNavOpen(false)
+                  })
+                )}
+              </ul>
+              <hr className="my-3" />
+            </>
+          )}
           <ul>{extra_links.map((ob) => link(ob))}</ul>
         </div>
       </div>
