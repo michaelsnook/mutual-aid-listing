@@ -7,12 +7,9 @@ import { Nav } from '../components'
 const Mixtape = ({ data }) => {
   const [isForeignDonor, setIsForeignDonor] = useState(false)
 
-  const nodes = data.items.nodes.map((node) => {
-    if (node.data.Foreign_Funds === true || isForeignDonor === false) {
-      return node
-    }
-    return false
-  })
+  const nodes = data.items.nodes.filter(
+    (node) => node.data.Foreign_Funds === true || isForeignDonor === false
+  )
 
   return (
     <Layout>
