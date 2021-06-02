@@ -34,28 +34,22 @@ const Mixtape = ({ data }) => {
         <div className="lg:col-start-2 col-span-4 px-1 sm:px-3 md:px-5 lg:px-8 ml-0">
           {nodes.map((node, i) => (
             <div
-              className="mb-10 py-8 md:py-10 lg:py-12 px-4 md:px-8 lg:px-10 bg-white shadow-md rounded-md"
+              className="mb-10 pt-8 pb-6 md:pt-10 lg:pt-12 px-4 md:px-8 lg:px-10 bg-white shadow-md rounded-md"
               id={`track_${i}`}
+              key={`card_${node.data.Slug}`}
             >
               <h4 className="text-primary-800 uppercase text-sm tracking-wide font-medium pb-px">
                 {node.data.Category}
               </h4>
-              <div className="flex flex-wrap -mx-3 lg:-mx-4 xl:-mx-6">
-                <div
-                  className="w-full px-3 xl:px-6 lg:px-4 py-6"
-                  key={`card_${node.data.Slug}`}
-                >
-                  <Entry
-                    {...node.data}
-                    navigation={{
-                      current: i,
-                      items: nodes.map((node) => `/${node.data.Slug}`),
-                    }}
-                    isForeignDonor={isForeignDonor}
-                    current={i}
-                  />
-                </div>
-              </div>
+              <Entry
+                {...node.data}
+                navigation={{
+                  current: i,
+                  items: nodes.map((node) => `/${node.data.Slug}`),
+                }}
+                isForeignDonor={isForeignDonor}
+                current={i}
+              />
             </div>
           ))}
         </div>
