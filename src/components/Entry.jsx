@@ -94,7 +94,6 @@ export const Entry = (props) => {
           View Details
         </Link>
       </div>
-      <hr />
     </div>
   )
 }

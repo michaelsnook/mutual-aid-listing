@@ -21,6 +21,7 @@ export const Entries = (props) => {
             isForeignDonor={isForeignDonor}
             current={i}
           />
+          <hr />
         </div>
       ))}
     </div>
