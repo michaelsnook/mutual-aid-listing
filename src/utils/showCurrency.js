@@ -19,7 +19,7 @@ function addCommasDollars(value, round) {
 
 export function showCurrency(value, currency = 'rupees', round = false) {
   const rupeesInt = parseInt(value)
-  const rupeesPerDollar = 73.86 // on May 3
+  const rupeesPerDollar = 72.95 // on June 3
 
   return currency === 'rupees'
     ? `₹${addCommasLakhs(rupeesInt)}`

@@ -1,8 +1,8 @@
 import { Link } from 'gatsby-plugin-modal-routing-3'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { Feature, Tag, DonateLink } from '.'
-import { showCurrency, openUPIURL } from '../utils'
+import { Feature, Tag, DonateLink, Progress } from '.'
+import { openUPIURL } from '../utils'
 import { CurrencyRupeeIcon } from '@heroicons/react/outline'
 
 export const Entry = (props) => {
@@ -42,19 +42,11 @@ export const Entry = (props) => {
       {Status === 'Met Goal and Increased' && (
         <Tag color="yellow" text={Status} />
       )}
-      {Rupees_Reached > 0 && (
-        <p className="mt-2 text-base text-primary-900 mb-5 font-medium">
-          {showCurrency(Rupees_Reached, isForeignDonor ? 'dollars' : 'rupees')}{' '}
-          raised
-          {Rupees_Goal > 0
-            ? ` of ${showCurrency(
-                Rupees_Goal,
-                isForeignDonor ? 'dollars' : 'rupees',
-                true
-              )}`
-            : ' so far'}
-        </p>
-      )}
+      <Progress
+        reached={Rupees_Reached}
+        goal={Rupees_Goal}
+        isForeignDonor={isForeignDonor}
+      />
       {Region && <Feature label="Location" value={Region} />}
       <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px my-2">
         Description

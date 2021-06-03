@@ -1,10 +1,10 @@
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import React, { useState } from 'react'
-import { Feature, SiteMetadata, Tag, DonateLink } from '../components'
+import { Feature, SiteMetadata, Tag, DonateLink, Progress } from '../components'
 import { useModal } from '../context'
 import { Layout } from '../layouts/Layout'
-import { showCurrency, openUPIURL } from '../utils'
+import { openUPIURL } from '../utils'
 import { HomeIcon, CurrencyRupeeIcon } from '@heroicons/react/outline'
 
 const SingleItem = (props) => {
@@ -53,22 +53,10 @@ const SingleItem = (props) => {
       )}
       <article className={modal && 'max-h-80vh md:max-h-90vh overflow-auto'}>
         <div className={modal ? 'p-4 lg:p-8' : 'container py-8'}>
-          <h1 className="text-2xl lg:text-3xl text-primary-500 font-bold leading-tight">
+          <h1 className="mb-3 text-2xl lg:text-3xl text-primary-500 font-bold leading-tight">
             {Name}
           </h1>
-          {Rupees_Reached && (
-            <p className="text-base lg:text-lg text-primary-800 font-medium mb-4">
-              {showCurrency(Rupees_Reached, 'rupees')}
-              {Rupees_Goal
-                ? ` of ${showCurrency(Rupees_Goal, 'rupees', true)} `
-                : ' so far '}
-              (about {showCurrency(Rupees_Reached, 'dollars')}
-              {Rupees_Goal
-                ? ` of ${showCurrency(Rupees_Goal, 'dollars', true)}`
-                : ''}
-              )
-            </p>
-          )}
+          <Progress reached={Rupees_Reached} goal={Rupees_Goal} />
           <div className="flex flex-wrap">
             <div className="w-full pb-4 lg:w-3/5 lg:pr-4 lg:pb-0">
               <Img fluid={cover.childImageSharp.fluid} alt={Name} />
