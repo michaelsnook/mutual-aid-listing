@@ -24,7 +24,7 @@ export const Progress = (props) => {
         <div class="h-3 relative max-w-xl rounded-full overflow-hidden">
           <div class="w-full h-full bg-gray-200 absolute"></div>
           <div
-            class="h-full bg-secondary-500 absolute"
+            class="h-full bg-gradient-to-r from-secondary-500 via-secondary-500 to-urgent-500 absolute"
             style={{
               width: `${(100 * reached) / goal}%`,
               minWidth: '5%',
