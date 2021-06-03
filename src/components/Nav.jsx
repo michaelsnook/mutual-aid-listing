@@ -33,15 +33,14 @@ function link({ url, text }, clickCB) {
 
 export const Nav = (props) => {
   const { categories, isToggled, setToggled } = props
-  const page_links =
-    categories && categories.length
-      ? Object.keys(categories).map((name) => {
-          return {
-            url: `#category_${name}`,
-            text: categories[name],
-          }
-        })
-      : []
+  const page_links = categories
+    ? Object.keys(categories).map((name) => {
+        return {
+          url: `#category_${name}`,
+          text: categories[name],
+        }
+      })
+    : []
 
   const extra_links = [
     {
