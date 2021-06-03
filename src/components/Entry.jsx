@@ -37,16 +37,16 @@ export const Entry = (props) => {
           {current + 1}. {Name}
         </h2>
       </Link>
-      {Urgent && <Tag color="urgent" text="Urgent" />}
-      {Foreign_Funds && <Tag color="secondary" text="£ $ €" />}
-      {Status === 'Met Goal and Increased' && (
-        <Tag color="yellow" text={Status} />
-      )}
       <Progress
         reached={Rupees_Reached}
         goal={Rupees_Goal}
         isForeignDonor={isForeignDonor}
       />
+      {Urgent && <Tag color="urgent" text="Urgent" />}
+      {Foreign_Funds && <Tag color="secondary" text="£ $ €" />}
+      {Status === 'Met Goal and Increased' && (
+        <Tag color="yellow" text={Status} />
+      )}
       {Region && <Feature label="Location" value={Region} />}
       <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px my-2">
         Description
