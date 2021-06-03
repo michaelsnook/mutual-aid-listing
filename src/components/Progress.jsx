@@ -20,7 +20,7 @@ export const Progress = (props) => {
         {`${reached_string} raised `}
         {goal > 0 ? `of ${goal_string}` : `so far`}
       </p>
-      {reached > 0 && (
+      {goal > 0 && (
         <div class="h-3 relative max-w-xl rounded-full overflow-hidden">
           <div class="w-full h-full bg-gray-200 absolute"></div>
           <div
