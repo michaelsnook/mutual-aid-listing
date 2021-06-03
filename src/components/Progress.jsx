@@ -15,10 +15,24 @@ export const Progress = (props) => {
   )
 
   return goal || reached ? (
-    <p className="mt-2 text-base text-primary-900 mb-5 font-medium">
-      {`${reached_string} raised `}
-      {goal > 0 ? `of ${goal_string}` : `so far`}
-    </p>
+    <div className="mt-2 mb-5">
+      <p className=" text-base text-primary-900 font-medium">
+        {`${reached_string} raised `}
+        {goal > 0 ? `of ${goal_string}` : `so far`}
+      </p>
+      {reached > 0 && (
+        <div class="h-3 relative max-w-xl rounded-full overflow-hidden">
+          <div class="w-full h-full bg-gray-200 absolute"></div>
+          <div
+            class="h-full bg-secondary-500 absolute"
+            style={{
+              width: `${(100 * reached) / goal}%`,
+              minWidth: '5%',
+            }}
+          ></div>
+        </div>
+      )}
+    </div>
   ) : (
     <></>
   )
