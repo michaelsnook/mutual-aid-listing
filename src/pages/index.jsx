@@ -9,7 +9,7 @@ import { OutboundLink } from 'gatsby-plugin-google-gtag'
 const Index = ({ data }) => {
   const [isAlertClosed, setIsAlertClosed] = useState(false)
   const [isForeignDonor, setIsForeignDonor] = useState(false)
-
+  const mixtape = data.options.siteMetadata.mixtape
   let urgent_cards = {}
   let regular_cards = {}
   let goal_met_cards = {}
@@ -53,17 +53,26 @@ const Index = ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
       />
 
-      <div className="container">
-        <p className="text-xl p-3">
-          <Link
-            to="/mixtape"
-            className="text-primary-700 font-bold hover:text-primary-500"
-          >
-            Check out the awesome mixtape on this page 🎧 📼 -» (Limited Time
-            Fundraiser – you'll get cool music) 💽🎶 »»
-          </Link>
-        </p>
-      </div>
+      {mixtape === 'on' && (
+        <div className="container">
+          <p className="text-xl p-3">
+            <Link
+              to="/mixtape"
+              className="text-primary-700 font-bold hover:text-primary-500"
+            >
+              Check out the awesome mixtape on this page{' '}
+              <span role="img" aria-label="earphones and tape emojis">
+                🎧 📼
+              </span>{' '}
+              -» (Limited Time Fundraiser – you'll get cool music){' '}
+              <span role="img" aria-label="disc and music emojis">
+                💽🎶
+              </span>{' '}
+              »»
+            </Link>
+          </p>
+        </div>
+      )}
 
       {!isAlertClosed && (
         <div className="md:container pt-2 mb-2 md:pt-4 md:mb-4 lg:pt-6 lg:mb-6">
@@ -208,6 +217,11 @@ export const query = graphql`
   query IndexQuery($tableName: String!) {
     hero: file(relativePath: { eq: "hero-banner.jpg" }) {
       ...HeroImageFragment
+    }
+    options: site {
+      siteMetadata {
+        mixtape
+      }
     }
     items: allAirtable(filter: { table: { eq: $tableName } }) {
       nodes {
