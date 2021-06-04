@@ -5,7 +5,10 @@ import { ExternalLinkIcon } from '@heroicons/react/outline'
 
 export const DonateLink = (props) => {
   const { href, children, className } = props
-  let url = new URL(href)
+
+  let url = new URL(
+    `${href.indexOf('http') !== 0 ? 'http://' : ''}${href.trim()}`
+  )
   url.searchParams.set('utm_source', 'MutualAidIndia.com')
 
   return (
