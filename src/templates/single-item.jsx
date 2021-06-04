@@ -11,6 +11,7 @@ const SingleItem = (props) => {
   const { data, location } = props
   const {
     Region,
+    Publish,
     Description,
     Image: {
       localFiles: [cover],
@@ -29,6 +30,7 @@ const SingleItem = (props) => {
   const navigation = location.state ? location.state.navigation : null
   const { modal } = useModal()
   const [isUPIPressed, setIsUPIPressed] = useState(false)
+  const completed = Publish === 'Completed'
 
   return (
     <Layout navigation={navigation}>
@@ -56,21 +58,34 @@ const SingleItem = (props) => {
           <h1 className="mb-3 text-2xl lg:text-3xl text-primary-500 font-bold leading-tight">
             {Name}
           </h1>
+
+          {completed && (
+            <div className="w-full pt-2 mb-2 md:pt-4 md:mb-4 lg:pt-6 lg:mb-6">
+              <div className="bg-secondary-100 shadow-md rounded-md py-5 px-8">
+                <p className="my-2">
+                  This campaign is closed or the goal has been reached. Thank
+                  you for your support and generosity.
+                </p>
+              </div>
+            </div>
+          )}
+
           <Progress reached={Rupees_Reached} goal={Rupees_Goal} />
+
           <div className="flex flex-wrap">
             <div className="w-full pb-4 lg:w-3/5 lg:pr-4 lg:pb-0">
               <Img fluid={cover.childImageSharp.fluid} alt={Name} />
             </div>
             <div className="w-full lg:w-2/5 lg:pl-4">
-              {Status === 'Met Goal and Increased' && (
+              {Status === 'Met Goal and Increased' && !completed && (
                 <p className="mb-2">{<Tag color="yellow" text={Status} />}</p>
               )}
-              {Urgent && (
+              {Urgent && !completed && (
                 <p className="mb-2">
                   <Tag color="urgent" text="Urgent" />
                 </p>
               )}
-              {Foreign_Funds && (
+              {Foreign_Funds && !completed && (
                 <p className="mb-2">
                   <Tag color="secondary" text="£ $ €" />
                   <span className="text-primary-900">
@@ -80,7 +95,7 @@ const SingleItem = (props) => {
               )}
               {Category && <Feature label="Category" value={Category} />}
               {Region && <Feature label="Location" value={Region} />}
-              {Bank_Details && (
+              {Bank_Details && !completed && (
                 <>
                   <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px mt-2">
                     Bank Details
@@ -103,28 +118,30 @@ const SingleItem = (props) => {
                   />
                 </>
               )}
-              <div className="my-4 flex flex-wrap">
-                {UPI_ID && (
-                  <div className="sm:hidden flex flex-col mr-3 mb-2">
-                    <button
-                      className="cursor-pointer border border-secondary-600 text-center hover:shadow-lg shadow-md rounded-md text-secondary-600 text-lg px-5 py-2 hover:bg-secondary-600 hover:text-white"
-                      onClick={() => {
-                        openUPIURL(UPI_ID)
-                        setIsUPIPressed(true)
-                      }}
-                    >
-                      Donate via UPI{' '}
-                      <CurrencyRupeeIcon className="inline h-4 w-4" />
-                    </button>
-                    {isUPIPressed && (
-                      <span className="text-sm italic">
-                        This option only works on certain devices
-                      </span>
-                    )}
-                  </div>
-                )}
-                {URL && <DonateLink href={URL} />}
-              </div>
+              {!completed && (
+                <div className="my-4 flex flex-wrap">
+                  {UPI_ID && (
+                    <div className="sm:hidden flex flex-col mr-3 mb-2">
+                      <button
+                        className="cursor-pointer border border-secondary-600 text-center hover:shadow-lg shadow-md rounded-md text-secondary-600 text-lg px-5 py-2 hover:bg-secondary-600 hover:text-white"
+                        onClick={() => {
+                          openUPIURL(UPI_ID)
+                          setIsUPIPressed(true)
+                        }}
+                      >
+                        Donate via UPI{' '}
+                        <CurrencyRupeeIcon className="inline h-4 w-4" />
+                      </button>
+                      {isUPIPressed && (
+                        <span className="text-sm italic">
+                          This option only works on certain devices
+                        </span>
+                      )}
+                    </div>
+                  )}
+                  {URL && <DonateLink href={URL} />}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -138,6 +155,7 @@ export const query = graphql`
     item: airtable(data: { Slug: { eq: $Slug } }) {
       data {
         Region
+        Publish
         Description {
           childMarkdownRemark {
             html
