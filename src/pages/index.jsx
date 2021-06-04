@@ -223,7 +223,9 @@ export const query = graphql`
         mixtape
       }
     }
-    items: allAirtable(filter: { table: { eq: $tableName } }) {
+    items: allAirtable(
+      filter: { data: { Publish: { eq: "Yes" } }, table: { eq: $tableName } }
+    ) {
       nodes {
         data {
           Region
