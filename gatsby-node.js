@@ -11,7 +11,7 @@ exports.createPages = ({ graphql, actions }) => {
         allAirtable(
           filter: {
             table: { eq: "${tableName}" }
-            data: { Publish: { eq: "Yes" } }
+            data: { Publish: { in: ["Yes", "Completed"] } }
           }
         ) {
           nodes {
