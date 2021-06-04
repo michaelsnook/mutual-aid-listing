@@ -19,12 +19,7 @@ const Mixtape = ({ data }) => {
         image={data.hero.url}
       />
 
-      <Hero
-        image={data.hero}
-        tag="fundraisers"
-        title="Mutual Aid Mixtape"
-        description="Check the fundraisers below to support the MAI Mixtape"
-      />
+      <Hero image={data.hero} tag="@mutualaidindia" />
 
       <div className="lg:container grid grid-cols-4">
         <div className="col-span-4 lg:col-span-1 lg:py-10 py-4">
@@ -60,7 +55,7 @@ const Mixtape = ({ data }) => {
 
 export const query = graphql`
   query MixtapeQuery($tableName: String!) {
-    hero: file(relativePath: { eq: "hero-banner.jpg" }) {
+    hero: file(relativePath: { eq: "mixtape-cover.jpg" }) {
       ...HeroImageFragment
     }
     items: allAirtable(
