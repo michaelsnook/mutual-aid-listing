@@ -68,7 +68,7 @@ const Index = ({ data }) => {
                 India Mixtape, available on Bandcamp when you donate to one of
                 the Mixtape campaigns.
               </p>
-              <ul className="my-2 text-md list-disc pl-5">
+              <ol className="my-2 text-md list-decimal pl-7">
                 <li>
                   Make a donation of at least USD 8 / INR 500 to one or more of
                   the campaigns in the mixtape section.
@@ -94,7 +94,7 @@ const Index = ({ data }) => {
                   Then we'll send you the bandcamp download code for the
                   mixtape.
                 </li>
-              </ul>
+              </ol>
             </div>
             <div className="col-start-1 row-start-3 md:px-4">
               <Link

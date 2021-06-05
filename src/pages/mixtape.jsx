@@ -26,13 +26,13 @@ const Mixtape = ({ data }) => {
         <div className="bg-secondary-100 shadow-md rounded-md pt-3 pb-5 px-8">
           <p className="my-2 text-md">
             Thanks to our rad musician friends we now have a Mutual Aid India
-            Mixtape, available on Bandcamp when you donate to one of the Mixtape
-            campaigns.
+            Mixtape, available on Bandcamp when you donate to one of the
+            fundraisers below.
           </p>
-          <ul className="my-2 text-md list-disc pl-5">
+          <ol className="my-2 text-md list-decimal pl-7">
             <li>
               Make a donation of at least USD 8 / INR 500 to one or more of the
-              campaigns in the mixtape section.
+              campaigns on this page.
             </li>
             <li>
               Send the receipt/screenshot of your donation to{' '}
@@ -49,11 +49,12 @@ const Mixtape = ({ data }) => {
               >
                 fill this form
               </a>
+              .
             </li>
             <li>
-              Then we'll send you the bandcamp download code for the mixtape
+              Then we'll send you the bandcamp download code for the mixtape.
             </li>
-          </ul>
+          </ol>
           <p className="my-2">
             <OutboundLink
               className="text-primary-700 hover:text-primary-500 font-bold"
