@@ -62,7 +62,7 @@ const Index = ({ data }) => {
                 The MAI Mixtape is here
               </h2>
             </div>
-            <div className="col-start-1 row-start-2 px-4 pt-5 md:pt-0 md:pb-6">
+            <div className="col-start-1 row-start-2 px-4 pt-4 md:pt-0 md:pb-6">
               <p className="my-2 text-md">
                 Thanks to our rad musician friends we now have a Mutual Aid
                 India Mixtape, available on Bandcamp when you donate to one of
@@ -88,13 +88,15 @@ const Index = ({ data }) => {
                   >
                     fill this form
                   </a>
+                  .
                 </li>
                 <li>
-                  Then we'll send you the bandcamp download code for the mixtape
+                  Then we'll send you the bandcamp download code for the
+                  mixtape.
                 </li>
               </ul>
             </div>
-            <div className="col-start-1 row-start-3">
+            <div className="col-start-1 row-start-3 md:px-4">
               <Link
                 className="bg-urgent-600 my-4 block w-full md:w-max text-center shadow-sm rounded-md text-white text-xl px-8 py-2 mb-2 md:mb-0 hover:bg-urgent-400"
                 to="/mixtape"
