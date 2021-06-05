@@ -89,7 +89,7 @@ const Mixtape = ({ data }) => {
 
 export const query = graphql`
   query MixtapeQuery($tableName: String!) {
-    hero: file(relativePath: { eq: "mixtape-cover.jpg" }) {
+    hero: file(relativePath: { eq: "mixtape-banner.jpg" }) {
       ...HeroImageFragment
     }
     items: allAirtable(
