@@ -46,7 +46,7 @@ const Index = ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
         image={data.hero.url}
       />
-
+      <hr className="my-8 invisible lg:hidden" />
       <Hero
         image={data.hero}
         tag="fundraisers"
