@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { Entry, Hero, SiteMetadata } from '../components'
 import { Layout } from '../layouts/Layout'
 import { Nav } from '../components'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 const Mixtape = ({ data }) => {
   const [isForeignDonor, setIsForeignDonor] = useState(false)
@@ -23,34 +24,44 @@ const Mixtape = ({ data }) => {
 
       <div className="container pt-2 mb-2 md:pt-4 md:mb-4 lg:pt-6 lg:mb-6">
         <div className="bg-secondary-100 shadow-md rounded-md pt-3 pb-5 px-8">
-          <p className="my-2 text-lg">
-            Thanks to our rad musician friends we have an MAIMixtape!{' '}
-            <a
-              className="text-primary-700 font-bold hover:text-primary-500"
+          <p className="my-2 text-md">
+            Thanks to our rad musician friends we now have a Mutual Aid India
+            Mixtape, available on Bandcamp when you donate to one of the Mixtape
+            campaigns.
+          </p>
+          <ul className="my-2 text-md list-disc pl-5">
+            <li>
+              Make a donation of at least USD 8 / INR 500 to one or more of the
+              campaigns in the mixtape section.
+            </li>
+            <li>
+              Send the receipt/screenshot of your donation to{' '}
+              <a
+                className="text-primary-700 font-bold hover:text-primary-500"
+                href="mailto:mixtapeformai@gmail.com"
+              >
+                MixtapeForMAI@gmail.com
+              </a>
+              , or{' '}
+              <a
+                className="text-primary-700 font-bold hover:text-primary-500"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfvA4L_qTK6ySDhAR_KF3_a5ilziEVpttdoSxQq5-NLvqT24Q/viewform"
+              >
+                fill this form
+              </a>
+            </li>
+            <li>
+              Then we'll send you the bandcamp download code for the mixtape
+            </li>
+          </ul>
+          <p className="my-2">
+            <OutboundLink
+              className="text-primary-700 hover:text-primary-500 font-bold"
               href="https://maimixtape.bandcamp.com/releases"
             >
-              Check it out on Bandcamp.
-            </a>{' '}
-            All you have to do is:
-          </p>
-          <p className="my-2 text-lg">
-            If you make a donation of at least USD 8 / INR 500 to one or more of
-            the campaigns in this section specifically, send the
-            receipt/screenshot of your donation to{' '}
-            <a
-              className="text-primary-700 hover:text-primary-500"
-              href="mailto:mixtapeformai@gmail.com"
-            >
-              MixtapeForMAI@gmail.com
-            </a>
-            , or{' '}
-            <a
-              className="text-primary-700 hover:text-primary-500"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfvA4L_qTK6ySDhAR_KF3_a5ilziEVpttdoSxQq5-NLvqT24Q/viewform"
-            >
-              fill this form
-            </a>{' '}
-            and we will send you the bandcamp download code for the mixtape.
+              Preview on Bandcamp
+            </OutboundLink>{' '}
+            or check out the campaigns below and get started!
           </p>
         </div>
       </div>
