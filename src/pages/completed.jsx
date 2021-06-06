@@ -89,6 +89,7 @@ export const query = graphql`
           Name
           Slug
           Rupees_Reached
+          Rupees_Goal
           Status
           Category
           Category_Rank
