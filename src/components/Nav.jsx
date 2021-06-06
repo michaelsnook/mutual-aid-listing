@@ -41,6 +41,7 @@ export const Nav = (props) => {
         }
       })
     : []
+  const show_toggle = !(typeof isToggledd === 'undefined' && typeof setToggled === 'undefined')
 
   const extra_links = [
     {
@@ -84,34 +85,36 @@ export const Nav = (props) => {
               aria-hidden={isNavOpen ? false : true}
             />
           </button>
-          <span>
-            <span className="inline-flex flex-shrink-0 relative mr-2 align-text-bottom text-primary-900">
-              Donate from overseas
+          {show_toggle && 
+            <span>
+              <span className="inline-flex flex-shrink-0 relative mr-2 align-text-bottom text-primary-900">
+                Donate from overseas
+              </span>
+              <Switch
+                checked={isToggled}
+                onChange={() => {
+                  setToggled(!isToggled)
+                  setIsNavOpen(false)
+                }}
+                className={`relative inline-flex items-center flex-shrink-0 ${
+                  isToggled ? 'bg-primary-700' : 'bg-gray-600'
+                } w-11 h-6 rounded-full cursor-pointer focus:outline-none focus:shadow-outline transition-colors duration-200 ease-in-out`}
+              >
+                <span
+                  className={`${
+                    isToggled ? 'translate-x-6' : 'translate-x-1'
+                  } inline-block w-4 h-4 transition duration-200 ease-in-out transform bg-white rounded-full`}
+                />
+              </Switch>
             </span>
-            <Switch
-              checked={isToggled}
-              onChange={() => {
-                setToggled(!isToggled)
-                setIsNavOpen(false)
-              }}
-              className={`relative inline-flex items-center flex-shrink-0 ${
-                isToggled ? 'bg-primary-700' : 'bg-gray-600'
-              } w-11 h-6 rounded-full cursor-pointer focus:outline-none focus:shadow-outline transition-colors duration-200 ease-in-out`}
-            >
-              <span
-                className={`${
-                  isToggled ? 'translate-x-6' : 'translate-x-1'
-                } inline-block w-4 h-4 transition duration-200 ease-in-out transform bg-white rounded-full`}
-              />
-            </Switch>
-          </span>
+          }
         </div>
 
         <div className={`lg:block ${isNavOpen ? 'block' : 'hidden'} `}>
-          <hr className="my-3" />
+          {show_toggle && <hr className="mt-3" />}
           {categories && (
             <>
-              <span className="inline-flex flex-shrink-0 relative mr-2 align-text-bottom text-primary-900">
+              <span className="inline-flex flex-shrink-0 relative mt-3 mr-2 align-text-bottom text-primary-900">
                 Categories
               </span>
               <ul>
