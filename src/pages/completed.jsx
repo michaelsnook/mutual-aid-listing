@@ -38,11 +38,11 @@ const Completed = ({ data }) => {
       />
 
       <div className="lg:container grid grid-cols-4">
-        <div className="col-span-4 lg:col-span-1 lg:py-10 py-4">
+        <div className="col-span-4 lg:col-span-1 py-4 md:py-0 lg:pb-8 lg:pt-4">
           <Nav categories={categories} />
         </div>
 
-        <div className="lg:col-start-2 col-span-4 px-1 sm:px-3 md:px-5 lg:px-8 ml-0">
+        <div className="lg:col-start-2 col-span-4 px-1 sm:px-3 md:px-7 lg:px-8 ml-0">
           {Object.keys(categories).map((category_header, index) => (
             <div
               className="mb-10 py-8 md:py-10 lg:py-12 px-4 md:px-8 lg:px-10 bg-white shadow-md rounded-md"
