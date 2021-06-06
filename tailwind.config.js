@@ -15,7 +15,7 @@ module.exports = {
         'from-secondary-700',
         'to-secondary-500',
         'from-gray-700',
-        'to-gray-700',
+        'to-gray-500',
       ],
     },
   },
