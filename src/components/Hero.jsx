@@ -10,7 +10,7 @@ export const Hero = (props) => {
   const plain_image = !description && !title
 
   return (
-    <div className="container py-6">
+    <div className="lg:container px-2 sm:px-4 md:px-7 py-6">
       <div className="flex relative rounded-md overflow-hidden bg-primary-400">
         <Img
           alt={title}

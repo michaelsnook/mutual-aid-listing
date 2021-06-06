@@ -55,7 +55,7 @@ const Index = ({ data }) => {
       />
 
       {mixtape === 'on' && (
-        <div className="container pt-2 mb-2 md:pt-4 md:mb-4 lg:pt-6 lg:mb-6">
+        <div className="lg:container px-2 sm:px-4 md:px-7 mb-6 md:mb-0">
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 md:py-6">
             <div className="relative z-10 col-start-1 row-start-1 px-4 pt-40 md:pt-4 pb-3 bg-gradient-to-t from-black md:bg-none">
               <h2 className="text-xl font-semibold text-white sm:text-2xl sm:leading-7 md:text-black md:text-3xl">
@@ -188,7 +188,7 @@ const Index = ({ data }) => {
       )}
 
       <div className="lg:container grid grid-cols-4">
-        <div className="col-span-4 lg:col-span-1 lg:py-10 py-4">
+        <div className="col-span-4 lg:col-span-1 lg:pb-8 py-4">
           <Nav
             categories={categories}
             isToggled={isForeignDonor}
@@ -196,9 +196,9 @@ const Index = ({ data }) => {
           />
         </div>
 
-        <div className="lg:col-start-2 col-span-4 px-1 sm:px-3 md:px-5 lg:px-8 ml-0">
-          <div className="py-3 lg:py-6">
-            <h1 className="text-2xl font-bold leading-tight text-black my-3">
+        <div className="lg:col-start-2 col-span-4 px-1 sm:px-3 md:px-7 lg:px-8 ml-0">
+          <div className="py-6">
+            <h1 className="text-2xl font-bold leading-tight text-black my-3 px-4">
               Highlighted Campaigns
             </h1>
             <div className="grid md:grid-cols-2 gap-4 ">
