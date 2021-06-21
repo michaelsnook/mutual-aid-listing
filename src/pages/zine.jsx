@@ -15,12 +15,12 @@ const Zine = ({ data }) => {
   return (
     <Layout>
       <SiteMetadata
-        title="MutualAidIndia.com | Mixtape"
+        title="MutualAidIndia.com | The Zine"
         description="A curated list of opportunities to donate for COVID relief."
         image={data.hero.url}
       />
       <hr className="my-8 invisible lg:hidden" />
-      <Hero image={data.hero} tag="#MAIMixtape" />
+      <Hero image={data.hero} tag="#MAIZine" />
 
       <div className="container pt-2 mb-2 md:pt-4 md:mb-4 lg:pt-6 lg:mb-6">
         <div className="bg-secondary-100 shadow-md rounded-md pt-3 pb-5 px-8">
