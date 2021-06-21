@@ -48,7 +48,9 @@ export const Entry = (props) => {
         <Tag color="yellow" text={Status} />
       )}
       {Status === 'Met Goal' && <Tag color="gray" text="Goal reached!" />}
-      {Status === 'Deceased' && <Tag color="gray" text="Campaign closed" />}
+      {(Status === 'Deceased' || Status === 'Completed') && (
+        <Tag color="gray" text="Campaign closed" />
+      )}
       {Region && <Feature label="Location" value={Region} />}
       <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px my-2">
         Description
