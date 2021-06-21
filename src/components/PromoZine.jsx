@@ -12,49 +12,35 @@ export const PromoZine = (props) => {
             The MAI Zine is here
           </h2>
         </div>
-        <div className="col-start-1 md:col-start-2 row-start-2 px-4 pt-4 md:pt-0 md:pb-6">
+        <div className="col-start-1 md:col-start-2 row-start-2 px-4 pt-4 md:pt-3 md:pb-3">
           <p className="my-2 text-md">
-            Thanks to our rad artist friends we now have a Mutual Aid India
-            Zine, available when you donate to one of the Zine campaigns.
+            In April 2021 the second wave of the Covid-19 pandemic decimated the
+            healthcare infrastructure in India. Time, it felt, had gone mad.
           </p>
-          <ol className="my-2 text-md list-decimal pl-7">
-            <li>
-              Make a donation of at least USD 8 / INR 500 to one or more of the
-              campaigns in the zine section.
-            </li>
-            <li>
-              Send the receipt/screenshot of your donation to{' '}
-              <a
-                className="text-primary-700 font-bold hover:text-primary-500"
-                href="mailto:mixtapeformai@gmail.com"
-              >
-                MixtapeForMAI@gmail.com
-              </a>
-              , or{' '}
-              <a
-                className="text-primary-700 font-bold hover:text-primary-500"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfvA4L_qTK6ySDhAR_KF3_a5ilziEVpttdoSxQq5-NLvqT24Q/viewform"
-              >
-                fill this form
-              </a>
-              .
-            </li>
-            <li>Then we'll send you the zine.</li>
-          </ol>
+          <p className="my-2 text-md">
+            But for many of us at MAI, time has always been a little strange in
+            the ways it slips into our lives. We made a small book about our
+            time. You can buy the digital book on Gumroad at a suggested price
+            of $12 if you’re in India and $15, if you’re outside India.
+          </p>
+          <p className="my-2 text-md italic">
+            100% of proceeds will be donated to a campaign supporting the trans
+            community in Manipur with daily essentials.
+          </p>
         </div>
         <div className="col-start-1 md:col-start-2 row-start-3 md:px-4">
-          <Link
+          <OutboundLink
             className="bg-urgent-600 my-4 block w-full md:w-max text-center shadow-sm rounded-md text-white text-xl px-8 py-2 mb-2 md:mb-0 hover:bg-urgent-400"
-            to="/zine"
+            href="https://artformutualaid.gumroad.com/"
           >
             Donate for the MAI&nbsp;Zine
-          </Link>
-          <OutboundLink
-            className="border border-primary-600 text-primary-600 my-4 block w-full md:w-max text-center shadow-sm rounded-md hover:bg-primary-600 hover:text-white text-xl px-8 py-2 mb-2 md:mb-0 hover:bg-primary-400"
-            href="https://maimixtape.bandcamp.com/releases"
-          >
-            Preview on Bandcamp
           </OutboundLink>
+          <Link
+            className="border border-primary-600 text-primary-600 my-4 block w-full md:w-max text-center shadow-sm rounded-md hover:bg-primary-600 hover:text-white text-xl px-8 py-2 mb-2 md:mb-0 hover:bg-primary-400"
+            to="/zine"
+          >
+            More Info
+          </Link>
         </div>
         <div class="col-start-1 md:col-start-1 row-start-1 flex md:row-span-3">
           <div className="w-full grid grid-cols-3 grid-rows-2 gap-2">
