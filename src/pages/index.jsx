@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import { Entries, Hero, SiteMetadata, PromoMixtape } from '../components'
+import {
+  Entries,
+  Hero,
+  SiteMetadata,
+  PromoMixtape,
+  PromoZine,
+} from '../components'
 import { Layout } from '../layouts/Layout'
 import { Nav } from '../components'
 import { Link } from 'gatsby-plugin-modal-routing-3'
@@ -54,6 +60,7 @@ const Index = ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
       />
 
+      {show_zine && <PromoZine />}
       {show_mixtape && <PromoMixtape />}
 
       {!isAlertClosed && (

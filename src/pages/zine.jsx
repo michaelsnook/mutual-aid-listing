@@ -5,7 +5,7 @@ import { Layout } from '../layouts/Layout'
 import { Nav } from '../components'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
-const Mixtape = ({ data }) => {
+const Zine = ({ data }) => {
   const [isForeignDonor, setIsForeignDonor] = useState(false)
 
   const nodes = data.items.nodes.filter(
@@ -100,15 +100,12 @@ const Mixtape = ({ data }) => {
 }
 
 export const query = graphql`
-  query MixtapeQuery($tableName: String!) {
+  query ZineQuery($tableName: String!) {
     hero: file(relativePath: { eq: "mixtape-banner.jpg" }) {
       ...HeroImageFragment
     }
     items: allAirtable(
-      filter: {
-        table: { eq: $tableName }
-        data: { Tags: { in: ["mixtape-1"] } }
-      }
+      filter: { table: { eq: $tableName }, data: { Tags: { in: ["zine"] } } }
     ) {
       nodes {
         data {
@@ -134,4 +131,4 @@ export const query = graphql`
     }
   }
 `
-export default Mixtape
+export default Zine
