@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby-plugin-modal-routing-3'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
-import ZineImage from '../images/mixtape-square.jpg'
+import ZineImage from '../images/zine-square.jpg'
 
 export const PromoZine = (props) => {
   return (
