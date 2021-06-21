@@ -1,16 +1,67 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
-import { Entry, Hero, SiteMetadata } from '../components'
+import { Hero, SiteMetadata, Feature, Tag, Progress } from '../components'
 import { Layout } from '../layouts/Layout'
-import { Nav } from '../components'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
-const Zine = ({ data }) => {
-  const [isForeignDonor, setIsForeignDonor] = useState(false)
+const CustomEntry = (props) => {
+  const {
+    Region,
+    Name,
+    Status,
+    Rupees_Goal,
+    Rupees_Reached,
+    Urgent,
+    Foreign_Funds,
+    isForeignDonor = true,
+    Description,
+  } = props
 
-  const nodes = data.items.nodes.filter(
-    (node) => node.data.Foreign_Funds === true || isForeignDonor === false
+  return (
+    <div className="overflow-x-hidden">
+      <h2 className="text-3xl text-primary-600 font-bold leading-snug mb-2">
+        {Name}
+      </h2>
+      <Progress
+        reached={Rupees_Reached}
+        goal={Rupees_Goal}
+        isForeignDonor={isForeignDonor}
+      />
+      {Urgent && <Tag color="urgent" text="Urgent" />}
+      {Foreign_Funds && <Tag color="secondary" text="£ $ €" />}
+      {Status === 'Met Goal and Increased' && (
+        <Tag color="yellow" text={Status} />
+      )}
+      {Status === 'Met Goal' && <Tag color="gray" text="Goal reached!" />}
+      {(Status === 'Deceased' || Status === 'Completed') && (
+        <Tag color="gray" text="Campaign closed" />
+      )}
+      {Region && <Feature label="Location" value={Region} />}
+      <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px my-2">
+        Description
+      </h4>
+      <div
+        className="airtable-markdown text-sm lg:text-base leading-normal text-primary-900"
+        dangerouslySetInnerHTML={{
+          __html: Description.childMarkdownRemark.html,
+        }}
+      />
+      <div className="my-4 flex flex-wrap">
+        <OutboundLink
+          className="bg-urgent-600 my-4 block w-full md:w-max text-center shadow-sm
+          rounded-md text-white text-xl px-8 py-2 mb-2 md:mb-0 hover:bg-urgent-400"
+          href="https://artformutualaid.gumroad.com/"
+          target="_blank"
+        >
+          Donate for the MAI Zine
+        </OutboundLink>
+      </div>
+    </div>
   )
+}
+
+const Zine = ({ data }) => {
+  const nodes = data.items.nodes
 
   return (
     <Layout>
@@ -48,10 +99,6 @@ const Zine = ({ data }) => {
       </div>
 
       <div className="lg:container grid grid-cols-4">
-        <div className="col-span-4 lg:col-span-1 lg:py-10 py-4">
-          <Nav isToggled={isForeignDonor} setToggled={setIsForeignDonor} />
-        </div>
-
         <div className="lg:col-start-2 col-span-4 px-1 sm:px-3 md:px-5 lg:px-8 ml-0">
           {nodes.map((node, i) => (
             <div
@@ -62,15 +109,7 @@ const Zine = ({ data }) => {
               <h4 className="text-primary-800 uppercase text-sm tracking-wide font-medium pb-px">
                 {node.data.Category}
               </h4>
-              <Entry
-                {...node.data}
-                navigation={{
-                  current: i,
-                  items: nodes.map((node) => `/${node.data.Slug}`),
-                }}
-                isForeignDonor={isForeignDonor}
-                current={i}
-              />
+              <CustomEntry {...node.data} />
             </div>
           ))}
         </div>
@@ -91,12 +130,10 @@ export const query = graphql`
         data {
           Region
           Name
-          Slug
           Rupees_Goal
           Rupees_Reached
           Urgent
           Status
-          Foreign_Funds
           Category
           Category_Rank
           Description {
@@ -104,7 +141,6 @@ export const query = graphql`
               html
             }
           }
-          URL
           UPI_ID
         }
       }
