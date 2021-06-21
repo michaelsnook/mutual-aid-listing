@@ -14,13 +14,14 @@ export const PromoMixtape = (props) => {
         </div>
         <div className="col-start-1 row-start-2 px-4 pt-4 md:pt-0 md:pb-6">
           <p className="my-2 text-md">
-            Thanks to our rad artist friends we now have a Mutual Aid India
-            Zine, available when you donate to one of the Zine campaigns.
+            Thanks to our rad musician friends we now have a Mutual Aid India
+            Mixtape, available on Bandcamp when you donate to one of the Mixtape
+            campaigns.
           </p>
           <ol className="my-2 text-md list-decimal pl-7">
             <li>
               Make a donation of at least USD 8 / INR 500 to one or more of the
-              campaigns in the zine section.
+              campaigns in the mixtape section.
             </li>
             <li>
               Send the receipt/screenshot of your donation to{' '}
@@ -39,15 +40,17 @@ export const PromoMixtape = (props) => {
               </a>
               .
             </li>
-            <li>Then we'll send you the zine.</li>
+            <li>
+              Then we'll send you the bandcamp download code for the mixtape.
+            </li>
           </ol>
         </div>
         <div className="col-start-1 row-start-3 md:px-4">
           <Link
             className="bg-urgent-600 my-4 block w-full md:w-max text-center shadow-sm rounded-md text-white text-xl px-8 py-2 mb-2 md:mb-0 hover:bg-urgent-400"
-            to="/zine"
+            to="/mixtape"
           >
-            Donate for the MAI&nbsp;Zine
+            Donate for the MAI&nbsp;Mixtape
           </Link>
           <OutboundLink
             className="border border-primary-600 text-primary-600 my-4 block w-full md:w-max text-center shadow-sm rounded-md hover:bg-primary-600 hover:text-white text-xl px-8 py-2 mb-2 md:mb-0 hover:bg-primary-400"
@@ -61,7 +64,7 @@ export const PromoMixtape = (props) => {
             <div className="relative col-span-3 row-span-2">
               <img
                 src={MixtapeImage}
-                alt="Cover art showing MAI Zine preview"
+                alt="Cover art showing MAI Mixtape Edition 1"
                 className="absolute inset-0 w-full h-full object-cover bg-gray-100 sm:rounded-lg"
               />
             </div>
