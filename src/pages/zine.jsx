@@ -25,45 +25,25 @@ const Zine = ({ data }) => {
       <div className="container pt-2 mb-2 md:pt-4 md:mb-4 lg:pt-6 lg:mb-6">
         <div className="bg-secondary-100 shadow-md rounded-md pt-3 pb-5 px-8">
           <p className="my-2 text-md">
-            Thanks to our rad musician friends we now have a Mutual Aid India
-            Mixtape, available on Bandcamp when you donate to one of the
-            fundraisers below.
+            In April 2021 the second wave of the Covid-19 pandemic decimated the
+            healthcare infrastructure in India. Time, it felt, had gone mad.
           </p>
-          <ol className="my-2 text-md list-decimal pl-7">
-            <li>
-              Make a donation of at least USD 8 / INR 500 to one or more of the
-              campaigns on this page.
-            </li>
-            <li>
-              Send the receipt/screenshot of your donation to{' '}
-              <a
-                className="text-primary-700 font-bold hover:text-primary-500"
-                href="mailto:mixtapeformai@gmail.com"
-              >
-                MixtapeForMAI@gmail.com
-              </a>
-              , or{' '}
-              <a
-                className="text-primary-700 font-bold hover:text-primary-500"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfvA4L_qTK6ySDhAR_KF3_a5ilziEVpttdoSxQq5-NLvqT24Q/viewform"
-              >
-                fill this form
-              </a>
-              .
-            </li>
-            <li>
-              Then we'll send you the bandcamp download code for the mixtape.
-            </li>
-          </ol>
-          <p className="my-2">
-            <OutboundLink
-              className="text-primary-700 hover:text-primary-500 font-bold"
-              href="https://maimixtape.bandcamp.com/releases"
-            >
-              Preview on Bandcamp
-            </OutboundLink>{' '}
-            or check out the campaigns below and get started!
+          <p className="my-2 text-md">
+            But for many of us at MAI, time has always been a little strange in
+            the ways it slips into our lives. We made a small book about our
+            time. You can buy the digital book on Gumroad at a suggested price
+            of $12 if you’re in India and $15, if you’re outside India.
           </p>
+          <p className="my-2 text-md italic">
+            100% of proceeds will be donated to a campaign supporting the trans
+            community in Manipur with daily essentials.
+          </p>
+          <OutboundLink
+            className="bg-urgent-600 my-4 block w-full md:w-max text-center shadow-sm rounded-md text-white text-xl px-8 py-2 mb-2 md:mb-0 hover:bg-urgent-400"
+            href="https://artformutualaid.gumroad.com/"
+          >
+            Donate for the MAI&nbsp;Zine
+          </OutboundLink>
         </div>
       </div>
 
@@ -101,7 +81,7 @@ const Zine = ({ data }) => {
 
 export const query = graphql`
   query ZineQuery($tableName: String!) {
-    hero: file(relativePath: { eq: "mixtape-banner.jpg" }) {
+    hero: file(relativePath: { eq: "zine-banner.jpg" }) {
       ...HeroImageFragment
     }
     items: allAirtable(
