@@ -8,6 +8,7 @@ const CustomEntry = (props) => {
   const {
     Region,
     Name,
+    Category,
     Status,
     Rupees_Goal,
     Rupees_Reached,
@@ -18,43 +19,50 @@ const CustomEntry = (props) => {
   } = props
 
   return (
-    <div className="overflow-x-hidden">
-      <h2 className="text-3xl text-primary-600 font-bold leading-snug mb-2">
-        {Name}
-      </h2>
-      <Progress
-        reached={Rupees_Reached}
-        goal={Rupees_Goal}
-        isForeignDonor={isForeignDonor}
-      />
-      {Urgent && <Tag color="urgent" text="Urgent" />}
-      {Foreign_Funds && <Tag color="secondary" text="£ $ €" />}
-      {Status === 'Met Goal and Increased' && (
-        <Tag color="yellow" text={Status} />
-      )}
-      {Status === 'Met Goal' && <Tag color="gray" text="Goal reached!" />}
-      {(Status === 'Deceased' || Status === 'Completed') && (
-        <Tag color="gray" text="Campaign closed" />
-      )}
-      {Region && <Feature label="Location" value={Region} />}
-      <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px my-2">
-        Description
-      </h4>
-      <div
-        className="airtable-markdown text-sm lg:text-base leading-normal text-primary-900"
-        dangerouslySetInnerHTML={{
-          __html: Description.childMarkdownRemark.html,
-        }}
-      />
-      <div className="my-4 flex flex-wrap">
-        <OutboundLink
-          className="bg-urgent-600 my-4 block w-full md:w-max text-center shadow-sm
-          rounded-md text-white text-xl px-8 py-2 mb-2 md:mb-0 hover:bg-urgent-400"
-          href="https://artformutualaid.gumroad.com/"
-          target="_blank"
-        >
-          Donate for the MAI Zine
-        </OutboundLink>
+    <div className="mb-10 bg-white shadow-md rounded-md">
+      <div className="pt-8 pb-6 md:pt-10 lg:pt-12 px-6 md:px-8 lg:px-10">
+        <h4 className="text-primary-800 uppercase text-sm tracking-wide font-medium pb-px">
+          {Category}
+        </h4>
+        <div className="overflow-x-hidden">
+          <h2 className="text-3xl text-primary-600 font-bold leading-snug mb-2">
+            {Name}
+          </h2>
+          <Progress
+            reached={Rupees_Reached}
+            goal={Rupees_Goal}
+            isForeignDonor={isForeignDonor}
+          />
+          {Urgent && <Tag color="urgent" text="Urgent" />}
+          {Foreign_Funds && <Tag color="secondary" text="£ $ €" />}
+          {Status === 'Met Goal and Increased' && (
+            <Tag color="yellow" text={Status} />
+          )}
+          {Status === 'Met Goal' && <Tag color="gray" text="Goal reached!" />}
+          {(Status === 'Deceased' || Status === 'Completed') && (
+            <Tag color="gray" text="Campaign closed" />
+          )}
+          {Region && <Feature label="Location" value={Region} />}
+          <h4 className="text-primary-800 uppercase text-xxs tracking-wide font-medium pb-px my-2">
+            Description
+          </h4>
+          <div
+            className="airtable-markdown text-sm lg:text-base leading-normal text-primary-900"
+            dangerouslySetInnerHTML={{
+              __html: Description.childMarkdownRemark.html,
+            }}
+          />
+          <div className="my-4 flex flex-wrap">
+            <OutboundLink
+              className="bg-urgent-600 my-4 block w-full md:w-max text-center shadow-sm
+              rounded-md text-white text-xl px-8 py-2 mb-2 md:mb-0 hover:bg-urgent-400"
+              href="https://artformutualaid.gumroad.com/"
+              target="_blank"
+            >
+              Donate for the MAI Zine
+            </OutboundLink>
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -73,8 +81,8 @@ const Zine = ({ data }) => {
       <hr className="my-8 invisible lg:hidden" />
       <Hero image={data.hero} tag="#MAIZine" />
 
-      <div className="container pt-2 mb-2 md:pt-4 md:mb-4 lg:pt-6 lg:mb-6">
-        <div className="bg-secondary-100 shadow-md rounded-md pt-3 pb-5 px-8">
+      <div className="lg:container px-2 sm:px-4 md:px-7 py-2 mb-2 md:pt-4 md:mb-4 lg:pt-6 lg:mb-6">
+        <div className="bg-secondary-100 shadow-md rounded-md pt-6 pb-5 px-6 md:px-8 lg:px-10">
           <p className="my-2 text-md">
             In April 2021 the second wave of the Covid-19 pandemic decimated the
             healthcare infrastructure in India. Time, it felt, had gone mad.
@@ -98,21 +106,10 @@ const Zine = ({ data }) => {
         </div>
       </div>
 
-      <div className="lg:container grid grid-cols-4">
-        <div className="lg:col-start-2 col-span-4 px-1 sm:px-3 md:px-5 lg:px-8 ml-0">
-          {nodes.map((node, i) => (
-            <div
-              className="mb-10 pt-8 pb-6 md:pt-10 lg:pt-12 px-4 md:px-8 lg:px-10 bg-white shadow-md rounded-md"
-              id={`track_${i}`}
-              key={`card_${node.data.Slug}`}
-            >
-              <h4 className="text-primary-800 uppercase text-sm tracking-wide font-medium pb-px">
-                {node.data.Category}
-              </h4>
-              <CustomEntry {...node.data} />
-            </div>
-          ))}
-        </div>
+      <div className="lg:container px-2 sm:px-4 md:px-7 py-6">
+        {nodes.map((node, i) => (
+          <CustomEntry {...node.data} />
+        ))}
       </div>
     </Layout>
   )
