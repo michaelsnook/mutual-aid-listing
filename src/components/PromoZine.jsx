@@ -31,7 +31,7 @@ export const PromoZine = (props) => {
         <div className="col-start-1 md:col-start-2 row-start-3 md:px-4">
           <OutboundLink
             className="bg-urgent-600 my-4 block w-full md:w-max text-center shadow-sm rounded-md text-white text-xl px-8 py-2 mb-2 md:mb-0 hover:bg-urgent-400"
-            href="https://artformutualaid.gumroad.com/"
+            href="https://gumroad.com/l/threewaysofunpeelingtime?utm_source=MutualAidIndia.com"
           >
             Donate for the MAI&nbsp;Zine
           </OutboundLink>
