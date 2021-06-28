@@ -3,7 +3,7 @@ import { Link } from 'gatsby-plugin-modal-routing-3'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import MixtapeImage from '../images/mixtape-square.jpg'
 
-export const PromoMixtape = (props) => {
+export const PromoMixtape1 = (props) => {
   return (
     <div className="lg:container px-2 sm:px-4 md:px-7 mb-6 md:mb-0">
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 md:py-6">

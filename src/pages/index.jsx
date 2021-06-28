@@ -4,7 +4,8 @@ import {
   Entries,
   Hero,
   SiteMetadata,
-  PromoMixtape,
+  PromoMixtape1,
+  PromoMixtape2,
   PromoZine,
   DismissableAlert,
 } from '../components'
@@ -14,8 +15,11 @@ import { Link } from 'gatsby-plugin-modal-routing-3'
 
 const Index = ({ data }) => {
   const [isForeignDonor, setIsForeignDonor] = useState(false)
-  const show_mixtape = data.options.siteMetadata.show_mixtape
-  const show_zine = data.options.siteMetadata.show_zine
+  const {
+    show_mixtape_1,
+    show_zine,
+    show_mixtape_2,
+  } = data.options.siteMetadata
   let urgent_cards = {}
   let regular_cards = {}
   let goal_met_cards = {}
@@ -59,8 +63,9 @@ const Index = ({ data }) => {
         description="A curated list of opportunities to donate for COVID relief."
       />
 
+      {show_mixtape_2 && <PromoMixtape2 />}
       {show_zine && <PromoZine />}
-      {show_mixtape && <PromoMixtape />}
+      {show_mixtape_1 && <PromoMixtape1 />}
 
       <DismissableAlert />
 
@@ -148,7 +153,8 @@ export const query = graphql`
     }
     options: site {
       siteMetadata {
-        show_mixtape
+        show_mixtape_1
+        show_mixtape_2
         show_zine
       }
     }

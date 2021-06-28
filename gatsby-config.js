@@ -2,7 +2,8 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    show_mixtape: process.env.FEATURES.includes('mixtape'),
+    show_mixtape_1: process.env.FEATURES.includes('mixtape-1'),
+    show_mixtape_2: process.env.FEATURES.includes('mixtape-2'),
     show_zine: process.env.FEATURES.includes('zine'),
     links: {
       email:
