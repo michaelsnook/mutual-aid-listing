@@ -2,7 +2,7 @@ require('dotenv').config()
 const path = require(`path`)
 const { AIRTABLE_TABLE_NAME: tableName } = process.env
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
@@ -28,9 +28,9 @@ exports.createPages = ({ graphql, actions }) => {
 
       const component = path.resolve(`./src/templates/single-item.jsx`)
 
-      console.log('=====')
-      console.log(`${data.allAirtable.nodes.length} nodes`)
-      console.log('=====')
+      reporter.info(
+        `Total from Airtable: ${data.allAirtable.nodes.length} campaigns`
+      )
 
       data.allAirtable.nodes.map(({ data: { Slug } }) => {
         createPage({
