@@ -1,4 +1,5 @@
 export { Entry } from './Entry'
+export { EntryCustom } from './EntryCustom'
 export { Entries } from './Entries'
 export { Feature } from './Feature'
 export { Tag } from './Tag'
