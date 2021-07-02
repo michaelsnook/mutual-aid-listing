@@ -4,19 +4,21 @@ import { Hero, SiteMetadata, EntryCustom } from '../components'
 import { Layout } from '../layouts/Layout'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
-const Zine = ({ data }) => {
-  const properties = data.items.nodes[0].data
-
+const noZine = () => {
   return (
-    <Layout>
-      <SiteMetadata
-        title="MutualAidIndia.com | The Zine"
-        description="A curated list of opportunities to donate for COVID relief."
-        image={data.hero.url}
-      />
-      <hr className="my-8 invisible lg:hidden" />
-      <Hero image={data.hero} tag="#MAIZine" />
+    <div className="lg:container px-2 sm:px-4 md:px-7 py-2 mb-2 md:pt-4 md:mb-4 lg:pt-6 lg:mb-6">
+      <div className="bg-secondary-100 shadow-md rounded-md pt-6 pb-5 px-6 md:px-8 lg:px-10">
+        <p className="my-2 text-md">
+          Sorry this fundraiser seems to have ended.
+        </p>
+      </div>
+    </div>
+  )
+}
 
+const yesZine = (props) => {
+  return (
+    <>
       <div className="lg:container px-2 sm:px-4 md:px-7 py-2 mb-2 md:pt-4 md:mb-4 lg:pt-6 lg:mb-6">
         <div className="bg-secondary-100 shadow-md rounded-md pt-6 pb-5 px-6 md:px-8 lg:px-10">
           <p className="my-2 text-md">
@@ -43,12 +45,32 @@ const Zine = ({ data }) => {
       </div>
 
       <div className="lg:container px-2 sm:px-4 md:px-7 py-6">
-        <EntryCustom
-          {...properties}
-          donate_text="Donate for the MAI Zine"
-          donate_link="https://gumroad.com/l/threewaysofunpeelingtime?utm_source=MutualAidIndia.com"
-        />
+        <EntryCustom {...props} />
       </div>
+    </>
+  )
+}
+
+const Zine = ({ data }) => {
+  const nodes = data.items.nodes
+  return (
+    <Layout>
+      <SiteMetadata
+        title="MutualAidIndia.com | The Zine"
+        description="A curated list of opportunities to donate for COVID relief."
+        image={data.hero.url}
+      />
+      <hr className="my-8 invisible lg:hidden" />
+      <Hero image={data.hero} tag="#MAIZine" />
+
+      {nodes.length === 0
+        ? noZine()
+        : yesZine({
+            ...nodes[0].data,
+            donate_text: 'Donate for the MAI Zine',
+            donate_link:
+              'https://gumroad.com/l/threewaysofunpeelingtime?utm_source=MutualAidIndia.com',
+          })}
     </Layout>
   )
 }
