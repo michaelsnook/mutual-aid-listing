@@ -21,7 +21,7 @@ export const PromoMixtape2 = (props) => {
           <ol className="my-2 text-md list-decimal pl-7">
             <li>
               Buy the mixtape on Bandcamp or make a donation of at INR 500 to
-              the featured campaign
+              the featured campaign.
             </li>
             <li>
               Send the receipt/screenshot of your donation to{' '}
@@ -31,6 +31,14 @@ export const PromoMixtape2 = (props) => {
               >
                 MixtapeForMAI@gmail.com
               </a>
+              , or{' '}
+              <OutboundLink
+                className="text-primary-700 font-bold hover:text-primary-500"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSf-tfzfukazFDqwA59pAenESCoZ7KGgiW-OsSQmilZa_JqN8Q/viewform"
+                target="_blank"
+              >
+                attach the receipt to this form
+              </OutboundLink>
               .
             </li>
             <li>

@@ -36,6 +36,14 @@ const Mixtape2 = ({ data }) => {
               >
                 MixtapeForMAI@gmail.com
               </a>
+              , or{' '}
+              <OutboundLink
+                className="text-primary-700 font-bold hover:text-primary-500"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSf-tfzfukazFDqwA59pAenESCoZ7KGgiW-OsSQmilZa_JqN8Q/viewform"
+                target="_blank"
+              >
+                attach the receipt to this form
+              </OutboundLink>
               , then we'll send you the bandcamp download code for the mixtape.
             </li>
           </ol>
