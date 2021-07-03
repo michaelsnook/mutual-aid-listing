@@ -24,8 +24,8 @@ const Mixtape2 = ({ data }) => {
           </h1>
           <ol className="my-2 text-md list-decimal pl-7">
             <li>
-              Make a donation of at least USD 8 / INR 500 using the BandCamp
-              link or the bank details given
+              Buy the mmixtape on Bandcamp, or make a bank-transfer donation of
+              at least INR 500 details given below.
             </li>
             <li>
               If you used a bank transfer, send the receipt/screenshot of your
@@ -35,13 +35,6 @@ const Mixtape2 = ({ data }) => {
                 href="mailto:mixtapeformai@gmail.com"
               >
                 MixtapeForMAI@gmail.com
-              </a>
-              , or{' '}
-              <a
-                className="text-primary-700 font-bold hover:text-primary-500"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfvA4L_qTK6ySDhAR_KF3_a5ilziEVpttdoSxQq5-NLvqT24Q/viewform"
-              >
-                fill this form
               </a>
               , then we'll send you the bandcamp download code for the mixtape.
             </li>
